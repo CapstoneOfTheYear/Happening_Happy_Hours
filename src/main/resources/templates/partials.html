@@ -20,7 +20,7 @@
 
 <nav th:fragment="navbar">
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="/posts">Blog Post</a>
+        <a class="navbar-brand" href="/posts">Happening Happy Hours</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -28,13 +28,23 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts">Home <span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="/home">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/posts/create">Create</a>
+                    <a class="nav-link" href="/#">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about">About</a>
                 </li>
             </ul>
         </div>
+        <form class="d-flex">
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
         <a href="/login">
             <button class="btn btn-outline-primary my-2 my-sm-0 mx-2" style="margin-top: 8px">Login</button>
         </a>
