@@ -7,9 +7,11 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class BusinessController {
-    @GetMapping("/business")
-    @ResponseBody
+    @GetMapping("/profile/business")
+//    @ResponseBody
+//    public String businessProfile() {
+//        return "It's here";
     public String businessProfile() {
-        return "It's here";
+        return "businessProfile";
     }
 }
