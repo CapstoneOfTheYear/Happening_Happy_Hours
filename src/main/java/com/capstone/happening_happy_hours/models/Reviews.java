@@ -46,11 +46,8 @@ public class Reviews {
 
     public Reviews() {}
 
-
-
-    public Reviews(long id, long user_id, User user, long business_id, String body, double score) {
+    public Reviews(long id, User user, long business_id, String body, double score) {
         this.id = id;
-//        this.user_id = user_id;
         this.user = user;
         this.business_id = business_id;
         this.body = body;
@@ -59,14 +56,21 @@ public class Reviews {
 
     }
 
+//    public Reviews(long id, long user_id, User user, long business_id, String body, double score) {
+//        this.id = id;
+//        this.user_id = user_id;
+//        this.user = user;
+//        this.business_id = business_id;
+//        this.body = body;
+//        this.score = score;
+//
+//
+//    }
+
 
     // getters & setters
-    public long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
-    }
+    public long getId() { return id; }
+    public void setId(long id) { this.id = id;}
 
 
 //    public long getUser_id() {return user_id; }
@@ -74,7 +78,6 @@ public class Reviews {
 
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
-
 
     public long getBusiness_id() { return business_id; }
     public void setBusiness_id(long business_id) { this.business_id = business_id; }
