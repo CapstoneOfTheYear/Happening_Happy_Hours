@@ -1,3 +1,4 @@
+
 package com.capstone.happening_happy_hours.models;
 
 import javax.persistence.*;
@@ -98,3 +99,4 @@ public class User {
     public boolean getOwnsBusiness() { return ownsBusiness;}
     public void setOwnsBusiness(boolean ownsBusiness) { this.ownsBusiness = ownsBusiness;}
 }
+

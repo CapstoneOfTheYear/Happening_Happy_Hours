@@ -7,9 +7,17 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
-    @GetMapping("/user")
-    @ResponseBody
-    public String user() {
-        return "USER PAGE";
+    @GetMapping("/profile/user")
+//    @ResponseBody
+//    public String user() {
+//        return "USER PAGE";
+//    }
+    public String userProfile() {
+        return "userProfile";
+    }
+
+    @GetMapping("/register")
+    public String register() {
+        return "register";
     }
 }
