@@ -9,22 +9,64 @@
 
 <h1 class="mb-3 text-center">Create an Account</h1>
 <div class="container">
-    <form th:action="@{/login}" method="post" th:object="${user}">
-        <div class="form-group">
-            <label for="username">Username</label>
-            <input class="form-control" name="username" type="text" id="username" th:field="*{username}">
-        </div>
-        <div class="form-group">
-            <label for="email">Email</label>
-            <input class="form-control" name="email" type="text" id="email" th:field="*{email}">
-        </div>
-        <div class="form-group">
-            <label for="password">Password</label>
-            <input class="form-control" id="password" type="password" th:field="*{password}">
-        </div>
-        <button type="submit" class="btn btn-primary mt-3">Submit</button>
-    </form>
-
+    <div class="row">
+        <form th:action="@{/login}" method="post" th:object="${user}">
+            <label for="accountType">Account Type</label>
+            <select class="form-select" aria-label="Default select example" id="accountType">
+                <option value="consumer">Consumer</option>
+                <option value="business">Business</option>
+            </select>
+            <div class="col-12" id="consumer">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input class="form-control" name="username" type="text" id="username" th:field="*{username}">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" name="email" type="text" id="email" th:field="*{email}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" id="password" type="password" th:field="*{password}">
+                </div>
+            </div>
+            <div id="business"></div>
+            <button type="submit" class="btn btn-primary mt-3">Submit</button>
+        </form>
+    </div>
+</div>
 <footer th:include="partials :: footer"></footer>
+
+<script>
+    let businessForm = '';
+
+    let business = $("#business");
+    let actType = $("#accountType");
+
+    $(actType).change(function () {
+        console.log(actType.val());
+        if (actType.val() === "business") {
+            businessForm = `<div class="form-group" id = "businessForm">
+                    <label for="businessNamename">Business name</label>
+                    <input class="form-control" name="username" type="text" id="businessName" th:field="*{name}">
+                </div>
+                <div class="form-group">
+                    <label for="address">Address</label>
+                    <input class="form-control" name="email" type="text" id="address" th:field="*{email}">
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input class="form-control" id="password" type="password" th:field="*{password}">
+                </div>`
+            $("#consumer").toggleClass("col-6");
+            business.toggleClass("col-6").append(businessForm);
+        } else if (actType.val() === "consumer") {
+            business.empty();
+        }
+    })
+
+</script>
+
+
 </body>
 </html>
