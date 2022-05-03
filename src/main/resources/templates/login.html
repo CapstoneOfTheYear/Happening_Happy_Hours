@@ -3,12 +3,39 @@
 
 <header th:include="partials :: header(title = 'Login')"></header>
 
-
+<style>
+    .error{
+        color: red;
+    }
+</style>
 <body>
 <nav th:include="partials :: navbar"></nav>
+<div class="container">
+    <h1 class="mb-3 text-center">Log In</h1>
 
-<h1>Login!!!!!</h1>
 
+    <div th:if="${param.logout}">
+        You have been logged out.
+    </div>
+
+    <form th:action="@{/login}" th:method="post">
+
+        <label for="username">Username</label>
+        <input id="username" class="form-control" name="username" type="text" >
+
+        <label for="password">Password</label>
+        <input id="password" class="form-control" name="password" type="password">
+
+        <input type="submit" class="btn btn-primary mt-3" value="Log In"/>
+
+
+    </form>
+
+    <div class="error mt-2" th:if="${param.error}">
+
+        Invalid Username or Password.
+    </div>
+</div>
 <footer th:include="partials :: footer"></footer>
 </body>
 </html>
