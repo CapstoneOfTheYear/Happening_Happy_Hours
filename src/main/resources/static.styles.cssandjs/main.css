@@ -9,7 +9,9 @@
     bottom: 0;
     z-index: -1;
 }
-
+.sticky + .content {
+    padding-top: 40px;
+}
 .content {
     position: fixed;
     bottom: 0;
@@ -297,5 +299,13 @@ button.contact.submit:hover {
     button #submit .contact .submit{
         margin: 15px 15px 0 42px;
     }
+    @media all and (min-width: 992px) {
 
+
+
+        /* Add some top padding to the page content to prevent sudden quick movement (as the navigation bar gets a new position at the top of the page (position:fixed and top:0) */
+        .sticky + .content {
+            padding-top: 40px;
+        }
+    }
 }
