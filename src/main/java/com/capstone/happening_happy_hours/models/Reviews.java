@@ -1,4 +1,4 @@
-package models;
+package com.capstone.happening_happy_hours.models;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -41,7 +41,6 @@ public class Reviews {
         this.business_id = business_id;
         this.body = body;
         this.score = score;
-
     }
 
 
