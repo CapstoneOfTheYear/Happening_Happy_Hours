@@ -1,28 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-
 <header th:include="partials :: header(title = 'Happening Happy Hour')"></header>
-
-
 <body>
 <nav th:include="partials :: navbar"></nav>
-<style>
-    #myVideo {
-        width: 100vw;
-        height: 90vh;
-        object-fit: cover;
-        position: fixed;
-        left: 0;
-        right: 0;
-        top: 0;
-        bottom: 0;
-        z-index: -1;
-    }
-    .sticky + .content {
-        padding-top: 40px;
-    }
-</style>
-
 <div class="bg">
 
     <video autoplay controls muted loop id="myVideo">
@@ -30,8 +10,8 @@
         <p onclick="toggleControls();">Toggle</p>
     </video>
 </div>
-
-
-<footer th:include="partials :: footer"></footer>
+<main>
+</main>
 </body>
+<footer th:replace="partials :: footer"></footer>
 </html>
