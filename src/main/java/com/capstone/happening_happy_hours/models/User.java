@@ -30,6 +30,14 @@ public class User {
     @Column
     private boolean ownsBusiness;
 
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(
+            name= "users_businesses",
+            joinColumns = {@JoinColumn(name="user_id")},
+            inverseJoinColumns = {@JoinColumn(name="business_id")}
+    )
+    private List<Business> businesses;
+
 //    @OneToMany(mappedBy = "user")
 //    private List<Reviews> reviews;
 
