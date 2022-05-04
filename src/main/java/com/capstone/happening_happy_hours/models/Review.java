@@ -20,7 +20,7 @@ import javax.persistence.*;
         @UniqueConstraint(name = "uc_post_business_id", columnNames = {"business_id"})
 })
 
-public class Reviews {
+public class Review {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,9 +44,9 @@ public class Reviews {
     private double score;
 
 
-    public Reviews() {}
+    public Review() {}
 
-    public Reviews(long id, User user, long business_id, String body, double score) {
+    public Review(long id, User user, long business_id, String body, double score) {
         this.id = id;
         this.user = user;
         this.business_id = business_id;
