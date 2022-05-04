@@ -35,6 +35,10 @@ public class BusinessAttribute {
     @Column(nullable = false)
     private String otherGames;
 
+    @ManyToOne
+    @JoinColumn(name= "business_id")
+    private Business business;
+
     public BusinessAttribute(){
 
     }

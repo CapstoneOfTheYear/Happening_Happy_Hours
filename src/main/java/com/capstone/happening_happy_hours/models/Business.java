@@ -35,6 +35,12 @@ public class Business {
     @ManyToMany(mappedBy = "businesses")
     private List<User> users;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
+    private List<BusinessImage> businessImages;
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
+    private List<BusinessAttribute> businessAttributes;
+
     public Business() {
     }
 
