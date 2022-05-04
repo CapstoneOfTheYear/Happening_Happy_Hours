@@ -8,7 +8,7 @@ import java.util.List;
         @UniqueConstraint(name = "uc_user_name", columnNames = {"name"}),
 
 })
-public class Businesses {
+public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +19,6 @@ public class Businesses {
 
     @Column(nullable = false, length = 100)
     private String location;
-
 
     @Column(nullable = false, length = 100)
     private String state;
@@ -36,11 +35,11 @@ public class Businesses {
 //    @OneToMany(mappedBy = "business_id")
 //    private List<Reviews> reviews;
 
-    public Businesses() {
+    public Business() {
     }
 
 
-    public Businesses(String name, String location, String state, String city, String postal_code, String hours) {
+    public Business(String name, String location, String state, String city, String postal_code, String hours) {
 
         this.name = name;
         this.location = location;
@@ -50,7 +49,7 @@ public class Businesses {
         this.hours = hours;
     }
 
-    public Businesses(long id, String name, String location, String state, String city, String postal_code, String hours) {
+    public Business(long id, String name, String location, String state, String city, String postal_code, String hours) {
         this.id = id;
         this.name = name;
         this.location = location;
