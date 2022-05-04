@@ -32,8 +32,8 @@ public class Business {
     @Column(nullable = false, length = 100)
     private String hours;
 
-//    @OneToMany(mappedBy = "business_id")
-//    private List<Reviews> reviews;
+    @ManyToMany(mappedBy = "businesses")
+    private List<User> users;
 
     public Business() {
     }
