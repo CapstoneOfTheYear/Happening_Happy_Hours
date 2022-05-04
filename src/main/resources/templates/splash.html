@@ -3,9 +3,8 @@
 <header th:include="partials :: header(title = 'Happening Happy Hour')"></header>
 <body>
 <nav th:include="partials :: navbar"></nav>
-<div class="bg">
-
-    <video autoplay controls muted loop id="myVideo">
+<div class="container-fluid">
+    <video class="container-fluid"  autoplay controls muted loop id="myVideo">
         <source th:src="@{/images/H3.mp4}" type=video/mp4>
         <p onclick="toggleControls();">Toggle</p>
     </video>

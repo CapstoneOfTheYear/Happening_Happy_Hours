@@ -12,6 +12,7 @@
     <script type="text/javascript" src="https://static.filestackapi.com/v3/filestack.js"></script>
     <link th:href="@{/main.css}" rel="stylesheet" />
     <script type="text/javascript" th:src="@{/actions.js}"></script>
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
 
 
@@ -21,7 +22,7 @@
 <nav th:fragment="navbar">
     <nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark pb-2" id="navbar">
         <div class="container-fluid">
-            <a class="navbar-brand" href="https://github.com/CapstoneOfTheYear/Happening_Happy_Hours">
+            <a class="navbar-brand" href="/">
                 <img th:src="@{/images/H3Logo.png}"/>™
                 <a class="navbar-brand" href="https://github.com/CapstoneOfTheYear/Happening_Happy_Hours"></a>
             </a>
@@ -49,25 +50,25 @@
             <div class="nav navbar-nav ml-auto justify-content-end" id="navbar-right">
             <form class="d-flex">
                 <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary btn-outline-primary my-2 my-sm-0 mx-2"
+                <button class="btn btn-primary btn-outline-primary mb-2 my-sm-0 mx-2"
                         style="margin-top: 8px" type="submit">Search</button>
             </form>
             <a href="/login">
-                <button class="btn btn-primary btn-outline-primary my-2 my-sm-0 mx-2"
+                <button class="btn btn-primary btn-outline-primary mb-2 my-sm-0 mx-2"
                         style="margin-top: 8px">Login
                 </button>
             </a>
             <form sec:authorize="isAuthenticated()" class="form-inline" th:action="@{/logout}" th:method="post">
-                <button class="btn btn-outline-primary my-2 my-sm-0 mx-2 text-white" style="margin-top: 8px">Logout</button>
+                <button class="btn btn-outline-primary mb-2 my-sm-0 mx-2" style="margin-top: 8px">Logout</button>
             </form>
             </div>
         </div>
     </nav>
 </nav>
 
-<footer th:fragment="footer" class="fixed-bottom sticky bg-dark text-center text-white">
+<footer th:fragment="footer" class="footer fixed-bottom bg-dark text-center text-white">
 
-    <div class="container p-0 pb-0">
+    <div class="container-fluid p-5 pb-0">
         <!-- Section: Social media -->
         <section class="footer-links  justify-content-center">
             <!-- Facebook -->
@@ -106,7 +107,9 @@
         <a class="trademark" style="text-decoration: none" href="https://github.com/CapstoneOfTheYear/Happening_Happy_Hours">Created By JJRCode™</a>
     </div>
     <!-- Copyright -->
+    <script src="../mapbox/mapbox-geocoder-utils.js"></script>
 
+    <script th:src="@{/actions.js}"></script>
 </footer>
 
 </html>
