@@ -12,16 +12,5 @@ public class HomeController {
     public String home() {
         return "home";
     }
-
-    @Value("${mapbox.api.key}")
-    private String mapKey;
-
-
-    public String getMapKey() {
-        return mapKey;
-    }
-
-    public void setMapKey(String mapKey) {
-        this.mapKey = mapKey;
-    }
 }
+

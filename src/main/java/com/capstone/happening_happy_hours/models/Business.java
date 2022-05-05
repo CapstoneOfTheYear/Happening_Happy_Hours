@@ -54,7 +54,6 @@ public class Business extends User{
         this.state = state;
         this.city = city;
         this.postal_code = postal_code;
-        this.hours = hours;
         this.users = users;
         this.businessAttributes = businessAttributes;
     }
