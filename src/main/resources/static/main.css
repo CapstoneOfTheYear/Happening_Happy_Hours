@@ -1,9 +1,9 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
 #myVideo {
-    border-radius: 50px 50px 0 0;
-    border-left: solid 4px #e34500;
-    border-right: solid 4px #e34500;
+    /*border-radius: 50px 50px 0 0;*/
+    /*border-left: solid 4px #e34500;*/
+    /*border-right: solid 4px #e34500;*/
     width: 100%;
     height: 92%;
     object-fit: inherit;
@@ -17,13 +17,13 @@
 
 }
 .navbar {
-    border-radius:50px 50px 0 0;
+    /*border-radius:50px 50px 0 0;*/
     text-align: center;
     width: 100%;
     height: 100px;
     color: #0d0da6;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    border-top: solid 4px #e34500;
+    /*border-top: solid 4px #e34500;*/
     /*border-left: solid 4px #e34500;*/
     /*border-right: solid 4px #e34500;*/
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
@@ -125,13 +125,18 @@ p.h6 {
 /*mapbox*/
 body{
     background-color: black;
-    border-left: solid 4px #e34500;
-    border-right: solid 4px #e34500;
-    border-radius: 50px 50px 50px 50px;
+    /*border-left: solid 4px #e34500;*/
+    /*border-right: solid 4px #e34500;*/
+    /*border-radius: 50px 50px 0 0;*/
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 
 html{
-    border-radius: 50px 50px 50px 50px;
+    /*overflow-x: scroll;*/
+    /*overflow-y: scroll;*/
+    /*border: solid 4px #e34500;*/
+    /*border-radius: 50px 50px 50px 50px;*/
 }
 #map {
     width: 100%;
@@ -140,7 +145,7 @@ html{
     margin: 0;
     /*border-left: solid 4px #e34500;*/
     /*border-right: solid 4px #e34500;*/
-    /*overflow: hidden;*/
+
 }
 
 marker {
@@ -154,7 +159,7 @@ marker {
 }
 
 footer {
-    border-radius: 0 0 50px 50px;
+    /*border-radius: 0 0 50px 50px;*/
     padding: 0;
     text-align: center;
     width: 100%;
@@ -162,9 +167,10 @@ footer {
     color: #0d0da6;
     margin-top: 50px;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    border-bottom: solid 4px #e34500;
-    border-left: solid 4px #e34500;
-    border-right: solid 4px #e34500;
+    /*border-bottom: solid 4px #e34500;*/
+    /*border-left: solid 4px #e34500;*/
+    /*border-right: solid 4px #e34500;*/
+
     /*box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
 
 }
@@ -253,7 +259,7 @@ button {
 
 .card.col-5.card-header  {
     border-radius: 25px;
-    border: solid 2px #e34500;
+    /*border: solid 2px #e34500;*/
     justify-content: space-around;
     text-align: center;
     margin: 5px;
