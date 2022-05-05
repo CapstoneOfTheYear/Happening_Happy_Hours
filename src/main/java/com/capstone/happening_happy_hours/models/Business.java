@@ -30,7 +30,10 @@ public class Business {
     private String postal_code;
 
     @Column(nullable = false, length = 100)
-    private String hours;
+    private String starting_hour;
+
+    @Column(nullable = false, length = 10)
+    private String ending_hour;
 
     @ManyToMany(mappedBy = "businesses")
     private List<User> users;
@@ -45,14 +48,15 @@ public class Business {
     }
 
 
-    public Business(String name, String location, String state, String city, String postal_code, String hours) {
+    public Business(String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour) {
 
         this.name = name;
         this.location = location;
         this.state = state;
         this.city = city;
         this.postal_code = postal_code;
-        this.hours = hours;
+        this.starting_hour = starting_hour;
+        this.ending_hour = ending_hour;
     }
 
     public Business(long id, String name, String location, String state, String city, String postal_code, String hours) {
@@ -62,7 +66,6 @@ public class Business {
         this.state = state;
         this.city = city;
         this.postal_code = postal_code;
-        this.hours = hours;
     }
 
     public long getId() {
@@ -113,12 +116,18 @@ public class Business {
         this.postal_code = postal_code;
     }
 
-    public String getHours() {
-        return hours;
+    public String getStarting_hour() {
+        return starting_hour;
     }
 
-    public void setHours(String hours) {
-        this.hours = hours;
+    public void setStarting_hour(String starting_hour) {
+        this.starting_hour = starting_hour;
     }
+
+    public String getEnding_hour() {
+        return ending_hour;
+    }
+
 
 }
+
