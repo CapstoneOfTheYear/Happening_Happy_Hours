@@ -88,6 +88,10 @@ p.h6 {
 #footer a {
     text-decoration: none;
 }
+
+#navbar-right {
+
+}
 .trademark {
     color: white;
 }
@@ -306,21 +310,14 @@ h1, h2, h3, header, title, label{
 /* MEDIA QUERIES
 -------------------------------------------------*/
 
-@media screen and (max-width:768px) {
+@media screen and (max-width:1044px) {
 
-    input .contact .col-md-6{
-        width:40.5%;
-        margin: 15px 15px 0 58px;
-    }
 
-    textarea .contact .col-md-12 {
-        margin: 15px 15px 0 58px;
-    }
 
-    button #submit .contact .submit{
-        margin: 15px 15px 0 42px;
-    }
     @media all and (min-width: 992px) {
 
     }
+}
+@media screen and (max-width: 1224px) {
+
 }
