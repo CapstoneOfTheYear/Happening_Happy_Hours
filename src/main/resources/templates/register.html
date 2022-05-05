@@ -4,7 +4,6 @@
 <header th:include="partials :: header(title = 'Register')"></header>
 
 
-
 <body>
 <nav th:include="partials :: navbar"></nav>
 
@@ -31,8 +30,9 @@
                     <input class="form-control" id="password" type="password" th:field="*{password}">
                 </div>
             </div>
+            <input th:field="*{ownsBusiness}" value="true" hidden>
+
             <div id="business">
-                <input th:field="*{ownsBusiness}" value="true" hidden>
                 <div class="row g-3" th:object="${business}">
 
                     <div class="col-md-6">
@@ -109,52 +109,66 @@
                         <label for="zip" class="form-label">Zip Code</label>
                         <input id="zip" type="text" class="form-control" th:field="*{postal_code}" required>
                     </div>
-                    <div class="col-2">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="pool" id="pool">
-                        <label class="form-check-label" for="pool">
-                            Pool
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="darts" id="darts">
-                        <label class="form-check-label" for="darts">
-                            Darts
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="liveMusic">
-                        <label class="form-check-label" for="liveMusic">
-                            Live Music
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="karaoke">
-                        <label class="form-check-label" for="karaoke">
-                            Karaoke
-                        </label>
-                    </div>
-                    </div>
-                    <div class="col-4">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cornhole">
-                        <label class="form-check-label" for="cornhole">
-                            Cornhole
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="servesFood">
-                        <label class="form-check-label" for="servesFood">
-                            Serves Food
-                        </label>
-                    </div>
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}" />Other...
-                        <input id="name2" name="name2" disabled="disabled"/>
-                    </div>
-                    </div>
-                    <div class="col-4">
+                    <div class="col-6 row">
+                        <h3>Activities</h3>
+                        <div class="col-6">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="pool" id="pool" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="pool">
+                                    Pool
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="darts" id="darts" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="darts">
+                                    Darts
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="liveMusic" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="liveMusic">
+                                    Live Music
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="karaoke" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="karaoke">
+                                    Karaoke
+                                </label>
+                            </div>
 
+                        </div>
+                        <div class="col-4">
+
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="cornhole" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="cornhole">
+                                    Cornhole
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="" id="servesFood" th:checked="*{businessAttributes}">
+                                <label class="form-check-label" for="servesFood">
+                                    Serves Food
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox"
+                                       onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>Other...
+                                <input id="name2" name="name2" disabled="disabled" th:checked="*{businessAttributes}"/>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <h3>Happy Hours</h3>
+                        <label for="startTime">Start Time
+                            <input type="time" id="startTime" name="startTime"
+                                   min="09:00" max="18:00" required th:field="*{starting_hour}">
+                        </label>
+                        <label for="endTime">End Time
+                            <input type="time" id="endTime" name="endTime"
+                                   min="09:00" max="18:00" required th:field="*{ending_hour}">
+                        </label>
                     </div>
                 </div>
             </div>
@@ -165,22 +179,17 @@
 
 <footer th:replace="partials :: footer"></footer>
 <script>
-    // let businessForm = '';
-    //
-    // let business = $("#business");
-    // let actType = $("#accountType");
-    //
-    // $(actType).change(function () {
-    //     console.log(actType.val());
-    //     if (actType.val() === "business") {
-    //         businessForm = ``
-    //         $("#consumer").toggleClass("col-6");
-    //         business.toggleClass("col-6").append(businessForm);
-    //     } else if (actType.val() === "consumer") {
-    //         business.empty();
-    //     }
-    // })
-    </script>
+    let businessForm = '';
+
+    let business = $("#business");
+    let actType = $("#accountType");
+
+    $(actType).change(function () {
+        if (actType.val() === "business") {
+            business.toggle();
+        }
+    })
+</script>
 
 
 </body>

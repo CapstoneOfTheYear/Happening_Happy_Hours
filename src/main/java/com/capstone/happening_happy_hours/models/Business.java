@@ -47,14 +47,15 @@ public class Business extends User{
     public Business() {
     }
 
-    public Business(String username, String phone, String email, String password, Boolean ownsBusiness, String name, String location, String state, String city, String postal_code, String hours, List<User> users, List<BusinessAttribute> businessAttributes) {
+    public Business(String username, String email, String password, Boolean ownsBusiness, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, List<User> users, List<BusinessAttribute> businessAttributes) {
         super(username, email, password, ownsBusiness);
         this.name = name;
         this.location = location;
         this.state = state;
         this.city = city;
         this.postal_code = postal_code;
-        this.hours = hours;
+        this.starting_hour = starting_hour;
+        this.ending_hour = ending_hour;
         this.users = users;
         this.businessAttributes = businessAttributes;
     }
