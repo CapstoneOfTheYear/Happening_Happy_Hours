@@ -3,19 +3,41 @@
 
 <header th:include="partials :: header(title = 'Home')"></header>
 
-
-
 <nav th:include="partials :: navbar"></nav>
 
-<head>
+<body>
+<!--Mapbox tags-->
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
+
+
+<!--Mapbox Location: Downtown San Antonio-->
+<div id='map' style='width: 1400px; height: 500px;'></div>
+<script>
+    mapboxgl.accessToken = 'pk.eyJ1Ijoicm9iZXJ0eW91bmcyMDIyIiwiYSI6ImNreXhoMmdmajBpZjUyb3B0NXZuZWlobGgifQ.Gf2quu65rVOKGGqEiSqcOA';
+    var map = new mapboxgl.Map({
+        container: 'map', // How the map is put in the div for viewing purposes
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 12
+    });
+
+    // hard coded marker
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+
+    // marker object
+</script>
+</body>
+<!--<head>
     <meta charset="UTF-8">
     <title>First Weather Map</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="../main.css">
 
-    <!-- Mapbox CSS -->
+    &lt;!&ndash; Mapbox CSS &ndash;&gt;
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
-    <!-- Custom CSS -->
 </head>
 <body>
 <div id='map'></div>
@@ -26,17 +48,18 @@
 <div class="row">
     <div class="card-body" id="location"></div>
 </div>
+
 <pre id="coordinates" class="coordinates"></pre>
-<!--<input class="search" id="userInput" type="text">-->
-<!--<button id="button" type="button">Search</button>-->
+&lt;!&ndash;<input class="search" id="userInput" type="text">&ndash;&gt;
+&lt;!&ndash;<button id="button" type="button">Search</button>&ndash;&gt;
 <div id="menu">
     <input id="satellite-v9" type="radio" name="rtoggle" value="satellite">
     <label class="map-style" for="satellite-v9">Satellite</label>
     <input id="light-v10" type="radio" name="rtoggle" value="light">
     <label class="map-style" for="light-v10">Light</label>
-    <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked="checked">
+    <input id="dark-v10" type="radio" name="rtoggle" value="dark">
     <label class="map-style" for="dark-v10">Dark</label>
-    <input id="streets-v11" type="radio" name="rtoggle" value="streets">
+    <input id="streets-v11" type="radio" name="rtoggle" value="streets" checked="checked">
     <label class="map-style" for="streets-v11">Streets</label>
     <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
     <label class="map-style" for="outdoors-v11">Outdoors</label>
@@ -44,7 +67,6 @@
 
 <div id="weather"></div>
 
-<script src="../actions.js"></script>
 <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
 <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
 <link rel='stylesheet'
@@ -55,7 +77,7 @@
     <button id="zoom5" value="zoom x 5">X 5</button>
     <button id="zoom10" value="zoom x 10">X 10</button>
     <button id="zoom15" value="zoom x 15">X 15</button>
-<!--    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>-->
+&lt;!&ndash;    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>&ndash;&gt;
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous"></script>
@@ -215,8 +237,8 @@
                 return data.features[0].center;
             });
     }
-</script>
-</body>
+</script>-->
+
 <footer th:replace="partials :: footer"></footer>
 
 </html>
