@@ -1,6 +1,7 @@
 package com.capstone.happening_happy_hours.controllers;
 
 
+import com.capstone.happening_happy_hours.models.Business;
 import com.capstone.happening_happy_hours.models.User;
 import com.capstone.happening_happy_hours.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -32,11 +33,13 @@ public class UserController {
     @GetMapping("/register")
     public String register(Model model) {
         model.addAttribute("user", new User());
+        model.addAttribute("business", new Business());
         return "register";
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user){
+    public String saveUser(@ModelAttribute User user, Business business){
+
         userDao.save(user);
         return "redirect:/login";
     }
