@@ -4,11 +4,9 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
-@Table(name = "businesses", uniqueConstraints = {
-        @UniqueConstraint(name = "uc_user_name", columnNames = {"name"}),
+@Table(name = "businesses")
 
-})
-public class Business extends User{
+public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -35,49 +33,58 @@ public class Business extends User{
     @Column(nullable = false, length = 10)
     private String ending_hour;
 
+    @Column(nullable = false)
+    private boolean dogsAllowed;
+
+    @Column(nullable = false)
+    private boolean pool;
+
+    @Column(nullable = false)
+    private boolean darts;
+
+    @Column(nullable = false)
+    private boolean liveMusic;
+
+    @Column(nullable = false)
+    private boolean karaoke;
+
+    @Column(nullable = false)
+    private boolean cornhole;
+
+    @Column(nullable = false)
+    private boolean servesFood;
+
+    @Column(nullable = false)
+    private String otherGames;
+
     @ManyToMany(mappedBy = "businesses")
     private List<User> users;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
     private List<BusinessImage> businessImages;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
-    private List<BusinessAttribute> businessAttributes;
+    public Business(){
 
-    public Business() {
+
     }
 
-    public Business(String username, String email, String password, Boolean ownsBusiness, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, List<User> users, List<BusinessAttribute> businessAttributes) {
-        super(username, email, password, ownsBusiness);
-        this.name = name;
-        this.location = location;
-        this.state = state;
-        this.city = city;
-        this.postal_code = postal_code;
-        this.starting_hour = starting_hour;
-        this.ending_hour = ending_hour;
-        this.users = users;
-        this.businessAttributes = businessAttributes;
-    }
-
-    public Business(String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour) {
-
-        this.name = name;
-        this.location = location;
-        this.state = state;
-        this.city = city;
-        this.postal_code = postal_code;
-        this.starting_hour = starting_hour;
-        this.ending_hour = ending_hour;
-    }
-
-    public Business(long id, String name, String location, String state, String city, String postal_code, String hours) {
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornhole, boolean servesFood, String otherGames) {
         this.id = id;
         this.name = name;
         this.location = location;
         this.state = state;
         this.city = city;
         this.postal_code = postal_code;
+        this.starting_hour = starting_hour;
+        this.ending_hour = ending_hour;
+        this.dogsAllowed = dogsAllowed;
+        this.pool = pool;
+        this.darts = darts;
+        this.liveMusic = liveMusic;
+        this.karaoke = karaoke;
+        this.cornhole = cornhole;
+        this.servesFood = servesFood;
+        this.otherGames = otherGames;
     }
 
     public long getId() {
@@ -138,6 +145,90 @@ public class Business extends User{
 
     public String getEnding_hour() {
         return ending_hour;
+    }
+
+    public void setEnding_hour(String ending_hour) {
+        this.ending_hour = ending_hour;
+    }
+
+    public boolean isDogsAllowed() {
+        return dogsAllowed;
+    }
+
+    public void setDogsAllowed(boolean dogsAllowed) {
+        this.dogsAllowed = dogsAllowed;
+    }
+
+    public boolean isPool() {
+        return pool;
+    }
+
+    public void setPool(boolean pool) {
+        this.pool = pool;
+    }
+
+    public boolean isDarts() {
+        return darts;
+    }
+
+    public void setDarts(boolean darts) {
+        this.darts = darts;
+    }
+
+    public boolean isLiveMusic() {
+        return liveMusic;
+    }
+
+    public void setLiveMusic(boolean liveMusic) {
+        this.liveMusic = liveMusic;
+    }
+
+    public boolean isKaraoke() {
+        return karaoke;
+    }
+
+    public void setKaraoke(boolean karaoke) {
+        this.karaoke = karaoke;
+    }
+
+    public boolean isCornhole() {
+        return cornhole;
+    }
+
+    public void setCornhole(boolean cornhole) {
+        this.cornhole = cornhole;
+    }
+
+    public boolean isServesFood() {
+        return servesFood;
+    }
+
+    public void setServesFood(boolean servesFood) {
+        this.servesFood = servesFood;
+    }
+
+    public String getOtherGames() {
+        return otherGames;
+    }
+
+    public void setOtherGames(String otherGames) {
+        this.otherGames = otherGames;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public List<BusinessImage> getBusinessImages() {
+        return businessImages;
+    }
+
+    public void setBusinessImages(List<BusinessImage> businessImages) {
+        this.businessImages = businessImages;
     }
 
 

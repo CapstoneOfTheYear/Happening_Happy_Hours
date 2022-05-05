@@ -30,6 +30,7 @@
                     <input class="form-control" id="password" type="password" th:field="*{password}">
                 </div>
             </div>
+
             <input th:field="*{ownsBusiness}" value="true" hidden>
 
             <div id="business">
@@ -185,10 +186,12 @@
     let actType = $("#accountType");
 
     $(actType).change(function () {
+
         if (actType.val() === "business") {
             business.toggle();
         }
     })
+
 </script>
 
 
