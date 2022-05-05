@@ -156,6 +156,8 @@ footer {
     height: 100px;
     color: #0d0da6;
     margin-top: 50px;
+    justify-content: center;
+
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
 
 }

@@ -14,11 +14,6 @@
     <script type="text/javascript" th:src="@{/actions.js}"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
-
-
-
-
-
 <nav th:fragment="navbar">
     <nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark pb-2" id="navbar">
         <div class="container-fluid">
@@ -66,9 +61,8 @@
     </nav>
 </nav>
 
-<footer th:fragment="footer" class="footer fixed-bottom bg-dark text-center text-white">
-
-    <div class="container-fluid p-5 pb-0">
+<footer th:fragment="footer" class="footer fixed-bottom bg-dark text-center just text-white">
+    <div class="container-fluid p-1 pb-1">
         <!-- Section: Social media -->
         <section class="footer-links  justify-content-center">
             <!-- Facebook -->
@@ -96,17 +90,11 @@
             ><i class="fa fa-github"></i
             ></a>
         </section>
-        <!-- Section: Social media -->
+        <div class=" justify-content-center text-center p-3">
+            © 2022 Copyright All rights reserved.
+            <a class="trademark" style="text-decoration: none" href="https://github.com/CapstoneOfTheYear/Happening_Happy_Hours">Created By JJRCode™</a>
+        </div>
     </div>
-
-    <!-- Grid container -->
-
-    <!-- Copyright -->
-    <div class="text-center p-3">
-        © 2022 Copyright All rights reserved.
-        <a class="trademark" style="text-decoration: none" href="https://github.com/CapstoneOfTheYear/Happening_Happy_Hours">Created By JJRCode™</a>
-    </div>
-    <!-- Copyright -->
     <script src="../mapbox/mapbox-geocoder-utils.js"></script>
     <script
             src="https://code.jquery.com/jquery-3.6.0.js"
