@@ -21,10 +21,6 @@ public class UserController {
 
 
     @GetMapping("/profile/user")
-//    @ResponseBody
-//    public String user() {
-//        return "USER PAGE";
-//    }
     public String userProfile() {
         return "userProfile";
     }
