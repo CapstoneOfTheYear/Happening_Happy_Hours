@@ -8,7 +8,7 @@ import java.util.List;
         @UniqueConstraint(name = "uc_user_name", columnNames = {"name"}),
 
 })
-public class Business {
+public class Business extends User{
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -47,6 +47,17 @@ public class Business {
     public Business() {
     }
 
+    public Business(String username, String phone, String email, String password, Boolean ownsBusiness, String name, String location, String state, String city, String postal_code, String hours, List<User> users, List<BusinessAttribute> businessAttributes) {
+        super(username, email, password, ownsBusiness);
+        this.name = name;
+        this.location = location;
+        this.state = state;
+        this.city = city;
+        this.postal_code = postal_code;
+        this.hours = hours;
+        this.users = users;
+        this.businessAttributes = businessAttributes;
+    }
 
     public Business(String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour) {
 
