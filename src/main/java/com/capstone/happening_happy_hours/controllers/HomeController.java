@@ -13,15 +13,15 @@ public class HomeController {
         return "home";
     }
 
-//    @Value("${mapbox.api.key}")
-//    private String mapKey;
-//
-//
-//    public String getMapKey() {
-//        return mapKey;
-//    }
-//
-//    public void setMapKey(String mapKey) {
-//        this.mapKey = mapKey;
-//    }
-//}
+    @Value("${mapbox.api.key}")
+    private String mapKey;
+
+
+    public String getMapKey() {
+        return mapKey;
+    }
+
+    public void setMapKey(String mapKey) {
+        this.mapKey = mapKey;
+    }
+}
