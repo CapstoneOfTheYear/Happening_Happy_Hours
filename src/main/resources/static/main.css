@@ -125,31 +125,22 @@ p.h6 {
 /*mapbox*/
 body{
     background-color: black;
-    /*border-left: solid 4px #e34500;*/
-    /*border-right: solid 4px #e34500;*/
-    /*border-radius: 50px 50px 0 0;*/
     overflow-x: scroll;
     overflow-y: scroll;
 }
 
 html{
-    /*overflow-x: scroll;*/
-    /*overflow-y: scroll;*/
-    /*border: solid 4px #e34500;*/
-    /*border-radius: 50px 50px 50px 50px;*/
+
 }
 #map {
     width: 100%;
     height: 50rem;
     padding: 0;
     margin: 0;
-    /*border-left: solid 4px #e34500;*/
-    /*border-right: solid 4px #e34500;*/
-
 }
 
 marker {
-    background-image: url(../assets/mapbox-icon.png);
+    background-image: url(static/images/H3MapLogo.png);
     background-size: cover;
     width: 50px;
     height: 50px;
@@ -159,7 +150,6 @@ marker {
 }
 
 footer {
-    /*border-radius: 0 0 50px 50px;*/
     padding: 0;
     text-align: center;
     width: 100%;
@@ -167,11 +157,6 @@ footer {
     color: #0d0da6;
     margin-top: 50px;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    /*border-bottom: solid 4px #e34500;*/
-    /*border-left: solid 4px #e34500;*/
-    /*border-right: solid 4px #e34500;*/
-
-    /*box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
 
 }
 
@@ -311,6 +296,11 @@ button {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
 }
+h1, h2, h3, header, title, label{
+    color: white;
+}
+
+
 /* MEDIA QUERIES
 -------------------------------------------------*/
 
