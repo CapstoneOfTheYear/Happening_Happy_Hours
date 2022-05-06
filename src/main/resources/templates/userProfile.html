@@ -7,7 +7,13 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1>user profile</h1>
+<h1>Hello, <span th:text="${username}"></span>! Here are your reviews.</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-3 mx-3 card text-white bg-light mb-3" th:each="review : ${Reviews}">
+    </div>
+</div>
 
 <footer th:replace="partials :: footer"></footer>
 </body>

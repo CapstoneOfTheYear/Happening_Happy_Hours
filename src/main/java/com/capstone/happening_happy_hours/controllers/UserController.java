@@ -8,10 +8,7 @@ import com.capstone.happening_happy_hours.repositories.UserRepository;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class UserController {
@@ -24,12 +21,13 @@ public class UserController {
     }
 
 
-    @GetMapping("/profile/user")
+    @GetMapping("/profile/user/{username}")
 //    @ResponseBody
 //    public String user() {
 //        return "USER PAGE";
 //    }
-    public String userProfile() {
+    public String userProfile(@PathVariable String username, Model model) {
+        model.addAttribute("username", username);
         return "userProfile";
     }
 

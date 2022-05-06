@@ -38,8 +38,8 @@ public class User {
     )
     private List<Business> businesses;
 
-//    @OneToMany(mappedBy = "user")
-//    private List<Reviews> reviews;
+    @OneToMany(mappedBy = "user")
+    private List<Review> reviews;
 
     public User() {
     }
@@ -54,10 +54,9 @@ public class User {
         this.ownsBusiness = ownsBusiness;
     }
 
-    public User(long id, String username, String phone, String email, String password, Boolean ownsBusiness) {
+    public User(long id, String username, String email, String password, Boolean ownsBusiness) {
         this.id = id;
         this.username = username;
-        this.phone = phone;
         this.email = email;
         this.password = password;
         this.ownsBusiness = ownsBusiness;
@@ -67,7 +66,6 @@ public class User {
     public User(User copy) {
         this.id = copy.id; // This line is SUPER important! Many things won't work if it's absent
         this.username = copy.username;
-        this.phone = copy.phone;
         this.email = copy.email;
         this.password = copy.password;
         this.ownsBusiness = copy.ownsBusiness;
@@ -85,12 +83,6 @@ public class User {
     }
     public void setUsername(String name) { this.username = name; }
 
-    public String getPhone() {
-        return phone;
-    }
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
 
     public String getEmail() {
         return email;
