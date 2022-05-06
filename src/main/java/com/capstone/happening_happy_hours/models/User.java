@@ -73,13 +73,6 @@ public class User {
         this.ownsBusiness = copy.ownsBusiness;
     }
 
-    public User(String username, String email, String password, Boolean ownsBusiness) {
-        this.username = username;
-        this.email = email;
-        this.password = password;
-        this.ownsBusiness = ownsBusiness;
-    }
-
     public long getId() {
         return id;
     }
