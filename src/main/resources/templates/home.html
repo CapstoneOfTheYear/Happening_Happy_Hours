@@ -14,7 +14,7 @@
 <body>
 <!--Display business names-->
 <div th:each="business : ${business}">
-    <p th:text="${business.getName()}"></p>
+    <p th:text="${business.getName()}"class="text-white"></p>
     <button type="button" id="location" th:text="${business.city + ', ' +  business.location}"></button>
 </div>
 
