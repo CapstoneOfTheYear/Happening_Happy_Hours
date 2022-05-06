@@ -125,8 +125,8 @@ p.h6 {
 /*mapbox*/
 body{
     background-color: black;
-    overflow-x: scroll;
-    overflow-y: scroll;
+    /*overflow-x: scroll;*/
+    /*overflow-y: scroll;*/
 }
 
 html{

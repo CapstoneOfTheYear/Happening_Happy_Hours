@@ -66,6 +66,7 @@ public class Business {
     public Business(){
 
 
+
     }
 
     public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornhole, boolean servesFood, String otherGames) {
