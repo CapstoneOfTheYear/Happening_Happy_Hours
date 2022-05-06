@@ -14,10 +14,12 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     private UserRepository userDao;
     private BusinessRepository businessDao;
+    private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, BusinessRepository businessDao) {
+    public UserController(UserRepository userDao, BusinessRepository businessDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.businessDao = businessDao;
+        this.passwordEncoder = passwordEncoder;
     }
 
 
@@ -39,9 +41,11 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business){
+    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business) {
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
         userDao.save(user);
-        if (user.getOwnsBusiness()){
+        if (user.getOwnsBusiness()) {
             businessDao.save(business);
         }
         return "redirect:/login";
