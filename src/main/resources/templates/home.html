@@ -4,21 +4,57 @@
 <header th:include="partials :: header(title = 'Home')"></header>
 
 
-
 <nav th:include="partials :: navbar"></nav>
 
 <head>
-    <meta charset="UTF-8">
-    <title>First Weather Map</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="../main.css">
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
 
-    <!-- Mapbox CSS -->
-    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
-    <!-- Custom CSS -->
 </head>
 <body>
-<div id='map'></div>
+<!--Display business names-->
+<div th:each="business : ${business}">
+    <p th:text="${business.getName()}"></p>
+    <button type="button" id="location" th:text="${business.city + ', ' +  business.location}"></button>
+</div>
+
+<div id='map' style='width: 900px; height: 600px;'></div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script th:inline="javascript">
+    // const key = document.getElementById("api").value;
+    var mapKey = [[${apiKey}]];
+    mapboxgl.accessToken = mapKey;
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 10
+    });
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+
+    const geocode = (input) => {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${mapKey}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                try {
+                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+                } catch (e) {
+                    console.log(e);
+                }
+            })
+    }
+    $(document).on("click", "#location", function() {
+        console.log(this.innerText)
+        geocode(this.innerText)
+    })
+</script>
+<!--<input type="hidden" th:value="${apiKey}" id="api">-->
+
+<!--<div id='map'></div>
 
 <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
 <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
@@ -27,8 +63,8 @@
     <div class="card-body" id="location"></div>
 </div>
 <pre id="coordinates" class="coordinates"></pre>
-<!--<input class="search" id="userInput" type="text">-->
-<!--<button id="button" type="button">Search</button>-->
+&lt;!&ndash;<input class="search" id="userInput" type="text">&ndash;&gt;
+&lt;!&ndash;<button id="button" type="button">Search</button>&ndash;&gt;
 <div id="menu">
     <input id="satellite-v9" type="radio" name="rtoggle" value="satellite">
     <label class="map-style" for="satellite-v9">Satellite</label>
@@ -55,7 +91,7 @@
     <button id="zoom5" value="zoom x 5">X 5</button>
     <button id="zoom10" value="zoom x 10">X 10</button>
     <button id="zoom15" value="zoom x 15">X 15</button>
-<!--    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>-->
+&lt;!&ndash;    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>&ndash;&gt;
 </div>
 <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
         crossorigin="anonymous"></script>
@@ -215,7 +251,7 @@
                 return data.features[0].center;
             });
     }
-</script>
+</script>-->
 </body>
 <footer th:replace="partials :: footer"></footer>
 
