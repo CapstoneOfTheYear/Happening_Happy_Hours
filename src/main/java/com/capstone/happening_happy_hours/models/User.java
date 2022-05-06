@@ -83,6 +83,7 @@ public class User {
     }
     public void setUsername(String name) { this.username = name; }
 
+
     public String getEmail() {
         return email;
     }

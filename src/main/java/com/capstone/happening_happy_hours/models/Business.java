@@ -33,28 +33,28 @@ public class Business {
     @Column(nullable = false, length = 10)
     private String ending_hour;
 
-    @Column(nullable = false)
+    @Column
     private boolean dogsAllowed;
 
-    @Column(nullable = false)
+    @Column
     private boolean pool;
 
-    @Column(nullable = false)
+    @Column
     private boolean darts;
 
-    @Column(nullable = false)
+    @Column
     private boolean liveMusic;
 
-    @Column(nullable = false)
+    @Column
     private boolean karaoke;
 
-    @Column(nullable = false)
+    @Column
     private boolean cornhole;
 
-    @Column(nullable = false)
+    @Column
     private boolean servesFood;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String otherGames;
 
     @ManyToMany(mappedBy = "businesses")

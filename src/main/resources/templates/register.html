@@ -3,6 +3,12 @@
 
 <header th:include="partials :: header(title = 'Register')"></header>
 
+<style>
+    .hide{
+        display: none;
+    }
+
+</style>
 
 <body>
 <nav th:include="partials :: navbar"></nav>
@@ -10,10 +16,10 @@
 <h1 class="mb-3 text-center">Create an Account</h1>
 <div class="container">
     <div class="row">
-        <form th:action="@{/login}" method="post" th:object="${user}">
+        <form th:action="@{/register}" method="post" th:object="${user}">
             <label class="text-white" for="accountType">Account Type</label>
             <select class="form-select" aria-label="Default select example" id="accountType">
-                <option class="text-white" value="consumer">Consumer</option>
+                <option class="text-white" value="consumer" selected>Consumer</option>
                 <option class="text-white" value="business">Business</option>
             </select>
             <div class="col-12" id="consumer">
@@ -31,27 +37,27 @@
                 </div>
             </div>
 
-            <input th:field="*{ownsBusiness}" value="true" hidden>
+            <input id="isOwner" th:field="*{ownsBusiness}" value="false" hidden>
 
-            <div id="business">
+            <div id="business" class="hide">
                 <div class="row g-3" th:object="${business}">
 
                     <div class="col-md-6">
                         <label for="name" class="form-label">Business name</label>
-                        <input id="name" type="text" class="form-control" th:field="*{name}" required>
+                        <input id="name" type="text" class="form-control" th:field="*{name}" >
                     </div>
                     <div class="col-md-6">
                         <label for="address" class="form-label">Address</label>
-                        <input id="address" type="text" class="form-control" th:field="*{location}" required>
+                        <input id="address" type="text" class="form-control" th:field="*{location}" >
 
                     </div>
                     <div class="col-md-6">
                         <label for="city" class="form-label">City</label>
-                        <input id="city" type="text" class="form-control" th:field="*{city}" required>
+                        <input id="city" type="text" class="form-control" th:field="*{city}" >
                     </div>
                     <div class="col-md-3">
                         <label for="state" class="form-label">State</label>
-                        <select id="state" class="form-select" th:field="*{state}" required>
+                        <select id="state" class="form-select" th:field="*{state}" >
                             <option selected disabled value="">Choose...</option>
                             <option value="AL">Alabama</option>
                             <option value="AK">Alaska</option>
@@ -108,31 +114,31 @@
                     </div>
                     <div class="col-md-3">
                         <label for="zip" class="form-label">Zip Code</label>
-                        <input id="zip" type="text" class="form-control" th:field="*{postal_code}" required>
+                        <input id="zip" type="text" class="form-control" th:field="*{postal_code}" >
                     </div>
                     <div class="col-6 row">
                         <h3>Activities</h3>
                         <div class="col-6">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="pool" id="pool" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="pool" id="pool" th:field="*{pool}">
                                 <label class="form-check-label" for="pool">
                                     Pool
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="darts" id="darts" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="darts" id="darts" th:field="*{darts}">
                                 <label class="form-check-label" for="darts">
                                     Darts
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="liveMusic" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="" id="liveMusic" th:field="*{liveMusic}">
                                 <label class="form-check-label" for="liveMusic">
                                     Live Music
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="karaoke" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="" id="karaoke" th:field="*{karaoke}">
                                 <label class="form-check-label" for="karaoke">
                                     Karaoke
                                 </label>
@@ -142,21 +148,27 @@
                         <div class="col-4">
 
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cornhole" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="" id="cornhole" th:field="*{cornhole}">
                                 <label class="form-check-label" for="cornhole">
                                     Cornhole
                                 </label>
                             </div>
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="servesFood" th:checked="*{businessAttributes}">
+                                <input class="form-check-input" type="checkbox" value="" id="servesFood" th:field="*{servesFood}">
                                 <label class="form-check-label" for="servesFood">
                                     Serves Food
                                 </label>
                             </div>
                             <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="petsAllowed" id="petsAllowed" th:field="*{dogsAllowed}">
+                                <label class="form-check-label" for="petsAllowed">
+                                    Pets Allowed
+                                </label>
+                            </div>
+                            <div class="form-check">
                                 <input class="form-check-input" type="checkbox"
                                        onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>Other...
-                                <input id="name2" name="name2" disabled="disabled" th:checked="*{businessAttributes}"/>
+                                <input id="name2" name="name2" disabled="disabled" th:field="*{otherGames}"/>
                             </div>
                         </div>
                     </div>
@@ -164,11 +176,11 @@
                         <h3>Happy Hours</h3>
                         <label for="startTime">Start Time
                             <input type="time" id="startTime" name="startTime"
-                                   min="09:00" max="18:00" required th:field="*{starting_hour}">
+                                   min="09:00" max="18:00"  th:field="*{starting_hour}">
                         </label>
                         <label for="endTime">End Time
                             <input type="time" id="endTime" name="endTime"
-                                   min="09:00" max="18:00" required th:field="*{ending_hour}">
+                                   min="09:00" max="18:00"  th:field="*{ending_hour}">
                         </label>
                     </div>
                 </div>
@@ -184,11 +196,15 @@
 
     let business = $("#business");
     let actType = $("#accountType");
+    let isOwner = $("#isOwner");
 
     $(actType).change(function () {
-
         if (actType.val() === "business") {
-            business.toggle();
+            business.removeClass("hide");
+            isOwner.val("true");
+        } else if (actType.val() === "consumer"){
+            business.addClass("hide");
+            isOwner.val("false");
         }
     })
 
