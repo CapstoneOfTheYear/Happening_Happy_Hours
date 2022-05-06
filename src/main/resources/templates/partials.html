@@ -14,11 +14,6 @@
     <script type="text/javascript" th:src="@{/actions.js}"></script>
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.css' rel='stylesheet'/>
 </head>
-
-
-
-
-
 <nav th:fragment="navbar">
     <nav th:fragment="navbar" class="navbar sticky navbar-expand-lg navbar-dark bg-dark pb-2" id="navbar">
         <div class="container-fluid">
@@ -31,7 +26,7 @@
                     aria-controls="navbarNav, navbarNav2" aria-expanded="true" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse mx-auto col-lg-auto " id="navbarSupportedContent">
+            <div class="collapse navbar-collapse mx-auto col-lg-auto " id="navbarNav">
                 <ul class="nav navbar-nav text-right">
                     <li class="h5 nav-item">
                         <a class="nav-link" href="/home">Home</a>
@@ -47,34 +42,29 @@
                     </li>
                 </ul>
 
-<!--             <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav2">
-
+                <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav2">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-primary btn-outline-primary mb-2 my-sm-2 mx-2"
+                                style="margin-top: 8px" type="submit">Search</button>
+                    </form>
+                    <a href="/login">
+                        <button class="btn btn-primary btn-outline-primary mb-2 my-sm-2 mx-2"
+                                style="margin-top: 8px">Login
+                        </button>
+                    </a>
+                    <form sec:authorize="isAuthenticated()" class="form-inline" th:action="@{/logout}" th:method="post">
+                        <button class="btn btn-outline-primary mb-2 my-sm-0 mx-2" style="margin-top: 8px">Logout</button>
+                    </form>
+                </div>
             </div>
-            <div class="nav navbar-nav ml-auto justify-content-end" id="navbar-right"> -->
-<!-- Merge conflict from justin conger awaiting resolution -->
-              
-            <form class="d-flex">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-primary btn-outline-primary mb-2 my-sm-2 mx-2"
-                        style="margin-top: 8px" type="submit">Search</button>
-            </form>
-            <a href="/login">
-                <button class="btn btn-primary btn-outline-primary mb-2 my-sm-2 mx-2"
-                        style="margin-top: 8px">Login
-                </button>
-            </a>
-            <form sec:authorize="isAuthenticated()" class="form-inline" th:action="@{/logout}" th:method="post">
-                <button class="btn btn-outline-primary mb-2 my-sm-0 mx-2" style="margin-top: 8px">Logout</button>
-            </form>
-            </div>
-          </div>
         </div>
     </nav>
 </nav>
 
 <footer th:fragment="footer" class="footer fixed-bottom bg-dark text-center text-white">
 
-    <div class="container-fluid p-5 pb-0">
+    <div class="container-fluid p-2 pb-0">
         <!-- Section: Social media -->
         <section class="footer-links  justify-content-center">
             <!-- Facebook -->
