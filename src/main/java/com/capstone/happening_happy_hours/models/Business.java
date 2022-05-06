@@ -33,28 +33,28 @@ public class Business {
     @Column(nullable = false, length = 10)
     private String ending_hour;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean dogsAllowed;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean pool;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean darts;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean liveMusic;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean karaoke;
 
-    @Column
-    private boolean cornhole;
+    @Column(columnDefinition = "boolean default false")
+    private boolean cornHole;
 
-    @Column
+    @Column(columnDefinition = "boolean default false")
     private boolean servesFood;
 
-    @Column(nullable = true)
+    @Column()
     private String otherGames;
 
     @ManyToMany(mappedBy = "businesses")
@@ -63,13 +63,21 @@ public class Business {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
     private List<BusinessImage> businessImages;
 
-    public Business(){
-
-
-
+    // Rob created
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.state = state;
+        this.city = city;
+        this.postal_code = postal_code;
+        this.starting_hour = starting_hour;
+        this.ending_hour = ending_hour;
     }
 
-    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornhole, boolean servesFood, String otherGames) {
+    public Business(){}
+
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -83,7 +91,7 @@ public class Business {
         this.darts = darts;
         this.liveMusic = liveMusic;
         this.karaoke = karaoke;
-        this.cornhole = cornhole;
+        this.cornHole = cornHole;
         this.servesFood = servesFood;
         this.otherGames = otherGames;
     }
@@ -192,12 +200,12 @@ public class Business {
         this.karaoke = karaoke;
     }
 
-    public boolean isCornhole() {
-        return cornhole;
+    public boolean isCornHole() {
+        return cornHole;
     }
 
-    public void setCornhole(boolean cornhole) {
-        this.cornhole = cornhole;
+    public void setCornHole(boolean cornHole) {
+        this.cornHole = cornHole;
     }
 
     public boolean isServesFood() {
@@ -231,7 +239,4 @@ public class Business {
     public void setBusinessImages(List<BusinessImage> businessImages) {
         this.businessImages = businessImages;
     }
-
-
 }
-
