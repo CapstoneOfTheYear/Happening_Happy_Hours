@@ -6,5 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface BusinessRepository extends JpaRepository <Business, Long> {
 
+
     Business getBusinessByUser(User user);
+
+    Business getBusinessById(long id);
+    Business getBusinessByName(String name);
+
 }

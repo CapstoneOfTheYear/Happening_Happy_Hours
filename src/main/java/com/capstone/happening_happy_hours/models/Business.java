@@ -60,6 +60,9 @@ public class Business {
     @OneToOne(mappedBy = "business")
     private User user;
 
+    @OneToMany(mappedBy = "business")
+    private List<Review> reviews;
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
     private List<BusinessImage> businessImages;
 
