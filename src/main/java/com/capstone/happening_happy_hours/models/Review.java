@@ -33,7 +33,6 @@ public class Review {
     @ManyToOne
     private User user;
 
-
     @Column(nullable = false, length = 100)
     private long business_id;
 
