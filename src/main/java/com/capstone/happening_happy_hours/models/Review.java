@@ -28,8 +28,10 @@ public class Review {
     @ManyToOne
     private User user;
 
+
     @ManyToOne
     private Business business;
+
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String body;
