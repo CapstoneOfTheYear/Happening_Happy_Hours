@@ -12,7 +12,7 @@ public class BusinessImage {
     private long id;
 
     @Column(nullable = false, length = 200)
-    private String image_url;
+    private String images;
 
     @ManyToOne
     @JoinColumn(name= "business_id")
@@ -22,9 +22,9 @@ public class BusinessImage {
 
     }
 
-    public BusinessImage(long id, String image_url, Business business) {
+    public BusinessImage(long id, String images, Business business) {
         this.id = id;
-        this.image_url = image_url;
+        this.images = images;
         this.business = business;
     }
 
@@ -36,12 +36,12 @@ public class BusinessImage {
         this.id = id;
     }
 
-    public String getImage_url() {
-        return image_url;
+    public String getImages() {
+        return images;
     }
 
-    public void setImage_url(String image_url) {
-        this.image_url = image_url;
+    public void setImages(String images) {
+        this.images = images;
     }
 
     public Business getBusiness() {

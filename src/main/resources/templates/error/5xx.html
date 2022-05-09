@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="'Ooops, ' + ${error}"></title>
+</head>
+<body>
+<th:block th:switch="${error}">
+    <div th:case="'Not Found'">
+        <h1>This page could not be found!!</h1>
+    </div>
+    <div th:case="'Forbidden'">
+        <h1>You don't have permission to view this page.</h1>
+    </div>
+</th:block>
+<p>Watch a video instead</p>
+<iframe
+        width="1700"
+        height="800"
+        src="https://www.youtube.com/embed/UeIK3brZM20?autoplay=1"
+        frameborder="0"
+        allowfullscreen="allowfullscreen"
+>
+</iframe>
+</body>
+</html>
+
+
