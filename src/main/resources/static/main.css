@@ -82,6 +82,10 @@
         color: #e34500 !important;
 
     }
+#location {
+    height: 75px;
+    width: 200px;
+         }
 
     .section {
         background: #e34500;
