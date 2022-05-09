@@ -4,7 +4,6 @@
 
 <header th:include="partials :: header(title = 'Home')"></header>
 
-
 <nav th:include="partials :: navbar"></nav>
 
 <head>
@@ -17,14 +16,20 @@
         <div class="col-lg-9">
             <div id='map'></div>
         </div>
-        <div th:each="business : ${business}"
-             class="card-item card-deck d-flex justify-content-center mx-4 my-4 bg-info" style="overflow-y: auto;">
-            <div th:each="business : ${business}">
-                <p th:text="${business.getName()}" class="text-center text-white"></p>
-                <!-- <img th:src="${business.images}" class="card-img-top" alt="...">?-->
-                <div class="card-body text-center ">
-                    <button class="btn btn-primary" type="button" id="location"
-                            th:text="${business.location  + ', ' + business.city  }"></button>
+        <div class="reviews d-flex flex-column align-items-center col-lg-3">
+            <div th:each="business : ${business}"
+                 class="card-item card-deck justify-content-center mx-4 my-4"
+                 style="overflow-y: auto;">
+                <div th:each="business : ${business}">
+                    <p th:text="${business.getName()}" class="text-center text-white"></p>
+                    <!-- <img th:src="${business.images}" class="card-img-top" alt="...">?-->
+                    <div class="card-body text-center ">
+                        <button class="btn btn-primary mx-2 my-2" type="button" id="location"
+                                th:text="${business.location  + ', ' + business.city  }"></button>
+                        <button class="btn btn-primary mx-2 my-2" type="button" id="view-business"
+                                href="/viewBusiness">Check Me Out</button>
+
+                    </div>
                 </div>
             </div>
         </div>
