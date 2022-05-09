@@ -10,6 +10,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Controller
 public class UserController {
     private UserRepository userDao;
@@ -46,6 +49,7 @@ public class UserController {
         user.setPassword(hash);
         userDao.save(user);
         if (user.getOwnsBusiness()) {
+            user.setBusinesses(business);
             businessDao.save(business);
         }
         return "redirect:/login";

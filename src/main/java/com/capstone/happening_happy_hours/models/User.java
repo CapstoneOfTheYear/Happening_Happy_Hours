@@ -30,13 +30,13 @@ public class User {
     @Column
     private boolean ownsBusiness;
 
-    @ManyToMany(cascade = CascadeType.ALL)
+    @OneToOne (cascade = CascadeType.ALL)
     @JoinTable(
-            name= "users_businesses",
-            joinColumns = {@JoinColumn(name="user_id")},
-            inverseJoinColumns = {@JoinColumn(name="business_id")}
-    )
-    private List<Business> businesses;
+            name = "users_businesses",
+            joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "business_id", referencedColumnName = "id")})
+    private Business business;
+
 
     @OneToMany(mappedBy = "user")
     private List<Review> reviews;
@@ -74,6 +74,7 @@ public class User {
     public long getId() {
         return id;
     }
+
     public void setId(long id) {
         this.id = id;
     }
@@ -81,12 +82,16 @@ public class User {
     public String getUsername() {
         return username;
     }
-    public void setUsername(String name) { this.username = name; }
+
+    public void setUsername(String name) {
+        this.username = name;
+    }
 
 
     public String getEmail() {
         return email;
     }
+
     public void setEmail(String email) {
         this.email = email;
     }
@@ -94,9 +99,44 @@ public class User {
     public String getPassword() {
         return password;
     }
-    public void setPassword(String password) { this.password = password; }
 
-    public boolean getOwnsBusiness() { return ownsBusiness;}
-    public void setOwnsBusiness(boolean ownsBusiness) { this.ownsBusiness = ownsBusiness;}
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public boolean getOwnsBusiness() {
+        return ownsBusiness;
+    }
+
+    public void setOwnsBusiness(boolean ownsBusiness) {
+        this.ownsBusiness = ownsBusiness;
+    }
+
+    public Business getBusiness() {
+        return business;
+    }
+
+    public void setBusinesses(Business business) {
+        this.business = business;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
+    }
+
+    public User(long id, String username, String phone, String email, String password, boolean ownsBusiness, Business business, List<Review> reviews) {
+        this.id = id;
+        this.username = username;
+        this.phone = phone;
+        this.email = email;
+        this.password = password;
+        this.ownsBusiness = ownsBusiness;
+        this.business = business;
+        this.reviews = reviews;
+    }
 }
 

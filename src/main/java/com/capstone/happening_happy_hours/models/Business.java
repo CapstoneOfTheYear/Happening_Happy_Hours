@@ -57,8 +57,8 @@ public class Business {
     @Column()
     private String otherGames;
 
-    @ManyToMany(mappedBy = "businesses")
-    private List<User> users;
+    @OneToOne(mappedBy = "business")
+    private User user;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
     private List<BusinessImage> businessImages;
@@ -224,12 +224,12 @@ public class Business {
         this.otherGames = otherGames;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public User getUser() {
+        return user;
     }
 
-    public void setUsers(List<User> users) {
-        this.users = users;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public List<BusinessImage> getBusinessImages() {
