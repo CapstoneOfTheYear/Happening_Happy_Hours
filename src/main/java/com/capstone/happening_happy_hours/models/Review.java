@@ -14,12 +14,7 @@ import javax.persistence.*;
 
 
 @Entity
-@Table(name = "reviews",
-        uniqueConstraints = {
-        @UniqueConstraint(name = "uc_post_user_id", columnNames = {"user_id"}),
-        @UniqueConstraint(name = "uc_post_business_id", columnNames = {"business_id"})
-})
-
+@Table(name = "reviews")
 public class Review {
 
     @Id
@@ -33,9 +28,8 @@ public class Review {
     @ManyToOne
     private User user;
 
-
-    @Column(nullable = false, length = 100)
-    private long business_id;
+    @ManyToOne
+    private Business business;
 
     @Column(columnDefinition = "TEXT", nullable = false)
     private String body;
@@ -46,10 +40,10 @@ public class Review {
 
     public Review() {}
 
-    public Review(long id, User user, long business_id, String body, double score) {
+    public Review(long id, User user, Business business, String body, double score) {
         this.id = id;
         this.user = user;
-        this.business_id = business_id;
+        this.business = business;
         this.body = body;
         this.score = score;
 
@@ -79,8 +73,8 @@ public class Review {
     public User getUser() { return user; }
     public void setUser(User user) { this.user = user; }
 
-    public long getBusiness_id() { return business_id; }
-    public void setBusiness_id(long business_id) { this.business_id = business_id; }
+    public Business getBusiness() { return business; }
+    public void setBusiness_id(long business_id) { this.business = business; }
 
     public String getBody() {
         return this.body;
