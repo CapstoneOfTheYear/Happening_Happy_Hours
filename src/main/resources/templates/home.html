@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
+
 <header th:include="partials :: header(title = 'Home')"></header>
 
 
@@ -9,16 +10,25 @@
 <head>
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
-
 </head>
 <body>
-<!--Display business names-->
-<div th:each="business : ${business}">
-    <p th:text="${business.getName()}"class="text-white"></p>
-    <button type="button" id="location" th:text="${business.city + ', ' +  business.location}"></button>
+<div class="container map-container">
+    <div class="row">
+        <div class="col-lg-9">
+            <div id='map'></div>
+        </div>
+        <div class="card-item card-deck d-flex justify-content-center mx-4 my-4 bg-info" style="overflow-y: auto;">
+<!--                <img th:src="${business.images}" class="card-img-top" alt="...">-->
+                <div class="card-body text-center ">
+                    <!--Display business names-->
+                    <div th:each="business : ${business}">
+                        <p th:text="${business.getName()}"class="text-white"></p>
+                        <button class="btn btn-primary fit-content" type="button" id="location" th:text="${business.location  + ', ' + business.city  }"></button>
+                    </div>
+                </div>
+            </div>
+    </div>
 </div>
-<!--<img th:src="${business.images}" class="mb-1"/>-->
-<div id='map' style='width: 900px; height: 600px;'></div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script th:inline="javascript">
     // const key = document.getElementById("api").value;
