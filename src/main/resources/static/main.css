@@ -330,6 +330,10 @@
         color: white;
     }
 
+    .card-about {
+        height: auto !important;
+
+    }
 
     /* MEDIA QUERIES
     -------------------------------------------------*/
