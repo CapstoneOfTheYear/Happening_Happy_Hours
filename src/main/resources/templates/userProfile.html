@@ -7,12 +7,17 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1>Hello, <span th:text="${username}"></span>! Here are your reviews.</h1>
+<h1>Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.</h1>
 
 <div class="container">
-    <div class="row">
-        <div class="col-lg-3 mx-3 card text-white bg-light mb-3" th:each="review : ${Reviews}">
-        </div>
+    <div class="row gx-lg-5">
+            <div class="card col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${review.getBusiness().name}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text" th:text="${review.body}"></p>
+                </div>
+            </div>
     </div>
 </div>
 

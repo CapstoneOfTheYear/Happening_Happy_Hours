@@ -15,6 +15,7 @@
         z-index: -1;
 
     }
+
 .card-item {
     display: flex;
     flex-direction: column;
@@ -42,6 +43,7 @@
 .map-container {
     margin-bottom: 100px;
 }
+
     .navbar {
         /*border-radius:50px 50px 0 0;*/
         text-align: center;
