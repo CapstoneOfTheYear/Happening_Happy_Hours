@@ -17,7 +17,7 @@
     <p th:text="${business.getName()}"class="text-white"></p>
     <button type="button" id="location" th:text="${business.city + ', ' +  business.location}"></button>
 </div>
-
+<!--<img th:src="${business.images}" class="mb-1"/>-->
 <div id='map' style='width: 900px; height: 600px;'></div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
 <script th:inline="javascript">
