@@ -35,7 +35,7 @@ public class UserController {
     public String userProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         model.addAttribute("User", user);
-        model.addAttribute("reviews", reviewDao.findAll());
+        model.addAttribute("reviews", reviewDao.findAllByUserId(user.getId()));
         model.addAttribute("businesses", businessDao.findAll());
         return "userProfile";
     }
