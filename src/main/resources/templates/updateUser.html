@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<header th:include="partials :: header(title = 'Edit Account')"></header>
+
+
+
+<body>
+<nav th:include="partials :: navbar"></nav>
+
+<h1 class="mb-3 text-center">Edit Account</h1>
+<div class="container">
+    <div class="row">
+        <form th:action="@{'/updateUser/{id}'(id = ${user.id})}" method="post" th:object="${user}">
+
+                        <div class="form-group">
+                            <label class="text-white" for="username">Username</label>
+                            <input class="form-control" name="username" type="text" id="username" th:field="*{username}" th:value="*{username}">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white" for="email">Email</label>
+                            <input class="form-control" name="email" type="text" id="email" th:field="*{email}" th:value="*{email}">
+                        </div>
+                        <div class="form-group">
+                            <label class="text-white" for="password">Password</label>
+                            <input class="form-control" id="password" type="password" th:field="*{password}" th:value="*{password}">
+                        </div>
+
+                        <input id="isOwner" th:field="*{ownsBusiness}" th:value="*{ownsBusiness}" hidden>
+                <button type="submit" class="btn btn-primary p-0 mt-2 m-auto">Submit</button>
+        </form>
+    </div>
+</div>
+
+<footer th:replace="partials :: footer"></footer>
+
+
+
+</body>
+</html>
