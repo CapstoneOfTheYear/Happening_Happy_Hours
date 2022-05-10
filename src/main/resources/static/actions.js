@@ -11,7 +11,7 @@ function openPicker() {
     client.pick({
         accept: 'image/*',
         maxFiles: 1,
-    }).then(function(result) {
+    }).then(function (result) {
         console.log(JSON.stringify(result));
         watermarkHandle = result.filesUploaded[0].handle;
         console.log(watermarkHandle);
