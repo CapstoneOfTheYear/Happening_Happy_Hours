@@ -13,18 +13,24 @@
 <body>
 <div class="container map-container">
     <div class="row">
-        <div class="col-lg-9">
-            <div id='map'></div>
+        <div class=" d-flex row justify-content-center col-lg-9">
+            <div class="container" id='map'>
+                <link rel='stylesheet'
+                      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+                      type='text/css'/>
+                <pre id="coordinates" class="coordinates"></pre>
+                <input class="search" id="userInput" type="text">
+                <button id="button" type="button">Search</button>
+            </div>
+                <div class="zoom-container" id="menu">
+
+                    <label class="zoom-label label">ZOOM</label>
+
+                    <button id="zoom5" value="zoom x 5">X 5</button>
+                    <button id="zoom10" value="zoom x 10">X 10</button>
+                    <button id="zoom15" value="zoom x 15">X 15</button>
+                </div>
         </div>
-        <style>
-            .marker {
-                background-image: url('https://i.ibb.co/bJz3x34/H3-Map-Logo.png');
-                background-size: cover;
-                width: 7%;
-                height: 5%;
-                cursor: pointer;
-            }
-        </style>
         <div class="reviews d-flex flex-column align-items-center col-lg-3">
             <div th:each="business : ${business}"
                  class="card-item card-deck mx-4 my-4"
@@ -36,78 +42,113 @@
                         <button class="btn btn-primary mx-2 my-2" type="button" id="location"
                                 th:text="${business.location  + ', ' + business.city  }"></button>
                         <button class="btn btn-primary mx-2 my-2" type="button" id="view-business"
-                                href="/viewBusiness">Check Me Out</button>
-                    </div>
+                                href="/viewBusiness">Check Me Out
+                        </button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script th:inline="javascript">
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script th:inline="javascript">
 
-        var mapKey = [[${apiKey}]];
-        mapboxgl.accessToken = mapKey;
+    var mapKey = [[${apiKey}]];
+    mapboxgl.accessToken = mapKey;
+    const layerList = document.getElementById('menu');
+    const inputs = layerList.getElementsByTagName('input');
 
-        const geojson = {
-            'type': 'FeatureCollection',
-            'features': [
-                {
-                    'type': 'Feature',
-                    'geometry': {
-                        'type': 'Point',
-                        'coordinates': [-98.4916, 29.4260]
-                    }
-                }
-            ]
-        }
+    for (const input of inputs) {
+        input.onclick = (layer) => {
+            const layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        };
+    }
+    const nav = new mapboxgl.NavigationControl({
+        showZoom: true
+    });
 
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-98.4916, 29.4252],
-            zoom: 10
+    $(document).ready(function () {
+        $('#zoom5').click(function (e) {
+            map.flyTo({zoom: 5});
         });
+        $(document).ready(function () {
+            $('#zoom10').click(function (e) {
+                map.flyTo({zoom: 10});
+            });
+            $(document).ready(function () {
+                $('#zoom15').click(function (e) {
+                    map.flyTo({zoom: 15});
+                })
+            });
+        });
+    });
 
-        var marker = new mapboxgl.Marker()
-            .setLngLat([-98.4916, 29.4260])
-            .addTo(map);
+
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('svg').toggle()
+        });
+    });
+
+    const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-98.4916, 29.4260]
+                }
+            }
+        ]
+    }
+
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 10
+    });
+
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
 
 
+    // Add markers to the map.
 
-// Add markers to the map.
+    const geocode = (input) => {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${mapKey}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                try {
+                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
 
-            const geocode = (input) => {
-                fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${mapKey}`)
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        try {
-                            map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-
-                        } catch (e) {
-                            console.log(e);
-                        }
-                        for (const feature of geojson.features) {
+                } catch (e) {
+                    console.log(e);
+                }
+                for (const feature of geojson.features) {
 // create a HTML element for each feature
-                            const el = document.createElement('div');
-                            el.className = 'marker';
+                    const el = document.createElement('div');
+                    el.className = 'mapMarker';
 
 // make a marker for each feature and add it to the map
-                            new mapboxgl.Marker(el)
-                                .setLngLat(data.features[0].center).addTo(map);
-                            // new mapboxgl.Marker().setLngLat(data.features[0].center).addTo(map);
-                        }
-                    })
-            }
-            $(document).on("click", "#location", function () {
-                console.log(this.innerText)
-                geocode(this.innerText)
+                    new mapboxgl.Marker(el)
+                        .setLngLat(data.features[0].center).addTo(map);
 
+                }
             })
+    }
+    $(document).on("click", "#location", function () {
+        console.log(this.innerText)
+        geocode(this.innerText)
 
-    </script>
+    })
+
+</script>
 </body>
 <footer th:replace="partials :: footer"></footer>
 </html>
