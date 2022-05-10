@@ -13,12 +13,27 @@
 <body>
 <div class="container map-container">
     <div class="row">
-        <div class="col-lg-9">
-            <div id='map'></div>
+        <div class=" d-flex row justify-content-center col-lg-9">
+            <div class="container" id='map'>
+                <link rel='stylesheet'
+                      href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+                      type='text/css'/>
+                <pre id="coordinates" class="coordinates"></pre>
+                <input class="search" id="userInput" type="text">
+                <button id="button" type="button">Search</button>
+            </div>
+                <div class="zoom-container" id="menu">
+
+                    <label class="zoom-label label">ZOOM</label>
+
+                    <button id="zoom5" value="zoom x 5">X 5</button>
+                    <button id="zoom10" value="zoom x 10">X 10</button>
+                    <button id="zoom15" value="zoom x 15">X 15</button>
+                </div>
         </div>
         <div class="reviews d-flex flex-column align-items-center col-lg-3">
             <div th:each="business : ${business}"
-                 class="card-item card-deck justify-content-center mx-4 my-4"
+                 class="card-item card-deck mx-4 my-4"
                  style="overflow-y: auto;">
                 <div th:each="business : ${business}">
                     <p th:text="${business.getName()}" class="text-center text-white"></p>
@@ -29,246 +44,112 @@
                         <a class="btn btn-primary mx-2 my-2" type="button" id="view-business"
                                 href="/business">Check Me Out</a>
 
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-    <script th:inline="javascript">
-        // const key = document.getElementById("api").value;
-        var mapKey = [[${apiKey}]];
-        mapboxgl.accessToken = mapKey;
-        var map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/streets-v11',
-            center: [-98.4916, 29.4252],
-            zoom: 10
+</div>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script th:inline="javascript">
+
+    var mapKey = [[${apiKey}]];
+    mapboxgl.accessToken = mapKey;
+    const layerList = document.getElementById('menu');
+    const inputs = layerList.getElementsByTagName('input');
+
+    for (const input of inputs) {
+        input.onclick = (layer) => {
+            const layerId = layer.target.id;
+            map.setStyle('mapbox://styles/mapbox/' + layerId);
+        };
+    }
+    const nav = new mapboxgl.NavigationControl({
+        showZoom: true
+    });
+
+    $(document).ready(function () {
+        $('#zoom5').click(function (e) {
+            map.flyTo({zoom: 5});
         });
-
-        var marker = new mapboxgl.Marker()
-            .setLngLat([-98.4916, 29.4260])
-            .addTo(map);
-
-        const geocode = (input) => {
-            fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${mapKey}`)
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                    try {
-                        map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
-                    } catch (e) {
-                        console.log(e);
-                    }
-                })
-        }
-        $(document).on("click", "#location", function () {
-            console.log(this.innerText)
-            geocode(this.innerText)
-        })
-    </script>
-    <!--<input type="hidden" th:value="${apiKey}" id="api">-->
-
-    <!--<div id='map'></div>
-
-    <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.min.js"></script>
-    <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v5.0.0/mapbox-gl-geocoder.css" type="text/css">
-
-    <div class="row">
-        <div class="card-body" id="location"></div>
-    </div>
-    <pre id="coordinates" class="coordinates"></pre>
-    &lt;!&ndash;<input class="search" id="userInput" type="text">&ndash;&gt;
-    &lt;!&ndash;<button id="button" type="button">Search</button>&ndash;&gt;
-    <div id="menu">
-        <input id="satellite-v9" type="radio" name="rtoggle" value="satellite">
-        <label class="map-style" for="satellite-v9">Satellite</label>
-        <input id="light-v10" type="radio" name="rtoggle" value="light">
-        <label class="map-style" for="light-v10">Light</label>
-        <input id="dark-v10" type="radio" name="rtoggle" value="dark" checked="checked">
-        <label class="map-style" for="dark-v10">Dark</label>
-        <input id="streets-v11" type="radio" name="rtoggle" value="streets">
-        <label class="map-style" for="streets-v11">Streets</label>
-        <input id="outdoors-v11" type="radio" name="rtoggle" value="outdoors">
-        <label class="map-style" for="outdoors-v11">Outdoors</label>
-    </div>
-
-    <div id="weather"></div>
-
-    <script src="../actions.js"></script>
-    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.0/mapbox-gl.js'></script>
-    <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.min.js'></script>
-    <link rel='stylesheet'
-          href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-          type='text/css'/>
-    <div class="btn">
-        <label class="zoom">ZOOM</label>
-        <button id="zoom5" value="zoom x 5">X 5</button>
-        <button id="zoom10" value="zoom x 10">X 10</button>
-        <button id="zoom15" value="zoom x 15">X 15</button>
-    &lt;!&ndash;    <button class="removeMarkers" id="pop" value="popup">Remove Markers</button>&ndash;&gt;
-    </div>
-    <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI="
-            crossorigin="anonymous"></script>
-    <script>
-        mapboxgl.accessToken = token;
-        var accessToken = token;
-        const coordinates = document.getElementById('coordinates');
-        const map = new mapboxgl.Map({
-            container: 'map',
-            style: 'mapbox://styles/mapbox/dark-v10',
-            center: [-98.4916, 29.4252],
-            zoom: 8
-        });
-        const layerList = document.getElementById('menu');
-        const inputs = layerList.getElementsByTagName('input');
-
-        for (const input of inputs) {
-            input.onclick = (layer) => {
-                const layerId = layer.target.id;
-                map.setStyle('mapbox://styles/mapbox/' + layerId);
-            };
-        }
-        const nav = new mapboxgl.NavigationControl({
-            showZoom: true
-        });
-
         $(document).ready(function () {
-            $('#zoom5').click(function (e) {
-                map.flyTo({zoom: 5});
+            $('#zoom10').click(function (e) {
+                map.flyTo({zoom: 10});
             });
             $(document).ready(function () {
-                $('#zoom10').click(function (e) {
-                    map.flyTo({zoom: 10});
-                });
-                $(document).ready(function () {
-                    $('#zoom15').click(function (e) {
-                        map.flyTo({zoom: 15});
-                    })
-                });
-            });
-        });
-
-
-        $(document).ready(function () {
-            $(".removeMarkers").click(function () {
-                $('svg').toggle()
-            });
-        });
-
-        $.get("http://api.openweathermap.org/data/2.5/forecast", {
-            APPID: weathertoken,
-            lat:    29.423017,
-            lon:   -98.48527,
-            units: "imperial"
-        }).done(function(data) {
-            console.log('5 day forecast', data);
-        })
-
-        const marker = new mapboxgl.Marker({
-            draggable: true
-        })
-            .setLngLat([-98.4916, 29.4252])
-            .addTo(map);
-
-        function onDragEnd() {
-            const lngLat = marker.getLngLat();
-            coordinates.style.display = 'block';
-            coordinates.innerHTML = `Longitude: ${lngLat.lng}<br />Latitude: ${lngLat.lat}`;
-        }
-
-        const geocoder = new MapboxGeocoder({
-            mapboxgl: mapboxgl,
-            accessToken: mapboxgl.accessToken,
-            marker: false
-        })
-
-        geocoder.on('result', e => {
-            const marker = new mapboxgl.Marker({
-                draggable: true
-            })
-                .setLngLat(e.result.center)
-                .addTo(map)
-            marker.on('dragend', function (e) {
-                var lngLat = e.target.getLngLat();
-                console.log(lngLat['lat'])
-                console.log(lngLat['lng'])
-            })
-        })
-        // map.addControl(geocoder)
-
-        marker.on('dragend', function() {
-            var lat = marker.getLngLat().lat
-            var lng = marker.getLngLat().lng
-            var currentLocation = [lat, lng]
-            console.log(currentLocation);
-            $('#weather').empty();
-            weather(currentLocation)
-        })
-        //search function
-        $('#button').click(function(e){
-            var userInput = $('#userInput').val()
-            console.log(userInput);
-            var searchLocation = geocode(userInput, token);
-            searchLocation.then(function(coordinates){
-                console.log(coordinates)
-                var searchLat = coordinates[0];
-                var searchLng = coordinates[1];
-                var userCoordinates = [searchLat, searchLng];
-                console.log(userCoordinates);
-                $('#weather').empty();
-                marker.setLngLat(userCoordinates);
-                weather([searchLng, searchLat]);
-
-                map.flyTo({
-                    center:[coordinates[0], coordinates[1]]
+                $('#zoom15').click(function (e) {
+                    map.flyTo({zoom: 15});
                 })
             });
-        })
-
-        function weather(x) {
-            $.ajax(`https://api.openweathermap.org/data/2.5/onecall?units=imperial&lat=${x[0]}&lon=${x[1]}&exclude=current, hourly, minutely&appID=${weathertoken}`).done(function (resp) {
-                console.log(resp)
-
-                for (var i = 0; i <= 4; i++) {
-                    var todayDate = new Date(resp.daily[i].dt * 1000).toDateString();
-                    var weatherDiv = '';
-                    console.log(todayDate);
-                    var currentTemp = resp.daily[i].temp.day.toFixed(0);
-                    weatherDiv += '<div class="card col-5 card-header" style="width: 18em;">' + todayDate
-                    weatherDiv += '<div class="list-group-item">' + "Current Temperature: " + currentTemp + '</div>'
-                    weatherDiv += '<div class="list-group-item">' + "Description: " + resp.daily[i].weather[0].description + '</div>'
-                    weatherDiv += '<div class="list-group-item">' + '<img src=http://openweathermap.org/img/w/' + resp.daily[0].weather[0].icon + '.png></div>'
-                    weatherDiv += '<div class="list-group-item">' + "Humidity %" + resp.daily[i].humidity + '</div>'
-                    weatherDiv += '<div class="list-group-item">' + "Wind Speed: " + resp.daily[i].wind_speed + '</div>'
-                    weatherDiv += '<div class="list-group-item">' + "Pressure: " + resp.daily[i].pressure + '</div>'
-                    weatherDiv += '</div>'
-                    weatherDiv += '</div>'
+        });
+    });
 
 
-                    $('#weather').append(weatherDiv);
-                    console.log(weatherDiv);
+    $(document).ready(function () {
+        $(".removeMarkers").click(function () {
+            $('svg').toggle()
+        });
+    });
+
+    const geojson = {
+        'type': 'FeatureCollection',
+        'features': [
+            {
+                'type': 'Feature',
+                'geometry': {
+                    'type': 'Point',
+                    'coordinates': [-98.4916, 29.4260]
                 }
-            });
-        }
+            }
+        ]
+    }
 
-        var saCoordinates = [29.4241, -98.4936];
-        weather(saCoordinates);
+    var map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [-98.4916, 29.4252],
+        zoom: 10
+    });
 
-        function geocode(search, token) {
-            var baseUrl = 'https://api.mapbox.com';
-            var endPoint = '/geocoding/v5/mapbox.places/';
-            return fetch(baseUrl + endPoint + encodeURIComponent(search) + '.json' + "?" + 'access_token=' + token)
-                .then(function (res) {
-                    return res.json();
-                    // to get all the data from the request, comment out the following three lines...
-                }).then(function (data) {
-                    return data.features[0].center;
-                });
-        }
-    </script>-->
+    var marker = new mapboxgl.Marker()
+        .setLngLat([-98.4916, 29.4260])
+        .addTo(map);
+
+
+    // Add markers to the map.
+
+    const geocode = (input) => {
+        fetch(`https://api.mapbox.com/geocoding/v5/mapbox.places/${input}.json?&access_token=${mapKey}`)
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                try {
+                    map.flyTo({center: data.features[0].center, essential: true, zoom: 15})
+
+                } catch (e) {
+                    console.log(e);
+                }
+                for (const feature of geojson.features) {
+// create a HTML element for each feature
+                    const el = document.createElement('div');
+                    el.className = 'mapMarker';
+
+// make a marker for each feature and add it to the map
+                    new mapboxgl.Marker(el)
+                        .setLngLat(data.features[0].center).addTo(map);
+
+                }
+            })
+    }
+    $(document).on("click", "#location", function () {
+        console.log(this.innerText)
+        geocode(this.innerText)
+
+    })
+
+</script>
 </body>
 <footer th:replace="partials :: footer"></footer>
-
 </html>
