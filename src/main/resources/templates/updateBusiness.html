@@ -1,17 +1,17 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
-<header th:include="partials :: header(title = 'Register')"></header>
+<header th:include="partials :: header(title = 'Edit Account')"></header>
 
 
 
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1 class="mb-3 text-center">Create an Account</h1>
+<h1 class="mb-3 text-center">Edit Account</h1>
 <div class="container">
     <div class="row">
-        <form th:action="@{/register}" method="post">
+        <form th:action="@{'/updateBusiness/{id}'(id = ${business.id})}" method="post" th:object="${business}">
 
 <!--            <div class="form-group">-->
 <!--                <label class="text-white" for="username">Username</label>-->
@@ -29,7 +29,7 @@
 <!--            <input id="isOwner" th:value="*{ownsBusiness}" hidden>-->
 
 
-            <div class="row g-3" th:object="${business}">
+            <div class="row g-3" >
 
                 <div class="col-md-6">
                     <label for="name" class="form-label">Business name</label>
@@ -46,8 +46,8 @@
                 </div>
                 <div class="col-md-3">
                     <label for="state" class="form-label">State</label>
-                    <select id="state" class="form-select" th:selected="*{state}" >
-                        <option selected disabled value="">Choose...</option>
+                    <select id="state" name="state" class="form-select" th:selected="*{state}" >
+                        <option disabled value="">Choose...</option>
                         <option value="AL">Alabama</option>
                         <option value="AK">Alaska</option>
                         <option value="AZ">Arizona</option>

@@ -9,9 +9,8 @@ import com.capstone.happening_happy_hours.repositories.ReviewRepository;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -51,9 +50,13 @@ public class BusinessController {
    }
 
 
-    @PostMapping("/updateBusiness")
-    public String postUpdateProfile(Model model){
-
+    @PostMapping("/updateBusiness/{id}")
+    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id){
+        if (result.hasErrors()) {
+            business.setId(id);
+            return "updateBusiness";
+        }
+        businessDao.save(business);
        return "redirect: businessProfile";
     }
 
