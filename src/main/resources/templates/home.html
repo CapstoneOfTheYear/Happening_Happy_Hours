@@ -28,6 +28,7 @@
                 <button id="zoom15" value="zoom x 15">X 15</button>
             </div>
         </div>
+
     </div>
     <div class="reviews">
         <div th:each="business : ${business}"
@@ -38,8 +39,9 @@
                 <div class="card-body text-center ">
                     <button class="btn btn-primary mx-1 my-1" type="button" id="location"
                             th:text="${business.location  + ', ' + business.city  }"></button>
-                    <a class="btn btn-primary mx-1 my-1" type="button" id="view-business"
-                       href="/business">Check Me Out</a>
+                    <a class="btn btn-primary mx-2 my-2" type="button" id="view-business"
+                       th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
+                    </div>
                 </div>
             </div>
         </div>

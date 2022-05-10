@@ -271,4 +271,12 @@ public class Business {
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
     }
+
+    public double avgRating(){
+        double sum = 0;
+        for (Review review : reviews){
+            sum += review.getScore();
+        }
+        return sum / reviews.size();
+    }
 }

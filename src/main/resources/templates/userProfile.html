@@ -7,17 +7,17 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1>Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.</h1>
+<h1 style="text-align: center" class="my-4">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.</h1>
 
 <div class="container">
     <div class="row gx-lg-5">
             <div class="card col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
                 <div class="card-body">
-                    <h4 class="card-title" th:text="${review.getBusiness().name}"></h4>
+                    <h4 class="card-title" style="text-align: center" th:text="${review.getBusiness().name}"></h4>
                     <br>
-                    <h5 class="card-text" th:text="${review.body}"></h5>
+                    <h5 class="card-text" style="text-align: center" th:text="${review.body}"></h5>
                     <br>
-                    <p class="reviewScore" th:text="${review.getScore()}"></p>
+                    <p class="reviewScore" style="text-align: center" th:text="${review.getScore()}"> / 5.0</p>
                 </div>
             </div>
     </div>

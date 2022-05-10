@@ -1,7 +1,9 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
 body {
     background-color: black;
 }
+
 #myVideo {
     width: 100%;
     height: 92%;
@@ -181,6 +183,7 @@ p.h6 {
     z-index: auto;
     float: right;
 
+
 }
 .reviews {
     float: left;
@@ -234,6 +237,29 @@ footer {
 }
 
 
+#menu.zoom-container {
+
+    font-weight: bolder;
+    position: absolute;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    /*top: 775px;*/
+    /ll*bottom: 0;*/
+    /*left: 60PX;*/
+
+    position: fixed;
+    font-weight: bolder;;
+
+    height: 40px;
+    width: 350px;
+    font-size: 16px;
+    color: #e34500 !important;
+    top: 750px;
+    z-index: 3;
+
+
+}
 
 
 button {
@@ -267,6 +293,7 @@ button {
 .list-group-item {
     text-align: center;
 }
+
 .search {
     position: absolute;
     top: 22px;
@@ -277,6 +304,7 @@ button {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     z-index: auto;
 }
+
 
 #button {
     position: absolute;
@@ -325,16 +353,19 @@ h1, h2, h3, header, title, label {
     justify-items: center;
     align-items: center;
 }
+
 .zoom-label:hover {
     color: #e34500;
 
 
 }
+
 #zoom5 {
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
     color: #0d0da6;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
+
 #zoom5:hover {
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
     color: #e34500;
@@ -346,6 +377,7 @@ h1, h2, h3, header, title, label {
     color: #0d0da6;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
+
 #zoom10:hover {
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
     color: #e34500;
@@ -357,6 +389,7 @@ h1, h2, h3, header, title, label {
     color: #0d0da6;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
+
 #zoom15:hover {
     color: #e34500;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
