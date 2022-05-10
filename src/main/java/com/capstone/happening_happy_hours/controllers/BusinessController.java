@@ -29,11 +29,12 @@ public class BusinessController {
     @GetMapping("/profile/business")
     public String businessProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        List <Review> reviews = user.getBusiness().getReviews();
+//        List <Review> reviewsRating = user.getBusiness().getReviews();
         if (user.getOwnsBusiness()){
             Business business = businessDao.getBusinessByUser(user);
             model.addAttribute("business", business);
-            model.addAttribute("reviews", reviews);
+            model.addAttribute("reviews", reviewDao.findAllByBusinessId(business.getId()));
+//            model.addAttribute("reviewsRating", reviewsRating);
         }
         return "businessProfile";
     }
