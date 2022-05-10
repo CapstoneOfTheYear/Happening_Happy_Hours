@@ -22,11 +22,12 @@
                             th:text="${business.getState()}"></span>, <span
                             th:text="${business.getPostal_code()}"></span></p>
                     <h5 class="mt-3">Happy Hours</h5>
-                    <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span
-                            th:text="${business.getEnding_hour()}"></span></p>
+
+                    <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span th:text="${business.getEnding_hour()}"></span></p>
+                    <p><span th:text="${business.avgRating()}"></span> / 5.0 </p>
                     <div class="card-body">
-                        <a href="/updateBusiness" class="card-link text-center">Edit Profile</a>
-                    </div>
+                    <a href="#" class="card-link text-center">Edit Profile</a>
+
                 </div>
             </div>
         </div>
@@ -38,6 +39,9 @@
                     <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
                     <p class="card-text" th:text="${review.body}"></p>
                 </div>
+
+                <span th:text="${review.getScore()}"></span>
+
             </div>
             <!--            <span th:text="${#aggregates.avg(reviewsRating.score)}"></span>-->
 
