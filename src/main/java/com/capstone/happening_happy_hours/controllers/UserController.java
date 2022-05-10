@@ -10,6 +10,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -57,5 +58,24 @@ public class UserController {
             businessDao.save(business);
         }
         return "redirect:/login";
+    }
+
+    @GetMapping("/updateProfile")
+    public String updateProfile(Model model){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user2 = userDao.getById(user.getId());
+        model.addAttribute("user", user2);
+        return "updateUser";
+    }
+
+    @PostMapping("/updateProfile/{id}")
+    public String updateUser (Model model, @ModelAttribute User user, BindingResult result, @PathVariable long id){
+        user.setId(id);
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        System.out.println("user.getUsername() = " + user.getUsername());
+        System.out.println("user.getEmail() = " + user.getEmail());
+        userDao.save(user);
+        return "redirect:/profile/user";
     }
 }
