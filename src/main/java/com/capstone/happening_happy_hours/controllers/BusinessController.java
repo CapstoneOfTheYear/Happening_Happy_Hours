@@ -63,8 +63,11 @@ public class BusinessController {
             business.setId(id);
             return "updateBusiness";
         }
+        System.out.println("business.getName() = " + business.getName());
+        System.out.println("business.getLocation() = " + business.getLocation());
+        System.out.println("business.getCity() = " + business.getCity());
         businessDao.save(business);
-       return "redirect: businessProfile";
+       return "redirect:/profile/business";
     }
 
     @GetMapping("/business/{id}")
