@@ -63,6 +63,27 @@ public class Business {
     @OneToMany(mappedBy = "business")
     private List<Review> reviews;
 
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames, User user, List<Review> reviews) {
+        this.id = id;
+        this.name = name;
+        this.location = location;
+        this.state = state;
+        this.city = city;
+        this.postal_code = postal_code;
+        this.starting_hour = starting_hour;
+        this.ending_hour = ending_hour;
+        this.dogsAllowed = dogsAllowed;
+        this.pool = pool;
+        this.darts = darts;
+        this.liveMusic = liveMusic;
+        this.karaoke = karaoke;
+        this.cornHole = cornHole;
+        this.servesFood = servesFood;
+        this.otherGames = otherGames;
+        this.user = user;
+        this.reviews = reviews;
+    }
+
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
     private List<BusinessImage> businessImages;
 
@@ -241,5 +262,13 @@ public class Business {
 
     public void setBusinessImages(List<BusinessImage> businessImages) {
         this.businessImages = businessImages;
+    }
+
+    public List<Review> getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(List<Review> reviews) {
+        this.reviews = reviews;
     }
 }

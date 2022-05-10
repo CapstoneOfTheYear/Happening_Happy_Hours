@@ -41,9 +41,10 @@
                     <div class="card-body text-center ">
                         <button class="btn btn-primary mx-2 my-2" type="button" id="location"
                                 th:text="${business.location  + ', ' + business.city  }"></button>
-                        <button class="btn btn-primary mx-2 my-2" type="button" id="view-business"
-                                href="/viewBusiness">Check Me Out
-                        </button>
+                        <a class="btn btn-primary mx-2 my-2" type="button" id="view-business"
+                                href="/business">Check Me Out</a>
+
+
                     </div>
                 </div>
             </div>
