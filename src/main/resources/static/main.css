@@ -245,7 +245,7 @@ footer {
     align-content: center;
     justify-content: center;
     /*top: 775px;*/
-    /ll*bottom: 0;*/
+    bottom: 0;
     /*left: 60PX;*/
 
     position: fixed;
