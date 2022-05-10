@@ -261,6 +261,7 @@ footer {
 
 }
 
+
 button {
     border-radius: 25px;
     background-color: #0d0da6;
@@ -327,8 +328,23 @@ h1, h2, h3, header, title, label {
 
 .card-about {
     height: auto !important;
+}
+.trademark:hover {
+    color: #e34500;
+}
+#menu.zoom-container {
+    position: fixed;
+    font-weight: bolder;
+    height: 40px;
+    width: 350px;
+    font-size: 16px;
+    color: #e34500 !important;
+    top: 700px;
+    z-index: 3;
+
 
 }
+
 
 .zoom-label {
     color: #0d0da6;
