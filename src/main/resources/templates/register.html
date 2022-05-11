@@ -21,7 +21,7 @@
 <div class="container">
     <div class="row">
         <form th:action="@{/register}" method="post" th:object="${user}">
-<!--             container for acct type & email-->
+            <!--             container for acct type & email-->
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -42,7 +42,7 @@
                     </div>
                 </div>
             </div>
-<!-- container for username & pass -->
+            <!-- container for username & pass -->
             <div class="container">
                 <div class="row">
                     <div class="col">
@@ -60,7 +60,7 @@
                 </div>
             </div>
 
-<!--container for the hidden sections -->
+            <!--container for the hidden sections -->
             <div class="container">
                 <div class="row">
                     <input id="isOwner" th:field="*{ownsBusiness}" value="false" hidden>
@@ -82,7 +82,7 @@
                             </div>
                             <div class="col-md-3">
                                 <label for="state" class="form-label h4">State</label>
-                                <select id="state" class="form-select" th:field="*{state}">
+                                <select id="state" class="form-select h4" th:field="*{state}">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="AL">Alabama</option>
                                     <option value="AK">Alaska</option>
@@ -224,7 +224,7 @@
                             <input class="btn btn-primary p-1 mt-2 m-auto" type="BUTTON" name="Pick photo" value="Upload Photo" id="photoPicker" onclick="openPhotoPicker()">
                         </div>
 
-                        <button type="submit" class="btn btn-primary p-0 mt-2 m-auto ">Submit</button>
+                        <button type="submit" class="btn btn-primary p-0 mt-2 m-auto">Submit</button>
                     </div>
                 </div>
             </div>
@@ -232,13 +232,6 @@
         </form>
     </div>
 </div>
-
-
-
-
-
-
-
 
 <footer th:replace="partials :: footer"></footer>
 <script>
