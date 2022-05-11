@@ -40,7 +40,7 @@ public class BusinessController {
             Business business = businessDao.getBusinessByUser(user);
             model.addAttribute("business", business);
             model.addAttribute("reviews", reviewDao.findAllByBusinessId(business.getId()));
-
+            model.addAttribute("images", business.getBusinessImages());
         }
         return "businessProfile";
     }
