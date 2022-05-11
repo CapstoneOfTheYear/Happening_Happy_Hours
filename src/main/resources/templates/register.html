@@ -20,12 +20,12 @@
 <!-- create an account page container for consumers-->
 <div class="container">
     <div class="row">
-        <div th:action="@{/register}" method="post" th:object="${user}">
+        <form th:action="@{/register}" method="post" th:object="${user}">
 <!--             container for acct type & email-->
             <div class="container">
                 <div class="row">
                     <div class="col">
-                        <label class="text-white h3" for="accountType">Account Type</label>
+                        <label class="text-white h4" for="accountType">Account Type</label>
                         <select class="form-select col-md-4" aria-label="Default select example" id="accountType">
                             <option class="text-white" value="consumer" selected>Consumer</option>
                             <option class="text-white" value="business">Business</option>
@@ -34,7 +34,7 @@
                     <div class="col">
                         <div class="col-12" id="consumer">
                             <div class="form-group">
-                                <label class="text-white" for="username">Username</label>
+                                <label class="text-white h4" for="username">Username</label>
                                 <input class="form-control" name="username" type="text" id="username"
                                        th:field="*{username}">
                             </div>
@@ -47,13 +47,13 @@
                 <div class="row">
                     <div class="col">
                         <div class="form-group">
-                            <label class="text-white" for="email">Email</label>
+                            <label class="text-white h4" for="email">Email</label>
                             <input class="form-control" name="email" type="text" id="email" th:field="*{email}">
                         </div>
                     </div>
                     <div class="col">
                         <div class="form-group">
-                            <label class="text-white" for="password">Password</label>
+                            <label class="text-white h4" for="password">Password</label>
                             <input class="form-control" id="password" type="password" th:field="*{password}">
                         </div>
                     </div>
@@ -68,20 +68,20 @@
                         <div class="row g-3" th:object="${business}">
 
                             <div class="col-md-6">
-                                <label for="name" class="form-label">Business name</label>
+                                <label for="name" class="form-label h4">Business name</label>
                                 <input id="name" type="text" class="form-control" th:field="*{name}">
                             </div>
                             <div class="col-md-6">
-                                <label for="address" class="form-label">Address</label>
+                                <label for="address" class="form-label h4">Address</label>
                                 <input id="address" type="text" class="form-control" th:field="*{location}">
 
                             </div>
                             <div class="col-md-6">
-                                <label for="city" class="form-label">City</label>
+                                <label for="city" class="form-label h4">City</label>
                                 <input id="city" type="text" class="form-control" th:field="*{city}">
                             </div>
                             <div class="col-md-3">
-                                <label for="state" class="form-label">State</label>
+                                <label for="state" class="form-label h4">State</label>
                                 <select id="state" class="form-select" th:field="*{state}">
                                     <option selected disabled value="">Choose...</option>
                                     <option value="AL">Alabama</option>
@@ -138,7 +138,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="zip" class="form-label">Zip Code</label>
+                                <label for="zip" class="form-label h4">Zip Code</label>
                                 <input id="zip" type="text" class="form-control" th:field="*{postal_code}">
                             </div>
                             <div class="col-6 row">
@@ -217,11 +217,19 @@
                             </div>
                         </div>
                     </div>
+                    <div class="d-flex flex-row businessImages">
+                    </div>
+                    <div class="d-flex flex-row">
+                        <div>
+                            <input class="btn btn-primary p-1 mt-2 m-auto" type="BUTTON" name="Pick photo" value="Upload Photo" id="photoPicker" onclick="openPhotoPicker()">
+                        </div>
 
+                        <button type="submit" class="btn btn-primary p-0 mt-2 m-auto ">Submit</button>
+                    </div>
                 </div>
             </div>
 
-        </div>
+        </form>
     </div>
 </div>
 
