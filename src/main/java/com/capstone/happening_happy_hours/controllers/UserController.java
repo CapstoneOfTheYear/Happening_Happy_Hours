@@ -49,12 +49,14 @@ public class UserController {
     }
 
     @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business) {
+    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business, @RequestParam String imageUrl) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
         if (user.getOwnsBusiness()) {
             user.setBusinesses(business);
+            business.setBusinessImages(imageUrl);
+            System.out.println(imageUrl);
             businessDao.save(business);
         }
         return "redirect:/login";
