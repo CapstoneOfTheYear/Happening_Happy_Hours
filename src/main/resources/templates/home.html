@@ -34,12 +34,12 @@
         <div th:each="business : ${business}"
              class="card-item card-deck">
             <div th:each="business : ${business}">
-                <p th:text="${business.getName()}" class="text-center text-white"></p>
+                <p th:text="${business.getName()}" class="text-center text-white h3 justify-content-center mt-3"></p>
                 <!-- <img th:src="${business.images}" class="card-img-top" alt="...">?-->
                 <div class="card-body text-center ">
-                    <button class="btn btn-primary mx-1 my-1" type="button" id="location"
+                    <button class="btn btn-primary mx-1 my-1 w-100 justify-content-center" type="button" id="location"
                             th:text="${business.location  + ', ' + business.city  }"></button>
-                    <a class="btn btn-primary mx-2 my-2" type="button" id="view-business"
+                    <a class="btn btn-primary mx-2 my-2 w-100" type="button" id="view-business"
                        th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
                     </div>
                 </div>
