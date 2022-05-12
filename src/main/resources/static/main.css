@@ -343,6 +343,12 @@ h1, h2, h3, header, title, label {
 .trademark:hover {
     color: #e34500;
 }
+
+.mapboxgl-popup {
+    max-width: 400px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+
 #menu.zoom-container {
     position: fixed;
     font-weight: bolder;
