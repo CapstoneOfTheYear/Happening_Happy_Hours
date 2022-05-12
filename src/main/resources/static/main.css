@@ -63,7 +63,7 @@ body {
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
-    color: #e34500 !important;
+    color: #ffffff !important;
 }
 
 .navbar-dark span.navbar-toggler-icon {
@@ -73,7 +73,17 @@ body {
 .btn {
     justify-content: center;
     color: #ffffff !important;
+    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+}
 
+#sub-btn {
+    width: 120px;
+    height: 35px;
+}
+
+#photoPicker {
+    width: 120px;
+    height: 35px;
 }
 
 .btn:hover {
@@ -82,8 +92,9 @@ body {
 }
 
 #location {
-    height: 65px;
-    width: 180px;
+    height: 75px;
+    width: 300px;
+
 }
 
 .section {
