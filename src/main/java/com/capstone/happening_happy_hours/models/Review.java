@@ -87,6 +87,7 @@ public class Review {
     public void setScore(double score) { this.score = score; }
 
 
-
-
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
 }

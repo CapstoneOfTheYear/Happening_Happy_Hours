@@ -6,6 +6,7 @@ import com.capstone.happening_happy_hours.models.Review;
 import com.capstone.happening_happy_hours.models.User;
 import com.capstone.happening_happy_hours.repositories.BusinessRepository;
 import com.capstone.happening_happy_hours.repositories.ReviewRepository;
+import com.capstone.happening_happy_hours.repositories.UserRepository;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -25,18 +26,20 @@ import java.util.List;
 public class BusinessController {
     BusinessRepository businessDao;
     ReviewRepository reviewDao;
+    UserRepository userDao;
 
-   public BusinessController (BusinessRepository businessDao, ReviewRepository reviewDao){
-       this.businessDao = businessDao;
-       this.reviewDao = reviewDao;
-   }
+    public BusinessController(BusinessRepository businessDao, ReviewRepository reviewDao, UserRepository userDao) {
+        this.businessDao = businessDao;
+        this.reviewDao = reviewDao;
+        this.userDao = userDao;
+    }
 
 
     @GetMapping("/profile/business")
     public String businessProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 
-        if (user.getOwnsBusiness()){
+        if (user.getOwnsBusiness()) {
             Business business = businessDao.getBusinessByUser(user);
             model.addAttribute("business", business);
             model.addAttribute("reviews", reviewDao.findAllByBusinessId(business.getId()));
@@ -47,17 +50,17 @@ public class BusinessController {
 
 
     @GetMapping("/updateBusiness")
-    public String updateProfile(Model model){
+    public String updateProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Business business = businessDao.getBusinessByUser(user);
         model.addAttribute("user", user);
         model.addAttribute("business", business);
         return "updateBusiness";
-   }
+    }
 
 
     @PostMapping("/updateBusiness/{id}")
-    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id){
+    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id) {
         if (result.hasErrors()) {
             business.setId(id);
             return "updateBusiness";
@@ -66,7 +69,7 @@ public class BusinessController {
         System.out.println("business.getLocation() = " + business.getLocation());
         System.out.println("business.getCity() = " + business.getCity());
         businessDao.save(business);
-       return "redirect:/profile/business";
+        return "redirect:/profile/business";
     }
 
     @GetMapping("/business/{id}")
@@ -74,10 +77,24 @@ public class BusinessController {
         Business business = businessDao.getBusinessById(Long.parseLong(id));
         model.addAttribute("business", business);
         model.addAttribute("reviews", reviewDao.findAllByBusinessId(business.getId()));
-
+        model.addAttribute("review", new Review());
         return "viewBusiness";
     }
 
+    @PostMapping("/review/{id}")
+    public String postReview(Model model, @PathVariable long id, Review review) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user2 = userDao.getById(user.getId());
+        Business business = businessDao.getBusinessById(id);
+        List <Review> reviews = reviewDao.getAllByBusinessId(business.getId());
+        reviews.add(review);
+        business.setReviews(reviews);
+        review.setUser(user2);
+        review.setBusiness(business);
+        reviewDao.save(review);
+        businessDao.save(business);
+        return "redirect:/business/" + id;
+    }
 
 
 }
