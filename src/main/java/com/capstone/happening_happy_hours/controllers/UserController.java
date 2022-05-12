@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -81,5 +82,19 @@ public class UserController {
         user.setPassword(hash);
         userDao.save(user);
         return "redirect:/profile/user";
+    }
+
+    @PostMapping("/deleteProfile/{id}")
+    public String deleteUser(@ModelAttribute User user, BindingResult result, @PathVariable long id, HttpSession ses){
+        if (result.hasErrors()) {
+            user.setId(id);
+            return "updateUser";
+        }
+        Business business = businessDao.getBusinessByUserId(user.getId());
+        user.setBusinesses(business);
+        businessDao.delete(business);
+        userDao.delete(user);
+        ses.invalidate();
+        return "redirect:/home";
     }
 }
