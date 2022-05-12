@@ -86,14 +86,18 @@ public class BusinessController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         Business business = businessDao.getBusinessById(id);
-        List <Review> reviews = reviewDao.getAllByBusinessId(business.getId());
-        reviews.add(review);
-        business.setReviews(reviews);
+        List <Review> businessReviews = reviewDao.getAllByBusinessId(business.getId());
+        List <Review> userReviews = reviewDao.getAllByUserId(user2.getId());
+        businessReviews.add(review);
+        business.setReviews(businessReviews);
+        userReviews.add(review);
+        user2.setReviews(userReviews);
         review.setUser(user2);
         review.setBusiness(business);
         reviewDao.save(review);
         businessDao.save(business);
-        return "redirect:/business/" + id;
+        userDao.save(user2);
+        return "redirect:/profile/user";
     }
 
 

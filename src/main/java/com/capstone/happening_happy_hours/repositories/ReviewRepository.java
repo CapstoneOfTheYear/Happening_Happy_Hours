@@ -17,6 +17,8 @@ public interface ReviewRepository extends JpaRepository<Review, Long> {
 
     List<Review> getAllByBusinessId(long id);
 
+    List<Review> getAllByUserId(long id);
+
 //    @Query(value = "SELECT avg(score) FROM Review group by :id1")
 //    List<Double> avg(@Param("id1") Long id1);
 }
