@@ -63,7 +63,10 @@ public class Business {
     @OneToMany(mappedBy = "business")
     private List<Review> reviews;
 
-    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames, User user, List<Review> reviews) {
+    @Column()
+    private String images;
+
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames, User user, List<Review> reviews, String images) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -82,6 +85,7 @@ public class Business {
         this.otherGames = otherGames;
         this.user = user;
         this.reviews = reviews;
+        this.images = images;
     }
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "business")
@@ -101,7 +105,7 @@ public class Business {
 
     public Business(){}
 
-    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames) {
+    public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames, String images) {
         this.id = id;
         this.name = name;
         this.location = location;
@@ -118,6 +122,7 @@ public class Business {
         this.cornHole = cornHole;
         this.servesFood = servesFood;
         this.otherGames = otherGames;
+        this.images = images;
     }
 
     public long getId() {
@@ -256,12 +261,12 @@ public class Business {
         this.user = user;
     }
 
-    public List<BusinessImage> getBusinessImages() {
-        return businessImages;
+    public String getBusinessImages() {
+        return images;
     }
 
-    public void setBusinessImages(List<BusinessImage> businessImages) {
-        this.businessImages = businessImages;
+    public void setBusinessImages(String images) {
+        this.images = images;
     }
 
     public List<Review> getReviews() {
