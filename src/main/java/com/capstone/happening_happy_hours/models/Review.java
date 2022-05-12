@@ -48,8 +48,6 @@ public class Review {
         this.business = business;
         this.body = body;
         this.score = score;
-
-
     }
 
 //    public Reviews(long id, long user_id, User user, long business_id, String body, double score) {
