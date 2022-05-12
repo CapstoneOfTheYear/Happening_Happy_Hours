@@ -8,7 +8,7 @@ public interface BusinessRepository extends JpaRepository <Business, Long> {
 
 
     Business getBusinessByUser(User user);
-
+    Business getBusinessByUserId(long id);
     Business getBusinessById(long id);
     Business getBusinessByName(String name);
 

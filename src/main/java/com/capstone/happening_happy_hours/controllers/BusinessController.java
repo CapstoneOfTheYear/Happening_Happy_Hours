@@ -50,7 +50,6 @@ public class BusinessController {
     public String updateProfile(Model model){
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         Business business = businessDao.getBusinessByUser(user);
-        System.out.println("business.getName() = " + business.getName());
         model.addAttribute("user", user);
         model.addAttribute("business", business);
         return "updateBusiness";

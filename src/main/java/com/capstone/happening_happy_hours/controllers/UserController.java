@@ -13,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -35,7 +36,8 @@ public class UserController {
 //
     public String userProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        model.addAttribute("User", user);
+        User user1 = userDao.getById(user.getId());
+        model.addAttribute("User", user1);
         model.addAttribute("reviews", reviewDao.findAllByUserId(user.getId()));
         model.addAttribute("businesses", businessDao.findAll());
         return "userProfile";
@@ -82,13 +84,30 @@ public class UserController {
     }
 
     @PostMapping("/updateProfile/{id}")
-    public String updateUser (Model model, @ModelAttribute User user, BindingResult result, @PathVariable long id){
-        user.setId(id);
+    public String updateUser(@ModelAttribute User user, BindingResult result, @PathVariable long id){
+        if (result.hasErrors()) {
+            user.setId(id);
+            return "updateUser";
+        }
+        Business business = businessDao.getBusinessByUserId(user.getId());
+        user.setBusinesses(business);
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
-        System.out.println("user.getUsername() = " + user.getUsername());
-        System.out.println("user.getEmail() = " + user.getEmail());
         userDao.save(user);
         return "redirect:/profile/user";
+    }
+
+    @PostMapping("/deleteProfile/{id}")
+    public String deleteUser(@ModelAttribute User user, BindingResult result, @PathVariable long id, HttpSession ses){
+        if (result.hasErrors()) {
+            user.setId(id);
+            return "updateUser";
+        }
+        Business business = businessDao.getBusinessByUserId(user.getId());
+        user.setBusinesses(business);
+        businessDao.delete(business);
+        userDao.delete(user);
+        ses.invalidate();
+        return "redirect:/home";
     }
 }
