@@ -11,28 +11,6 @@
         display: none;
     }
 
-    input {
-        width: 100%;
-        padding: 12px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-        box-sizing: border-box;
-        margin-top: 6px;
-        margin-bottom: 16px;
-    }
-
-    /* Style the submit button */
-    input[type=submit] {
-        background-color: #04AA6D;
-        color: white;
-    }
-
-    /* Style the container for inputs */
-    .container {
-        background-color: #f1f1f1;
-        padding: 20px;
-    }
-
     /* The message box is shown when the user clicks on the password field */
     #message {
         display:none;
@@ -41,6 +19,10 @@
         position: relative;
         padding: 20px;
         margin-top: 10px;
+    }
+
+    #message h3 {
+        color: black;
     }
 
     #message p {
@@ -113,10 +95,10 @@
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label class="text-white" for="psw">Password</label>
+                            <label class="text-white h4" for="psw">Password</label>
                     <input class="form-control" id="psw" name="psw" type="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" required  th:field="*{password}">
-                          <i class="fa fa-eye" onclick="showPassword()"></i>
                         </div>
+                        <i class="fa fa-eye" onclick="showPassword()"></i>
                     </div>
                 </div>
             </div>
