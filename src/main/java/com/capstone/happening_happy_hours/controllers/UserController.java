@@ -48,15 +48,26 @@ public class UserController {
         return "register";
     }
 
-    @PostMapping("/register")
-    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business, @RequestParam String imageUrl) {
+    @PostMapping(value = "/register", params = {"imageUrl"})
+    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business, @RequestParam(value = "imageUrl", required = false) String imageUrl) {
         String hash = passwordEncoder.encode(user.getPassword());
         user.setPassword(hash);
         userDao.save(user);
         if (user.getOwnsBusiness()) {
             user.setBusinesses(business);
             business.setBusinessImages(imageUrl);
-            System.out.println(imageUrl);
+            businessDao.save(business);
+        }
+        return "redirect:/login";
+    }
+
+    @PostMapping(value = "/register")
+    public String saveUser(@ModelAttribute User user, @ModelAttribute Business business) {
+        String hash = passwordEncoder.encode(user.getPassword());
+        user.setPassword(hash);
+        userDao.save(user);
+        if (user.getOwnsBusiness()) {
+            user.setBusinesses(business);
             businessDao.save(business);
         }
         return "redirect:/login";
