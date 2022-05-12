@@ -135,6 +135,35 @@
 // make a marker for each feature and add it to the map
                     new mapboxgl.Marker(el)
                         .setLngLat(data.features[0].center).addTo(map);
+                    const popup = new mapboxgl.Popup({
+                        closeButton: false,
+                        closeOnClick: false
+                    });
+
+                    map.on('mouseenter', 'places', (e) => {
+// Change the cursor style as a UI indicator.
+                        map.getCanvas().style.cursor = 'pointer';
+
+// Copy coordinates array.
+                        const coordinates = data.features[0].geometry.coordinates.slice();
+                        const description = data.features[0].properties.description;
+
+// Ensure that if the map is zoomed out such that multiple
+// copies of the feature are visible, the popup appears
+// over the copy being pointed to.
+                        while (Math.abs(e.lngLat.lng - coordinates[0]) > 180) {
+                            coordinates[0] += e.lngLat.lng > coordinates[0] ? 360 : -360;
+                        }
+
+// Populate the popup and set its coordinates
+// based on the feature found.
+                        popup.setLngLat(coordinates).setHTML(description).addTo(map);
+                    });
+
+                    map.on('mouseleave', 'places', () => {
+                        map.getCanvas().style.cursor = '';
+                        popup.remove();
+                    });
 
                 }
             })
