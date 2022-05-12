@@ -151,7 +151,7 @@
 
                     const popup = new mapboxgl.Popup({ closeOnClick: false })
                         .setLngLat(data.features[0].center)
-                        .setHTML("<h1" + popupText + "></h1>")
+                        .setHTML(popupText)
                         .addTo(map);
                         console.log(popupText)
 
