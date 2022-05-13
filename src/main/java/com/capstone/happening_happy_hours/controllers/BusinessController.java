@@ -7,6 +7,7 @@ import com.capstone.happening_happy_hours.models.User;
 import com.capstone.happening_happy_hours.repositories.BusinessRepository;
 import com.capstone.happening_happy_hours.repositories.ReviewRepository;
 import com.capstone.happening_happy_hours.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.repository.query.Param;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
@@ -30,6 +31,9 @@ public class BusinessController {
     BusinessRepository businessDao;
     ReviewRepository reviewDao;
     UserRepository userDao;
+
+    @Value("${mapbox.api.key}")
+    private String apikey;
 
     public BusinessController(BusinessRepository businessDao, ReviewRepository reviewDao, UserRepository userDao) {
         this.businessDao = businessDao;
@@ -91,6 +95,19 @@ public class BusinessController {
         Business business = businessDao.getBusinessById(id);
         reviewDao.add(review.getBody(),review.getScore(),business.getId(),user2.getId());
         return "redirect:/profile/user";
+    }
+
+    @GetMapping("/search")
+    public String search(Model model, @Param("keyword") String keyword){
+        System.out.println("keyword = " + keyword);
+        if (keyword != null){
+            model.addAttribute("apikey", apikey);
+            model.addAttribute("business" , businessDao.getAllByNameContaining(keyword));
+        } else {
+            model.addAttribute("apikey",apikey);
+            model.addAttribute("business",businessDao.findAll());
+        }
+        return "home";
     }
 
 
