@@ -345,10 +345,20 @@ h1, h2, h3, header, title, label {
 }
 
 .mapboxgl-popup {
-    max-width: 400px;
+    border-radius: 55px;
+    text-align: center;
+    height: 200px;
+    width: 200px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
 }
-
+div.mapboxgl-popup-content {
+    border-radius: 55px;
+    background-color: #0d0da6;
+    color: #ffffff;
+}
+.mapboxgl-popup-content:hover {
+color: #e34500;
+}
 #menu.zoom-container {
     position: fixed;
     font-weight: bolder;
