@@ -1,6 +1,8 @@
 package com.capstone.happening_happy_hours.models;
 
 
+import org.hibernate.annotations.SQLInsert;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "reviews")
+@SQLInsert(sql = "INSERT IGNORE INTO reviews(user, business, body, score) " +
+        "VALUES (?, ?, ?, ?)" )
 public class Review {
 
     @Id

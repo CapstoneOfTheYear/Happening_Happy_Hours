@@ -19,6 +19,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpSession;
+import javax.transaction.Transaction;
+import javax.transaction.Transactional;
 import java.util.List;
 
 
@@ -86,17 +89,7 @@ public class BusinessController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         Business business = businessDao.getBusinessById(id);
-        List <Review> businessReviews = reviewDao.getAllByBusinessId(business.getId());
-        List <Review> userReviews = reviewDao.getAllByUserId(user2.getId());
-        businessReviews.add(review);
-        business.setReviews(businessReviews);
-        userReviews.add(review);
-        user2.setReviews(userReviews);
-        review.setUser(user2);
-        review.setBusiness(business);
-        reviewDao.save(review);
-        businessDao.save(business);
-        userDao.save(user2);
+        reviewDao.add(review.getBody(),review.getScore(),business.getId(),user2.getId());
         return "redirect:/profile/user";
     }
 
