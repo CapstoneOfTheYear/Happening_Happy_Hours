@@ -25,7 +25,8 @@ public class Review {
 //    @Column(nullable = false, length = 100)
 //    private long user_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
 
 

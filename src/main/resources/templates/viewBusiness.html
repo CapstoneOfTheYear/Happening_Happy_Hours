@@ -25,7 +25,8 @@
                             th:text="${business.getState()}"></span>, <span
                             th:text="${business.getPostal_code()}"></span></p>
                     <h5 class="mt-3">Happy Hours</h5>
-                    <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span th:text="${business.getEnding_hour()}"></span></p>
+                    <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span
+                            th:text="${business.getEnding_hour()}"></span></p>
                     <p><b>Other games: </b><span th:text="${business.otherGames}"></span></p>
                     <p><span th:text="${business.avgRating()}"></span> / 5.0 </p>
                 </div>
@@ -60,11 +61,12 @@
                         <form th:action="@{'/review/{id}'(id = ${business.id})}" th:object="${review}" method="post">
                             <div class="form-group">
                                 <label for="businessName">Business Name</label>
-                                <input class="form-control" id="businessName" name="businessName" disabled th:value="${business.getName()}">
+                                <input class="form-control" id="businessName" name="businessName" disabled
+                                       th:value="${business.getName()}">
                             </div>
                             <div class="form-group">
                                 <label for="rating">Rating</label>
-                                <select class="form-control" id="rating" name="rating"th:field="${review.score}" >
+                                <select class="form-control" id="rating" name="rating" th:field="${review.score}">
                                     <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
@@ -74,23 +76,20 @@
                             </div>
                             <div class="form-group">
                                 <label for="body">Write Your Review</label>
-                                <textarea class="form-control" id="body" name="body" rows="3" th:field="${review.body}"></textarea>
+                                <textarea class="form-control" id="body" name="body" rows="3"
+                                          th:field="${review.body}"></textarea>
                             </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                <button type="submit" class="btn btn-primary">Save changes</button>
+                            </div>
                         </form>
                     </div>
-
                 </div>
             </div>
         </div>
     </section>
-
 </div>
-
 
 
 <footer th:replace="partials :: footer"></footer>
