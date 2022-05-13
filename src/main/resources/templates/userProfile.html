@@ -7,19 +7,69 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1 style="text-align: center" class="my-4">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.</h1>
+<h1 style="text-align: center" class="my-4">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.
+</h1>
 
 <div class="container">
     <div class="row gx-lg-5">
-            <div class="card col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
-                <div class="card-body">
-                    <h4 class="card-title" style="text-align: center" th:text="${review.getBusiness().name}"></h4>
-                    <br>
-                    <h5 class="card-text" style="text-align: center" th:text="${review.body}"></h5>
-                    <br>
-                    <p class="reviewScore" style="text-align: center" th:text="${review.getScore()}"> / 5.0</p>
+        <div class="card col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
+            <div class="card-body">
+                <h4 class="card-title" style="text-align: center" th:text="${review.getBusiness().name}"></h4>
+                <br>
+                <h5 class="card-text" style="text-align: center" th:text="${review.body}"></h5>
+                <br>
+                <p class="reviewScore" style="text-align: center" th:text="${review.getScore()}"> / 5.0</p>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        th:atrr="data-bs-target=${'#exampleModal' + review.id}" data-review="${review}">
+                    Edit
+                </button>
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                     aria-hidden="true" th:each="review : ${reviews}" th:attr="id=${'exampleModal' + review.id}">
+                    <div class="modal-dialog">
+                        <div class="modal-content bg-dark">
+                            <div class="modal-header bg-dark text-light">
+                                <h5 class="modal-title" id="exampleModalLabel">Write a Review</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body bg-dark">
+                                <form th:action="@{'/updateReview/{id}'(id = ${review.id})}" th:object="${review}"
+                                      method="post">
+                                    <div class="form-group">
+                                        <label for="businessName">Business Name</label>
+                                        <input class="form-control" id="businessName" name="businessName" disabled
+                                               th:value="${review.getBusiness().getName()}">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="rating">Rating</label>
+                                        <select class="form-control" id="rating" name="score"
+                                                th:value="${review.score}">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="body">Write Your Review</label>
+                                        <textarea class="form-control" id="body" name="body" rows="3"
+                                                  th:value="${review.body}"></textarea>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+                                        </button>
+                                        <button type="submit" class="btn btn-primary">Save changes</button>
+                                    </div>
+                                    <input type="text" hidden name="id" th:value="${review.id}">
+                                </form>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </div>
+
     </div>
 
     <a href="/updateProfile">Edit Profile</a>
