@@ -22,10 +22,10 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid #e34500;
+    border: 1px solid rgb(13, 13, 166);
     /*padding: 15px;*/
     /*border-radius: 25px;*/
-    background: #0d0da6 !important;
+    background: #ffffff !important;
     max-width: 100%;
     max-height: 100%;
     /*height: 280px;*/
@@ -39,12 +39,12 @@ body {
 
 .card-item:hover {
     transition: ease-in-out .5s;
-    border: 3px solid #eee;
+    border: 1px solid #e34500;
     box-shadow: black;
 
 }
 
-.navbar {
+.navbar{
     text-align: center;
     width: 100%;
     height: 100px;
@@ -63,7 +63,7 @@ body {
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
-    color: #ffffff !important;
+    color: #0d0da6 !important;
 }
 
 .navbar-dark span.navbar-toggler-icon {
@@ -73,7 +73,7 @@ body {
 .btn {
     justify-content: center;
     color: #ffffff !important;
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+    background-color: #0d0da6;
 }
 
 #sub-btn {
@@ -182,7 +182,15 @@ p.h6 {
     color: #e34500;
 }
 
-
+a.btn.btn-outline-light {
+    justify-content: center;
+    color: #ffffff !important;
+    background-color: #e34500;
+}
+a.btn.btn-outline-light:hover {
+    color: #e34500 !important;
+    background-color: #ffffff;
+}
 
 
 .mapbox {
@@ -236,13 +244,28 @@ p.h6 {
     cursor: pointer;
 
 }
+.mapboxgl-popup {
+    border-radius: 55px;
+    text-align: center;
+    height: 200px;
+    width: 200px;
+    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+}
+div.mapboxgl-popup-content {
+    border-radius: 55px;
+    background-color: #0d0da6;
+    color: #ffffff;
+}
+.mapboxgl-popup-content:hover {
+    color: #e34500;
+}
 
 footer {
     padding: 0;
     text-align: center;
     width: 100%;
     height: 100px;
-    color: #0d0da6;
+    color: #ffffff;
     margin-top: 80px;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
 }
@@ -255,13 +278,7 @@ footer {
     display: flex;
     align-content: center;
     justify-content: center;
-    /*top: 775px;*/
     bottom: 0;
-    /*left: 60PX;*/
-
-    position: fixed;
-    font-weight: bolder;;
-
     height: 40px;
     width: 350px;
     font-size: 16px;
@@ -275,8 +292,8 @@ footer {
 
 button {
     border-radius: 25px;
-    background-color: #0d0da6;
-    color: #E6E6E6;
+    background-color: #ffffff;
+    color: #0d0da6;
     height: 35px;
     align-content: center;
     margin-top: 2px;
@@ -297,7 +314,7 @@ button {
     text-align: center;
     margin: 5px;
     background: rgb(227, 69, 0);
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+    /*background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);*/
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
@@ -344,21 +361,7 @@ h1, h2, h3, header, title, label {
     color: #e34500;
 }
 
-.mapboxgl-popup {
-    border-radius: 55px;
-    text-align: center;
-    height: 200px;
-    width: 200px;
-    font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
-}
-div.mapboxgl-popup-content {
-    border-radius: 55px;
-    background-color: #0d0da6;
-    color: #ffffff;
-}
-.mapboxgl-popup-content:hover {
-color: #e34500;
-}
+
 #menu.zoom-container {
     position: fixed;
     font-weight: bolder;
@@ -388,32 +391,32 @@ color: #e34500;
 }
 
 #zoom5 {
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    color: #0d0da6;
+
+    background: #0d0da6;
+    color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom5:hover {
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+    /*background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);*/
     color: #e34500;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom10 {
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    color: #0d0da6;
+    background: #0d0da6;
+    color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom10:hover {
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
     color: #e34500;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom15 {
-    background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    color: #0d0da6;
+    background: #0d0da6;
+    color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
@@ -429,5 +432,6 @@ color: #e34500;
         background-color: black !important;
     }
 }
+
 
 
