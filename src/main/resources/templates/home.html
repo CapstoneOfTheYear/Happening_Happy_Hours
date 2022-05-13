@@ -164,6 +164,9 @@
                         // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
                             .setHTML(`${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}`)
                         .addTo(map))
+                        .setLngLat(data.features[0].center).addTo(map);
+
+
                 }
             })
     }
