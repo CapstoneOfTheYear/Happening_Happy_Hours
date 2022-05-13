@@ -18,8 +18,8 @@
                   href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
                   type='text/css'/>
             <pre id="coordinates" class="coordinates"></pre>
-<!--            <input class="search" id="userInput" type="text">-->
-<!--            <button id="button" type="button">Search</button>-->
+            <!--            <input class="search" id="userInput" type="text">-->
+            <!--            <button id="button" type="button">Search</button>-->
 
             <div class="zoom-container" id="menu">
                 <label class="zoom-label label">ZOOM</label>
@@ -34,33 +34,33 @@
         <div id="mapboxData" th:each="business : ${business}"
              class="card-item card-deck">
             <div th:each="business : ${business}">
-                <p th:text="${business.getName()}" class="text-center text-white h3 justify-content-center mt-3"></p>
+                <p th:text="${business.getName()}" class="text-center text-blue h3 justify-content-center mt-3"></p>
                 <!-- <img th:src="${business.images}" class="card-img-top" alt="...">?-->
                 <div class="card-body text-center ">
                     <button class="btn btn-primary mx-1 my-1 w-100 justify-content-center" type="button" id="location"
                             th:text="${business.location  + ', ' + business.city  }"></button>
-                    <a class="btn btn-primary mx-2 my-2 w-100" type="button" id="view-business"
+                    <a class="btn btn-primary mx-1 my-1 w-100" type="button" id="view-business"
                        th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
-                    <p hidden id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span th:text="${business.getEnding_hour()}"></span></p><br><br>
-                    <p hidden id="businessRating"><span th:text="${business.avgRating()}"></span> / 5.0 </p>
-                    </div>
+                    <p hidden id="happyHours">Happy Hour: <span th:text="${business.getStarting_hour()}"></span> - <span th:text="${business.getEnding_hour()}"></span></p><br><br>
+                    <p hidden id="businessRating">Rating: <span th:text="${business.avgRating()}"></span> / 5.0 </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
+</div>
 <div hidden>
     <div id="businessName" th:each="business : ${business}">
-    <div th:each="business : ${business}">
-        <h4 class="card-title" th:text="${business.getName()}"></h4>
-        <p id="businessLocation" class="mb-1"><span th:text="${business.getLocation()}"></span></p>
-        <p id="businessLocation2" class="mb-1"><span th:text="${business.getCity()}"></span> <span
-                th:text="${business.getState()}"></span>, <span
-                th:text="${business.getPostal_code()}"></span></p>
-        <h5 class="mt-3">Happy Hours</h5>
-        <p>Start: <span th:text="${business.getStarting_hour()}"></span> End: <span th:text="${business.getEnding_hour()}"></span></p><br><br>
-        <p><span th:text="${business.avgRating()}"></span> / 5.0 </p>
-    </div>
+        <div th:each="business : ${business}">
+            <h4 class="card-title" th:text="${business.getName()}"></h4>
+            <p id="businessLocation" class="mb-1"><span th:text="${business.getLocation()}"></span></p>
+            <p id="businessLocation2" class="mb-1"><span th:text="${business.getCity()}"></span> <span
+                    th:text="${business.getState()}"></span>, <span
+                    th:text="${business.getPostal_code()}"></span></p>
+            <h5 class="mt-3">Happy Hours</h5>
+            <p>Start: <span th:text="${business.getStarting_hour()}"></span> End: <span th:text="${business.getEnding_hour()}"></span></p><br><br>
+            <p><span th:text="${business.avgRating()}"></span> / 5.0 </p>
+        </div>
     </div>
 </div>
 <script src="https://code.jquery.com/jquery-3.4.1.min.js"
@@ -113,7 +113,7 @@
                 'type': 'Feature',
                 'properties': {
                     'description':
-                        businessName,
+                    businessName,
                     'icon': 'theatre-15'
                 },
                 'geometry': {
@@ -137,7 +137,7 @@
 
 
 
-        const description = geojson.features[0].properties.description;
+    const description = geojson.features[0].properties.description;
     // Add markers to the map.
 
     const geocode = (inputLocation, inputName, inputHours, inputReviews) => {
@@ -160,10 +160,10 @@
 // make a marker for each feature and add it to the map
                     new mapboxgl.Marker(el)
                         .setLngLat(data.features[0].center).addTo(map)
-                        .setPopup(new mapboxgl.Popup({ offset: 45 })
-                        // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
+                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45 })
+                            // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
                             .setHTML(`${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}`)
-                        .addTo(map))
+                            .addTo(map))
                         .setLngLat(data.features[0].center).addTo(map);
 
 
@@ -172,13 +172,13 @@
     }
     $(document).on("click", "#mapboxData", function () {
         console.log(this)
-       let businessLocation = this.querySelector('#location').innerText
+        let businessLocation = this.querySelector('#location').innerText
         let businessHours = this.querySelector('#happyHours').innerText
         let businessReviews = this.querySelector('#businessRating').innerText
         let businessName = this.getElementsByTagName("p")[0].innerText
         console.log("businessName" , businessName);
 
-       geocode(businessLocation, businessName, businessHours, businessReviews)
+        geocode(businessLocation, businessName, businessHours, businessReviews)
 
     })
 
