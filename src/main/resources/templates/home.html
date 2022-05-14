@@ -32,13 +32,13 @@
     </div>
     <div class="reviews">
         <div id="mapboxData" th:each="business : ${business}"
-             class="card-item card-deck">
-            <div th:each="business : ${business}">
-                <p th:text="${business.getName()}" class="text-center text-blue h3 justify-content-center mt-3"></p>
-                <!-- <img th:src="${business.images}" class="card-img-top" alt="...">?-->
-                <div class="card-body text-center ">
+             class="flip-card card-item card-deck">
+            <div class="flip-card-inner" th:each="business : ${business}">
+                <p th:text="${business.getName()}" class="flip-card-front text-center text-blue h3 justify-content-center mt-3"></p>
+<!--                 <img th:src="${business.images}" class="card-img-top" alt="...">-->
+                <div class="flip-card-back card-body text-center ">
                     <button class="btn w-100 mx-1 my-1 justify-content-center" type="button" id="location"
-                            th:text="${business.location  + ', ' + business.city  }"></button>
+                            th:text="${business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></button>
                     <a class="btn w-100 mx-1 my-1" type="button" id="view-business"
                        th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
                     <p hidden id="happyHours">Happy Hour: <span th:text="${business.getStarting_hour()}"></span> - <span th:text="${business.getEnding_hour()}"></span></p><br><br>
@@ -177,7 +177,6 @@
         let businessReviews = this.querySelector('#businessRating').innerText
         let businessName = this.getElementsByTagName("p")[0].innerText
         console.log("businessName" , businessName);
-
         geocode(businessLocation, businessName, businessHours, businessReviews)
 
     })
