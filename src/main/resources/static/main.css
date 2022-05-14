@@ -2,12 +2,18 @@
 .flip-card {
     background-color: white;
     /*width: 300px;*/
-    height: 200px;
+    height: 150px;
     margin: 0;
     padding: 0;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
-
+#flipImage {
+    top: 50px;
+    right: 75px;
+    height: 180px;
+    width: 300px;
+    z-index: 1;
+}
 /* This container is needed to position the front and back side */
 .flip-card-inner {
     position: relative;
@@ -77,20 +83,12 @@ body {
     background: #ffffff !important;
     max-width: 100%;
     max-height: 100%;
-    /*height: 280px;*/
-    /*width: 280px;*/
-    /*margin: 50px;*/
-    /*position: absolute;*/
-    /*z-index: auto;*/
-
-
 }
 
 .card-item:hover {
     transition: ease-in-out .5s;
     border: 1px solid #e34500;
     box-shadow: black;
-
 }
 
 .navbar{
@@ -234,6 +232,7 @@ p.h6 {
 }
 
 a.btn.btn-outline-light {
+    width: 25px;
     justify-content: center;
     color: #ffffff !important;
     background-color: #e34500;
@@ -346,7 +345,7 @@ button {
     color: #0d0da6;
     height: 35px;
     align-content: center;
-    margin-top: 2px;
+    margin: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
@@ -445,19 +444,19 @@ h1, h2, h3, header, title, label {
 }
 
 #zoom5 {
-
+    margin: 5px;
     background: #0d0da6;
     color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom5:hover {
-    /*background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);*/
     color: #e34500;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom10 {
+    margin: 5px;
     background: #0d0da6;
     color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
@@ -469,6 +468,7 @@ h1, h2, h3, header, title, label {
 }
 
 #zoom15 {
+    margin: 5px;
     background: #0d0da6;
     color: #ffffff;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
