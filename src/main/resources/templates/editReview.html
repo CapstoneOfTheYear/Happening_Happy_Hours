@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<header th:include="partials :: header(title = '')"></header>
+
+
+<body>
+<nav th:include="partials :: navbar"></nav>
+
+<h2 th:value="${review.body}"></h2>
+<h1 th:value="${user.username}"></h1>
+
+
+
+<footer th:replace="partials :: footer"></footer>
+</body>
+</html>
