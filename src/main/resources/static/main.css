@@ -44,6 +44,10 @@
 .flip-card-front {
     background-color: #ffffff;
     color: #0d0da6;
+    overflow-wrap: anywhere;
+    display: flex;
+    justify-content:center;
+    align-items: center;
 }
 
 /* Style the back side */
@@ -94,27 +98,37 @@ body {
     border: 1px solid #e34500;
     box-shadow: black;
 }
-
+.navbar>.container {
+    flex: auto;
+    height: 100px;
+}
 .navbar{
     text-align: center;
     width: 100%;
     height: 100px;
     color: #0d0da6;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+    /*box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
 
 }
- .navbar-collapse{
-
+#navMobile {
+    height: 100%;
+}
+ #navbarNav{
+     margin: 0;
+     padding: 0;
+     height: 250px;
 }
 #navbarNav, #navbarNav2 {
     background-color: unset;
+}
 
+#navbarNav2 {
+    padding-right: 75px;
 }
 
 .navbar .brand, .navbar .nav > li > a {
     color: #ffffff !important;
-
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
@@ -123,7 +137,7 @@ body {
 
 .navbar-dark span.navbar-toggler-icon {
     color: white !important;
-    margin-bottom: 5px;
+    /*margin-bottom: 5px;*/
 
 }
 
@@ -137,6 +151,7 @@ body {
 #sub-btn {
     width: 120px;
     height: 35px;
+    padding: 3px;
 }
 
 #photoPicker {
@@ -258,8 +273,7 @@ a.btn.btn-outline-light:hover {
     height: 80%;
     width: 75%;
     padding: 0;
-    margin: 0;
-    z-index: -1;
+    margin-bottom: 100px;
     float: right;
 
 
@@ -277,16 +291,16 @@ a.btn.btn-outline-light:hover {
     top: 0;
     bottom: 0;
     width: 75%;
-    height: 89%;
+    height: 100%;
     z-index: -1;
 }
 
 .mapboxgl-canvas {
-    height: 50%;
-    /*width: 75%;*/
+    height: 100%;
+    width: 75%;
     padding: 0;
     margin: 0;
-    z-index: -1;
+
 
 }
 
@@ -404,6 +418,7 @@ button {
     bottom: 0;
     right: 80px;
     height: 30px;
+    padding: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
@@ -411,13 +426,16 @@ button {
 
 .btn {
     right: 80px;
+    padding: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 h1, h2, h3, header, title, label {
     color: white;
 }
-
+.reviewContainer{
+    margin-bottom: 100px; ;
+}
 .card-about {
     height: auto !important;
 }
@@ -437,7 +455,7 @@ h1, h2, h3, header, title, label {
     width: 350px;
     font-size: 16px;
     color: #e34500 !important;
-    top: 700px;
+    top: 800px;
     z-index: 3;
 
 
@@ -517,10 +535,37 @@ h1, h2, h3, header, title, label {
     .navbar-brand{
         position: relative;
         bottom:12px;
+        height: 90px;
     }
     button.navbar-toggler {
         position: relative;
         color: white !important;
-        bottom: 15px;
+        align-items: center;
+        bottom: 5px;
+        margin-right: 75px;
     }
+        #navbarNav2 {
+            padding-right: 0;
+            bottom: 20px;
+        }
+        @media only screen and (max-width: 375px) {
+
+
+            .navbar-brand{
+                position: relative;
+                bottom:12px;
+                height: 90px;
+                margin: 0;
+                padding: 0;
+                right: 40px;
+            }
+            button.navbar-toggler {
+                position: relative;
+                color: white !important;
+                align-items: center;
+                bottom: 5px;
+                margin-right: 30px;
+                padding: 0;
+            }
+        }
 }
