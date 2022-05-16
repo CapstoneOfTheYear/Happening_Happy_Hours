@@ -114,5 +114,14 @@ public class BusinessController {
         return "home";
     }
 
+    @GetMapping("editReview/{id}")
+    public String editReview(Model model, @PathVariable long id){
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user1 = userDao.getById(user.getId());
+        model.addAttribute("user", user1);
+        model.addAttribute("review", reviewDao.getById(id));
+        return "editReview";
+    }
+
 
 }
