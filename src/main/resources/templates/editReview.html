@@ -28,15 +28,33 @@
     <div class="form-group">
         <label for="body">Write Your Review</label>
         <textarea class="form-control" id="body" name="body" rows="3"
-                 th:value="${review.body}" th:field="${review.body}"></textarea>
+                  th:value="${review.body}" th:field="${review.body}"></textarea>
     </div>
-    <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-primary">Save changes</button>
-    </div>
+
 </form>
+<div class="modal-footer">
+    <form id="deleteReview" th:action="@{'/deleteReview/{id}'(id = ${review.id})}" method="post">
+        <button id="deleteButton" class="btn btn-outline-danger">Delete Review</button>
+    </form>
+    <button type="submit" class="btn btn-primary">Save changes</button>
+</div>
 
 
 <footer th:replace="partials :: footer"></footer>
+
+<script>
+    let form = $("#deleteReview");
+    let deleteReview = function () {
+        return confirm("Are you sure you want to delete this review?");
+    };
+
+    $("#deleteButton").click(function (){
+        if(deleteReview()){
+            console.log("delete confirmation logic is working.");
+            form.submit();
+        }
+    })
+
+</script>
 </body>
 </html>

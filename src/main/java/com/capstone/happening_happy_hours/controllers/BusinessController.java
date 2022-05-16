@@ -136,6 +136,14 @@ public class BusinessController {
         return "redirect:/profile/user";
     }
 
+    @PostMapping("/deleteReview/{id}")
+    public String deleteReview(Model model, @PathVariable long id, Review review) {
+        review.setId(id);
+        System.out.println("review.getBody() = " + review.getBody());
+        reviewDao.delete(review);
+        return "redirect:/profile/user";
+    }
+
 
 }
 
