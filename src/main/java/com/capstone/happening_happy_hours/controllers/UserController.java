@@ -2,6 +2,7 @@ package com.capstone.happening_happy_hours.controllers;
 
 
 import com.capstone.happening_happy_hours.models.Business;
+import com.capstone.happening_happy_hours.models.Review;
 import com.capstone.happening_happy_hours.models.User;
 import com.capstone.happening_happy_hours.repositories.BusinessRepository;
 import com.capstone.happening_happy_hours.repositories.ReviewRepository;
@@ -24,7 +25,7 @@ public class UserController {
     private ReviewRepository reviewDao;
     private PasswordEncoder passwordEncoder;
 
-    public UserController(UserRepository userDao, BusinessRepository businessDao, ReviewRepository reviewDao,PasswordEncoder passwordEncoder) {
+    public UserController(UserRepository userDao, BusinessRepository businessDao, ReviewRepository reviewDao, PasswordEncoder passwordEncoder) {
         this.userDao = userDao;
         this.businessDao = businessDao;
         this.reviewDao = reviewDao;
@@ -76,7 +77,7 @@ public class UserController {
     }
 
     @GetMapping("/updateProfile")
-    public String updateProfile(Model model){
+    public String updateProfile(Model model) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         model.addAttribute("user", user2);
@@ -84,7 +85,7 @@ public class UserController {
     }
 
     @PostMapping("/updateProfile/{id}")
-    public String updateUser(@ModelAttribute User user, BindingResult result, @PathVariable long id){
+    public String updateUser(@ModelAttribute User user, BindingResult result, @PathVariable long id) {
         if (result.hasErrors()) {
             user.setId(id);
             return "updateUser";
@@ -98,7 +99,7 @@ public class UserController {
     }
 
     @PostMapping("/deleteProfile/{id}")
-    public String deleteUser(@ModelAttribute User user, BindingResult result, @PathVariable long id, HttpSession ses){
+    public String deleteUser(@ModelAttribute User user, BindingResult result, @PathVariable long id, HttpSession ses) {
         if (result.hasErrors()) {
             user.setId(id);
             return "updateUser";
@@ -109,5 +110,15 @@ public class UserController {
         userDao.delete(user);
         ses.invalidate();
         return "redirect:/home";
+    }
+
+    @PostMapping("/updateReview/{id}")
+    public String updateUser(@ModelAttribute Review review, BindingResult result, @PathVariable long id) {
+        if (result.hasErrors()) {
+            review.setId(id);
+            return "userProfile";
+        }
+        reviewDao.save(review);
+        return "redirect:/profile/user";
     }
 }

@@ -44,13 +44,11 @@
                     <li class="h5 nav-item">
                         <a class="nav-link" href="/about">About</a>
                     </li>
-
-<!--                    this is a comment-->
                 </ul>
 
                 <div class="collapse navbar-collapse ml-auto justify-content-end" id="navbarNav2">
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <form class="d-flex" th:action="@{'/search'}" method="get">
+                        <input name="keyword" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
                         <button class="btn btn-primary btn-outline-primary mb-2 my-sm-2 mx-2"
                                 style="margin-top: 8px" type="submit">Search</button>
                     </form>

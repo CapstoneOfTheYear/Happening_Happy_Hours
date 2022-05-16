@@ -1,6 +1,8 @@
 package com.capstone.happening_happy_hours.models;
 
 
+import org.hibernate.annotations.SQLInsert;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -15,6 +17,8 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "reviews")
+@SQLInsert(sql = "INSERT IGNORE INTO reviews(user, business, body, score) " +
+        "VALUES (?, ?, ?, ?)" )
 public class Review {
 
     @Id
@@ -25,7 +29,8 @@ public class Review {
 //    @Column(nullable = false, length = 100)
 //    private long user_id;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     private User user;
 
 
@@ -87,6 +92,7 @@ public class Review {
     public void setScore(double score) { this.score = score; }
 
 
-
-
+    public void setBusiness(Business business) {
+        this.business = business;
+    }
 }
