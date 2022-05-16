@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 
 <header th:include="partials :: header(title = '')"></header>
 
@@ -10,9 +10,11 @@
 <div class="container">
     <h1><span th:text="${business.getName()}"></span></h1>
     <!-- Button trigger modal -->
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <div sec:authorize="isAuthenticated()">
+    <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Write a Review
     </button>
+    </div>
     <div class="row">
         <div class="col-lg-10 col-12">
             <div class="card">

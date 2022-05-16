@@ -28,12 +28,13 @@ import java.util.List;
 
 @Controller
 public class BusinessController {
+
     BusinessRepository businessDao;
     ReviewRepository reviewDao;
     UserRepository userDao;
 
     @Value("${mapbox.api.key}")
-    private String apikey;
+    private String apiKey;
 
     public BusinessController(BusinessRepository businessDao, ReviewRepository reviewDao, UserRepository userDao) {
         this.businessDao = businessDao;
@@ -104,10 +105,10 @@ public class BusinessController {
     public String search(Model model, @Param("keyword") String keyword){
         System.out.println("keyword = " + keyword);
         if (keyword != null){
-            model.addAttribute("apikey", apikey);
+            model.addAttribute("apiKey", apiKey);
             model.addAttribute("business" , businessDao.getAllByNameContaining(keyword));
         } else {
-            model.addAttribute("apikey",apikey);
+            model.addAttribute("apiKey",apiKey);
             model.addAttribute("business",businessDao.findAll());
         }
         return "home";
