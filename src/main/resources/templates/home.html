@@ -11,9 +11,9 @@
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
 </head>
 <body>
-<div class="map-container">
+<div class="map-container container-fluid">
     <div class="mapbox">
-        <div class="container" id='map'>
+        <div class="container-fluid" id='map'>
             <link rel='stylesheet'
                   href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
                   type='text/css'/>
@@ -35,7 +35,7 @@
              class="flip-card card-item card-deck">
             <div class="flip-card-inner" th:each="business : ${business}">
                 <p th:text="${business.getName()}"
-                   class="flip-card-front text-center text-blue h3 justify-content-center mt-3"></p>
+                   class="flip-card-front h3"></p>
                 <!--                 <img id="flipImage" th:src="${business.getBusinessImages()}" class="flip-card-front" alt="...">-->
                 <div class="flip-card-back card-body text-center ">
                     <button class="btn w-100 mx-1 my-1 justify-content-center" type="button" id="location"
