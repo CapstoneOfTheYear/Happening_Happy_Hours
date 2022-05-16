@@ -18,6 +18,7 @@
                     <h5 class="card-text" style="text-align: center" th:text="${review.body}"></h5>
                     <br>
                     <p class="reviewScore" style="text-align: center" th:text="${review.getScore()}"> / 5.0</p>
+                    <a class="btn btn-primary" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
                 </div>
             </div>
     </div>

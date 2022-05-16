@@ -67,8 +67,8 @@ public class BusinessController {
     }
 
 
-    @PostMapping(value= "/updateBusiness/{id}", params = {"imageUrl"})
-    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id, @RequestParam(value = "imageUrl", required = false) String imageUrl){
+    @PostMapping(value = "/updateBusiness/{id}", params = {"imageUrl"})
+    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id, @RequestParam(value = "imageUrl", required = false) String imageUrl) {
 
         if (result.hasErrors()) {
             business.setId(id);
@@ -97,22 +97,54 @@ public class BusinessController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         Business business = businessDao.getBusinessById(id);
-        reviewDao.add(review.getBody(),review.getScore(),business.getId(),user2.getId());
+        reviewDao.add(review.getBody(), review.getScore(), business.getId(), user2.getId());
         return "redirect:/profile/user";
     }
 
     @GetMapping("/search")
-    public String search(Model model, @Param("keyword") String keyword){
+    public String search(Model model, @Param("keyword") String keyword) {
         System.out.println("keyword = " + keyword);
-        if (keyword != null){
+        if (keyword != null) {
             model.addAttribute("apiKey", apiKey);
-            model.addAttribute("business" , businessDao.getAllByNameContaining(keyword));
+            model.addAttribute("business", businessDao.getAllByNameContaining(keyword));
         } else {
-            model.addAttribute("apiKey",apiKey);
-            model.addAttribute("business",businessDao.findAll());
+            model.addAttribute("apiKey", apiKey);
+            model.addAttribute("business", businessDao.findAll());
         }
         return "home";
     }
 
+    @GetMapping("editReview/{id}")
+    public String editReview(Model model, @PathVariable long id) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user1 = userDao.getById(user.getId());
+        System.out.println("user1.getUsername() = " + user1.getUsername());
+        System.out.println("reviewDao.getById(id).getBody() = " + reviewDao.getById(id).getBody());
+        model.addAttribute("user", user1);
+        model.addAttribute("review", reviewDao.getById(id));
+        return "editReview";
+    }
+
+    @PostMapping("/editReview/{id}")
+    public String saveReview(Model model, @PathVariable long id, Review review) {
+        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User user2 = userDao.getById(user.getId());
+        Business business = businessDao.getBusinessById(id);
+        review.setBusiness(business);
+        review.setUser(user2);
+        reviewDao.save(review);
+        return "redirect:/profile/user";
+    }
+
+    @PostMapping("/deleteReview/{id}")
+    public String deleteReview(Model model, @PathVariable long id, Review review) {
+        review.setId(id);
+        System.out.println("review.getBody() = " + review.getBody());
+        reviewDao.delete(review);
+        return "redirect:/profile/user";
+    }
+
 
 }
+
+

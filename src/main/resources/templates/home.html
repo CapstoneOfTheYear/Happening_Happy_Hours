@@ -35,7 +35,9 @@
              class="flip-card card-item card-deck">
             <div class="flip-card-inner" th:each="business : ${business}">
                 <p th:text="${business.getName()}"
+
                    class="flip-card-front h3"></p>
+
                 <!--                 <img id="flipImage" th:src="${business.getBusinessImages()}" class="flip-card-front" alt="...">-->
                 <div class="flip-card-back card-body text-center ">
                     <button class="btn w-100 mx-1 my-1 justify-content-center" type="button" id="location"
