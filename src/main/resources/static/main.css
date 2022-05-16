@@ -73,7 +73,7 @@ body {
     top: 0;
     bottom: 0;
     margin-top: 150px;
-    /*z-index: -1;*/
+    z-index: -1;
 
 }
 
@@ -102,15 +102,19 @@ body {
     color: #0d0da6;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-    z-index: 2;
-}
 
+}
+ .navbar-collapse{
+
+}
 #navbarNav, #navbarNav2 {
     background-color: unset;
+
 }
 
 .navbar .brand, .navbar .nav > li > a {
     color: #ffffff !important;
+
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
@@ -119,6 +123,8 @@ body {
 
 .navbar-dark span.navbar-toggler-icon {
     color: white !important;
+    margin-bottom: 5px;
+
 }
 
 .btn {
@@ -146,7 +152,6 @@ body {
 #location {
     padding: 3px;
     height: 80px;
-
     overflow: inherit;
 }
 
@@ -235,6 +240,7 @@ p.h6 {
     color: #e34500;
 }
 
+
 a.btn.btn-outline-light {
     width: 25px;
     justify-content: center;
@@ -253,7 +259,7 @@ a.btn.btn-outline-light:hover {
     width: 75%;
     padding: 0;
     margin: 0;
-    z-index: auto;
+    z-index: -1;
     float: right;
 
 
@@ -272,6 +278,7 @@ a.btn.btn-outline-light:hover {
     bottom: 0;
     width: 75%;
     height: 89%;
+    z-index: -1;
 }
 
 .mapboxgl-canvas {
@@ -321,10 +328,10 @@ footer {
     width: 100%;
     height: 100px;
     color: #ffffff;
-    margin-top: 80px;
+    position: absolute;
+    bottom: 0;
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
 }
-
 
 #menu.zoom-container {
 
@@ -340,10 +347,12 @@ footer {
     color: #e34500 !important;
     top: 750px;
     z-index: 3;
-
-
 }
 
+#registerPage{
+    margin-bottom: 200px;
+padding-bottom: 200px;
+    }
 
 button {
     border-radius: 25px;
@@ -495,3 +504,23 @@ h1, h2, h3, header, title, label {
 
 
 
+@media only screen and (max-width: 442px) {
+    .splashTitle {
+        background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+        border-bottom-left-radius: 35px;
+        border-bottom-right-radius: 35px;
+        height: 75px;
+
+    }
+}
+    @media only screen and (max-width: 992px) {
+    .navbar-brand{
+        position: relative;
+        bottom:12px;
+    }
+    button.navbar-toggler {
+        position: relative;
+        color: white !important;
+        bottom: 15px;
+    }
+}

@@ -16,9 +16,11 @@
         display: none;
         background: #f1f1f1;
         color: #000;
-        position: relative;
-        padding: 20px;
-        margin-top: 10px;
+        position: absolute;
+        margin: 10px;
+        bottom: 70px;
+        height: 200px;
+        width:400px;
     }
 
     #message h3 {
@@ -26,8 +28,9 @@
     }
 
     #message p {
-        padding: 10px 35px;
         font-size: 18px;
+        padding: 0;
+        margin: 0
     }
 
     /* Add a green text color and a checkmark when the requirements are right */
@@ -54,12 +57,12 @@
 
 </style>
 
-<body>
+<body id="registerPage" class="h-100">
 <nav th:include="partials :: navbar"></nav>
 
 <h1 class="mb-3 text-center">Create an Account</h1>
 <!-- create an account page container for consumers-->
-<div class="container">
+<div  class="container">
     <div class="row">
         <form th:action="@{/register}" method="post" th:object="${user}">
             <!--             container for acct type & email-->
@@ -284,10 +287,10 @@
     </div>
     <div id="message">
         <h3>Password must contain the following:</h3>
-        <p id="letter" class="invalid">A <b>lowercase</b> letter</p>
-        <p id="capital" class="invalid">A <b>capital (uppercase)</b> letter</p>
-        <p id="number" class="invalid">A <b>number</b></p>
-        <p id="length" class="invalid">Minimum <b>8 characters</b></p>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">A capital (uppercase) letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
     </div>
 </div>
 
