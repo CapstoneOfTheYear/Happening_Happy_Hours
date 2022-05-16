@@ -45,7 +45,9 @@
                         <p class="card-text" th:text="${review.body}"></p>
                     </div>
                     <span th:text="${review.getScore()}"></span>
+
                     <a  class="btn btn-primary" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
+
                 </div>
             </div>
             <br><br><br><br><br>
