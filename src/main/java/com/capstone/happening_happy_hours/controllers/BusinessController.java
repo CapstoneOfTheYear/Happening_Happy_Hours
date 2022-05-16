@@ -66,15 +66,18 @@ public class BusinessController {
     }
 
 
-    @PostMapping("/updateBusiness/{id}")
-    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id) {
+    @PostMapping(value= "/updateBusiness/{id}", params = {"imageUrl"})
+    public String postUpdateProfile(Model model, @ModelAttribute Business business, BindingResult result, @PathVariable long id, @RequestParam(value = "imageUrl", required = false) String imageUrl){
+
         if (result.hasErrors()) {
             business.setId(id);
             return "updateBusiness";
         }
+        business.setBusinessImages(imageUrl);
         System.out.println("business.getName() = " + business.getName());
         System.out.println("business.getLocation() = " + business.getLocation());
         System.out.println("business.getCity() = " + business.getCity());
+        System.out.println("business.getBusinessImages() =" + business.getBusinessImages());
         businessDao.save(business);
         return "redirect:/profile/business";
     }
