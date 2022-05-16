@@ -57,7 +57,11 @@ body {
 }
 .splashTitle {
     background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);
+    border-bottom-left-radius: 35px;
+    border-bottom-right-radius: 35px;
+
 }
+
 #myVideo {
     width: 100%;
     height: 74%;
@@ -294,15 +298,17 @@ a.btn.btn-outline-light:hover {
 
 }
 .mapboxgl-popup {
+
     border-radius: 35px;
     text-align: center;
     height: 200px;
     width: 200px;
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    display: none;
 }
 div.mapboxgl-popup-content {
     border-radius: 35px;
-    background-color: #0d0da6;
+    background-color: rgba(100, 149, 237, 0.99);
     color: #ffffff;
 }
 .mapboxgl-popup-content:hover {
