@@ -6,11 +6,11 @@
 
 <body>
 <nav th:include="partials :: navbar"></nav>
-<div class="container mb-5">
+<div class="container">
     <h1>Welcome <span th:text="${business.getName()}"></span></h1>
     <a href="#">View Profile</a>
     <div class="row">
-        <div class="col-lg-4 col-12 mb-5">
+        <div class="col-lg-4 col-md-6 col-12 mb-5">
             <h3>Profile Details</h3>
             <div class="card">
                 <img th:src="${business.getBusinessImages()}">
@@ -25,36 +25,44 @@
 
                     <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span
                             th:text="${business.getEnding_hour()}"></span></p>
+                    <h4><b>Amenities</b></h4>
+                    <th:block th:if="${business.pool}">[Pool]</th:block>
+                    <th:block th:if="${business.cornHole}">[Corn Hole]</th:block>
+                    <th:block th:if="${business.darts}">[Darts]</th:block>
+                    <th:block th:if="${business.dogsAllowed}">[Dogs Allowed]</th:block>
+                    <th:block th:if="${business.karaoke}">[Karaoke]</th:block>
+                    <th:block th:if="${business.liveMusic}">[Live Music]</th:block>
+                    <th:block th:if="${business.servesFood}">[Serves Food]</th:block>
+                    <br>
                     <p><b>Other games: </b><span th:text="${business.otherGames}"></span></p>
                     <p><span th:text="${business.avgRating()}"></span> / 5.0 </p>
                     <div class="card-body">
-
-                    <a href="/updateBusiness" class="card-link text-center">Edit Profile</a>
-
+                        <a href="/updateBusiness" class="card-link text-center">Edit Profile</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-8 col-12">
-                <h2><span th:text="${business.getName()}"></span> Reviews</h2>
-                <div class="card col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
-                    <div class="card-body">
-                        <h5 class="card-title" th:text="${review.getUser().username}"></h5>
-                        <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-                        <p class="card-text" th:text="${review.body}"></p>
-                    </div>
+        </div>
 
-                    <span th:text="${review.getScore()}"></span>
+        <div class="col-lg-8 col-md-6 col-12">
+            <h2><span th:text="${business.getName()}"></span> Reviews</h2>
+            <div class="row">
+            <div class="card col-12 col-lg-3 col-xxl-3 mx-2 my-3 " th:each="review : ${reviews}">
+                <div class="card-body">
+                    <h5 class="card-title" th:text="${review.getUser().username}"></h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+                    <p class="card-text" th:text="${review.body}"></p>
                 </div>
+                <span th:text="${review.getScore()}"></span>
             </div>
-            <!--            <span th:text="${#aggregates.avg(reviewsRating.score)}"></span>-->
-
+            </div>
         </div>
     </div>
 </div>
 
 
-<footer th:replace="partials :: footer"></footer>
 </body>
+<footer th:replace="partials :: footer"></footer>
+
 <script>
     // function amenity(){
     //     let arr = [dogsAllowed, pool, darts, liveMusic, karaoke, cornHole, servesFood];

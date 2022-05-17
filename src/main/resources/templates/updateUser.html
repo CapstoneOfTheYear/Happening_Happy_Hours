@@ -27,32 +27,36 @@
             </div>
             <input id="isOwner" th:field="*{ownsBusiness}" th:value="*{ownsBusiness}" hidden>
 
-
-
-            <button type="submit" class="btn btn-primary p-0 mt-2 m-auto">Submit</button>
+            <div class="d-flex justify-content-center mt-3">
+                <button type="submit" class="btn btn-primary p-0 mt-2 m-auto col-12 col-md-8 col-lg-6">Submit</button>
+            </div>
         </form>
-        <form id="deleteAccount"  th:action="@{'/deleteProfile/{id}'(id = ${user.id})}" method="post">
-            <button id="deleteButton" class="btn btn-outline-danger">Delete Account</button>
+        </div>
+        <div class="text-center mt-3">
+        <form id="deleteAccount" th:action="@{'/deleteProfile/{id}'(id = ${user.id})}" method="post">
+            <button id="deleteButton" class="btn btn-primary p-0 mt-2 m-auto col-12 col-md-8 col-lg-6">Delete Account</button>
         </form>
+        </div>
     </div>
 </div>
 
-<footer th:replace="partials :: footer"></footer>
 
 <script>
     let form = $("#deleteAccount");
     let deleteAccount = function () {
         return confirm("Are you sure you want to delete your account?");
     };
-        $("#deleteButton").click(function (){
-            if(deleteAccount()){
-                console.log("delete confirmation logic is working.");
-                form.submit();
-            }
-        })
+    $("#deleteButton").click(function () {
+        if (deleteAccount()) {
+            console.log("delete confirmation logic is working.");
+            form.submit();
+        }
+    })
 
 </script>
 
 </body>
+<footer th:replace="partials :: footer"></footer>
+
 </html>
 
