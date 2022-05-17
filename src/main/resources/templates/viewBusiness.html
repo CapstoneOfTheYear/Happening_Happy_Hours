@@ -29,6 +29,15 @@
                     <h5 class="mt-3">Happy Hours</h5>
                     <p id="happyHours">Start: <span th:text="${business.getStarting_hour()}"></span> End: <span
                             th:text="${business.getEnding_hour()}"></span></p>
+                    <h4><b>Amenities</b></h4>
+                    <th:block th:if="${business.pool}">[Pool]</th:block>
+                    <th:block th:if="${business.cornHole}">[Corn Hole]</th:block>
+                    <th:block th:if="${business.darts}">[Darts]</th:block>
+                    <th:block th:if="${business.dogsAllowed}">[Dogs Allowed]</th:block>
+                    <th:block th:if="${business.karaoke}">[Karaoke]</th:block>
+                    <th:block th:if="${business.liveMusic}">[Live Music]</th:block>
+                    <th:block th:if="${business.servesFood}">[Serves Food]</th:block>
+                    <br>
                     <p><b>Other games: </b><span th:text="${business.otherGames}"></span></p>
                     <p id="businessRating"><span th:text="${business.avgRating()}"></span> / 5.0 </p>
                 </div>
