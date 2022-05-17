@@ -7,8 +7,7 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h2 th:text="${review.getBody()}"></h2>
-<h1 th:text="${user.getUsername()}"></h1>
+<h1>Edit Review</h1>
 <form th:action="@{'/editReview/{id}'(id = ${review.getBusiness().getId()})}" th:object="${review}" method="post">
     <div class="form-group">
         <label for="businessName">Business Name</label>
@@ -32,7 +31,7 @@
     </div>
     <button type="submit" class="btn btn-primary">Save changes</button>
 </form>
-<div class="modal-footer">
+<div>
     <form id="deleteReview" th:action="@{'/deleteReview/{id}'(id = ${review.id})}" method="post">
         <button id="deleteButton" class="btn btn-outline-danger">Delete Review</button>
     </form>
