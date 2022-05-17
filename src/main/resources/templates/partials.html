@@ -23,7 +23,7 @@
     <nav th:fragment="navbar" class="navbar sticky-top navbar-expand-lg navbar-dark" id="navbar">
 <!--        <div id="navMobile" class="container-fluid m-0 p-0">-->
             <a class="navbar-brand" href="/">
-                <img th:src="@{/images/H3Logo.png}"/>
+                <img th:src="@{/images/H3LogoBlue.png}"/>
             </a>
 
             <button class="navbar-toggler" type="button"  data-bs-toggle="collapse" data-bs-target="#navbarNav, #navbarNav2"
@@ -52,20 +52,19 @@
                 <div class="collapse navbar-collapse justify-content-end" id="navbarNav2">
                     <form class="d-flex align-items-center" th:action="@{'/search'}" method="get">
                         <input name="keyword" class="form-control w-100 mx-2" type="search" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-outline-primary mb-2 my-sm-2 mx-2"
+                        <button class="btn btn-outline-light mb-2 my-sm-2 mx-2"
                                 style="margin-top: 8px" type="submit">Search</button>
                     </form>
                     <a href="/login" sec:authorize="isAnonymous()">
-                        <button class="btn btn-outline-primary mb-2 my-sm-2 mx-2"
+                        <button class="btn btn-outline-light mb-2 my-sm-2 mx-2"
                                 style="margin-top: 8px">Login
                         </button>
                     </a>
                     <form sec:authorize="isAuthenticated()" class="form-inline" th:action="@{/logout}" th:method="post">
-                        <button class="btn btn-outline-primary mb-2 my-sm-0 mx-2" style="margin-top: 8px">Logout</button>
+                        <button class="btn mb-2 my-sm-0 mx-2" style="margin-top: 8px">Logout</button>
                     </form>
                 </div>
             </div>
-<!--        </div>-->
     </nav>
 </nav>
 
