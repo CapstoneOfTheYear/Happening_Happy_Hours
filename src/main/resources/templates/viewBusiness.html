@@ -11,7 +11,7 @@
     <h1><span th:text="${business.getName()}"></span></h1>
     <!-- Button trigger modal -->
 
-    <button  type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    <button sec:authorize="isAuthenticated()" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Write a Review
     </button>
 
@@ -46,7 +46,6 @@
                     </div>
                     <span th:text="${review.getScore()}"></span>
 
-                    <a  class="btn btn-primary" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
 
                 </div>
             </div>
