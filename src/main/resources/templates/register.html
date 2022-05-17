@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <label class="text-white h4" for="username">Username</label>
                                 <input class="form-control" name="username" type="text" id="username"
-                                       th:field="*{username}">
+                                       th:field="*{username}" required>
                             </div>
                         </div>
                     </div>
@@ -294,7 +294,6 @@
     </div>
 </div>
 
-<footer th:replace="partials :: footer"></footer>
 <script>
     let businessForm = '';
 
@@ -383,7 +382,13 @@
         }
     }
 
+    function validName() {
+        if ()
+    }
+
 
 </script>
 </body>
+<footer th:replace="partials :: footer"></footer>
+
 </html>
