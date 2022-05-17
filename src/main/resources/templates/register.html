@@ -80,7 +80,7 @@
                             <div class="form-group">
                                 <label class="text-white h4" for="username">Username</label>
                                 <input class="form-control" name="username" type="text" id="username"
-                                       th:field="*{username}">
+                                       th:field="*{username}" required>
                             </div>
                         </div>
                     </div>
@@ -381,6 +381,10 @@
         } else {
             x.type = "password";
         }
+    }
+
+    function validName() {
+        if ()
     }
 
 
