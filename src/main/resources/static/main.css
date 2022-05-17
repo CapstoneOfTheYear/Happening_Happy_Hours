@@ -59,25 +59,18 @@
 body {
     background-color: rgba(0, 0, 0, 0.98);
 }
-.splashTitle {
-    animation: animateBg 420s linear infinite;
-    background: #00fffb;
-    border-bottom-left-radius: 35px;
-    border-bottom-right-radius: 35px;
-
-}
 
 #myVideo {
     width: 100%;
-    height: 74%;
+    height: 100%;
     object-fit: inherit;
     position: fixed;
     padding: 0;
     left: 0;
     right: 0;
     top: 0;
-    bottom: 0;
-    margin-top: 150px;
+    bottom: 50px;
+    /*margin-top: 150px;*/
     z-index: -1;
 
 }
@@ -462,10 +455,6 @@ button {
     z-index: 3;
 }
 
-.splashTitle{
-    color: #327678;
-}
-
 .zoom-label {
     color: #03FDF9FF;
     font-size: 16px;
@@ -529,8 +518,7 @@ button {
 @media only screen and (max-width: 442px) {
     .splashTitle {
 
-        border-bottom-left-radius: 35px;
-        border-bottom-right-radius: 35px;
+
         height: 75px;
 
     }
@@ -541,7 +529,12 @@ button {
         bottom:12px;
         height: 90px;
     }
-    button.navbar-toggler {
+
+        .navbar .brand, .navbar .nav > li > a {
+            color: #578d8a !important;
+        }
+
+        button.navbar-toggler {
         position: relative;
         color: #2c3e3d;
         align-items: center;
