@@ -12,11 +12,11 @@ values(1,'San Antonio', '2720 McCullough Ave', 'Barbaro', '78212', 'TX', '4', '6
 
 
 insert into h3_db.user (email, owns_business, password, username)
-values ('yourMom@hoeSpace.org', 0, 'codeup', 'Foodie210'),
-       ('fuckThatSoundsConfusing@gmail.com', 1, 'green', 'CharlesInCharge');
+values ('you@noSpace.org', 0, 'codeup', 'Foodie210'),
+       ('wowThatSoundsConfusing@gmail.com', 1, 'green', 'CharlesInCharge');
 
 insert into reviews (body, score, business_id, user_id)
-values ('Gross food, hot servers', 3, 1, 2),
+values ('Gross food, nice servers', 3, 1, 2),
        ('Nice!', 5, 2, 1),
        ('Good stuff', 4, 1, 1),
        ('hello', 3, 3, 2);
