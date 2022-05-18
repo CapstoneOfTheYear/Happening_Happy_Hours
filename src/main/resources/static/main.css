@@ -67,16 +67,17 @@ button {
 
 .card-item:hover {
     transition: ease-in-out .5s;
-    border: 1px solid #e34500;
+    border: 1px solid #2c3e3d;
     box-shadow: black;
 }
 
 
 .btn {
+    padding: 5px;
     justify-content: center;
     color: #2c3e3d;
     background-color: #03FDF9FF;
-    padding: 0;
+
 }
 
 #sub-btn {
@@ -99,6 +100,7 @@ button {
 
 a.btn.btn-outline-light {
     /*width: 25px;*/
+
     justify-content: center;
     color: #2c3e3d;
     background-color: #03FDF9FF;
