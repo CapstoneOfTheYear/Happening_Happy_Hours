@@ -127,4 +127,5 @@ function openPhotoPicker() {
             video.setAttribute("controls", "controls")
         }
     }
+
 }

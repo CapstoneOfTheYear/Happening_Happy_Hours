@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <header th:include="partials :: header(title = 'Happening Happy Hour')"></header>
-
+<body>
 <nav th:include="partials :: navbar"></nav>
-    <div class="splashTitle col-lg fit-content container-fluid">
-    <h1 class="splashTitle2 text-center">A Place To Find Your Ideal Happy Hour</h1>
-    </div>
+
 <div class="container-fluid">
-    <video class="container-fluid"  autoplay controls muted loop id="myVideo">
-        <source th:src="@{/images/H3.mp4}" type=video/mp4>
+    <video class="container-fluid"autoplay controls muted id="myVideo">
+        <source th:src="@{/images/H3 Final.mp4}" type=video/mp4>
         <p onclick="toggleControls();">Toggle</p>
     </video>
 </div>
+
+</body>
 <footer th:replace="partials :: footer"></footer>
 </html>

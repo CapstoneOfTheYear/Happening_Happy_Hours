@@ -14,6 +14,7 @@
 <div class="map-container container-fluid">
     <div class="mapbox">
         <div class="container-fluid" id='map'>
+        </div>
             <link rel='stylesheet'
                   href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
                   type='text/css'/>
@@ -27,8 +28,6 @@
                 <button id="zoom10" value="zoom x 10">X 10</button>
                 <button id="zoom15" value="zoom x 15">X 15</button>
             </div>
-        </div>
-
     </div>
     <div class="reviews">
         <div id="mapboxData" th:each="business : ${business}"
