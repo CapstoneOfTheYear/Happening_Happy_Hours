@@ -1,12 +1,126 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+#button {
+    position: absolute;
+    top: 20px;
+    bottom: 0;
+    right: 80px;
+    height: 30px;
+    padding: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
+
+
+.btn {
+    right: 80px;
+    padding: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
+
+
+body {
+    background-color: rgba(0, 0, 0, 0.98);
+    margin-bottom: 100px;
+}
+button {
+    border-radius: 25px;
+    background-color: #2c3e3d;
+    color: #03FDF9FF;
+    height: 35px;
+    align-content: center;
+    margin: 3px;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
+
+.card-header {
+    font: 16px 'orbitron', Arial, Helvetica, sans-serif;
+    padding: 10px;
+    margin: auto;
+}
+
+.card.col-5.card-header {
+    border-radius: 25px;
+    justify-content: space-around;
+    text-align: center;
+    margin: 5px;
+    background: #03FDF9FF;
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+}
+
+.card {
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+    border: none;
+    border-radius: 10px;
+}
+
+.card-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #03FDF9FF;
+    /*padding: 15px;*/
+    /*border-radius: 25px;*/
+    background: #ffffff !important;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.card-item:hover {
+    transition: ease-in-out .5s;
+    border: 1px solid #e34500;
+    box-shadow: black;
+}
+
+
+.btn {
+    justify-content: center;
+    color: #2c3e3d;
+    background-color: #03FDF9FF;
+    padding: 0;
+}
+
+#sub-btn {
+    width: 120px;
+    height: 35px;
+    padding: 3px;
+}
+
+#photoPicker {
+    width: 120px;
+    height: 35px;
+}
+
+.btn:hover {
+    color: #2c3e3d;
+
+}
+
+
+
+a.btn.btn-outline-light {
+    /*width: 25px;*/
+    justify-content: center;
+    color: #2c3e3d;
+    background-color: #03FDF9FF;
+}
+
+a.btn.btn-outline-light:hover {
+    color: #03FDF9FF !important;
+    background-color: #2c3e3d;
+}
+
+.btn.btn-outline-light:hover {
+    color: #03FDF9FF !important;
+    background-color: #2c3e3d;
+}
 .flip-card {
     background-color: white;
-    /*width: 300px;*/
     height: 150px;
     margin: 0;
     padding: 0;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
+
 #flipImage {
     top: 50px;
     right: 75px;
@@ -14,6 +128,7 @@
     width: 300px;
     z-index: 1;
 }
+
 /* This container is needed to position the front and back side */
 .flip-card-inner {
     position: relative;
@@ -46,25 +161,36 @@
     color: #2c3e3d;
     overflow-wrap: anywhere;
     display: flex;
-    justify-content:center;
+    justify-content: center;
     align-items: center;
 }
 
 /* Style the back side */
 .flip-card-back {
-    background-color:#03FDF9FF;
+    background-color: #03FDF9FF;
     color: white;
     transform: rotateY(180deg);
     overflow: hidden;
 }
-body {
-    background-color: rgba(0, 0, 0, 0.98);
-    margin-bottom: 100px;
+#location {
+    padding: 3px;
+    height: 80px;
+    overflow: inherit;
 }
 
+
+
+.mapbox {
+
+    height: 80%;
+    width: 75%;
+    padding: 0;
+    margin-bottom: 100px;
+    float: right;
+}
 #myVideo {
     width: 100%;
-    height: 100%;
+    height: 90%;
     object-fit: inherit;
     position: fixed;
     padding: 0;
@@ -72,53 +198,34 @@ body {
     right: 0;
     top: 0;
     bottom: 50px;
-    /*margin-top: 150px;*/
     z-index: -1;
-
-}
-.card {
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-    border: none;
-    border-radius: 10px;
-}
-.card-item {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 1px solid #03FDF9FF;
-    /*padding: 15px;*/
-    /*border-radius: 25px;*/
-    background: #ffffff !important;
-    max-width: 100%;
-    max-height: 100%;
 }
 
-.card-item:hover {
-    transition: ease-in-out .5s;
-    border: 1px solid #e34500;
-    box-shadow: black;
-}
-.navbar>.container {
+.navbar > .container {
     flex: auto;
     height: 100px;
 }
-.navbar{
+
+.navbar {
     text-align: center;
     width: 100%;
     height: 100px;
     color: #03FDF9FF;
-    background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(3, 253, 249)100%);
+    background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(3, 253, 249) 100%);
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 
 }
+
 #navMobile {
     height: 100%;
 }
- #navbarNav{
-     margin: 0;
-     padding: 0;
-     height: 250px;
+
+#navbarNav {
+    margin: 0;
+    padding: 0;
+    height: 250px;
 }
+
 #navbarNav, #navbarNav2 {
     background-color: unset;
 }
@@ -138,141 +245,12 @@ body {
 .navbar-dark span.navbar-toggler-icon {
     color: #2c3e3d;
 }
-
-.btn {
-    justify-content: center;
-    color: #2c3e3d;
-    background-color: #03FDF9FF;
-    padding: 0;
-}
-
-#sub-btn {
-    width: 120px;
-    height: 35px;
-    padding: 3px;
-}
-
-#photoPicker {
-    width: 120px;
-    height: 35px;
-}
-
-.btn:hover {
-    color: #2c3e3d;
-
-}
-
-#location {
-    padding: 3px;
-    height: 80px;
-    overflow: inherit;
-}
-
-.section {
-    background:  #2c3e3d;
-    margin-top: 10px;
-    position: relative;
-    height: 85px;
-    margin-bottom: 100px;
-}
-
-p.h6 {
-    text-transform: none;
-}
-
-
-#footer a {
-    color: #2c3e3d;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-    font-family: 'Press Start 2P', cursive;
-}
-
-#footer ul.social li {
-    padding: -1px;
-}
-
-#footer ul.social li a i {
-    margin-right: 5px;
-    font-size: 25px;
-    -webkit-transition: .5s all ease;
-    -moz-transition: .5s all ease;
-    transition: .5s all ease;
-}
-
-#footer ul.social li:hover a i {
-    font-size: 30px;
-    margin-top: -10px;
-}
-
-#footer a {
-    text-decoration: none;
-}
-
-#footer ul.social li a,
-#footer ul.quick-links li a {
-    color: #2c3e3d;
-
-}
-
-
-#footer ul.quick-links li {
-    padding: -1px;
-    -webkit-transition: .5s all ease;
-    -moz-transition: .5s all ease;
-    transition: .5s all ease;
-}
-
-#footer ul.quick-links li:hover {
-    padding: 1px;
-    margin-left: 5px;
-    font-weight: 700;
-    color: #e34500 !important;
-}
-
-#footer ul.quick-links li a i {
-    margin-right: 5px;
-}
-
-/*#footer ul.quick-links li:hover a i {*/
-/*    font-weight: 700;*/
-/*    color: #e34500 !important;*/
-/*}*/
-
-
-a.btn.btn-outline-light {
-    /*width: 25px;*/
-    justify-content: center;
-    color: #2c3e3d;
-    background-color: #03FDF9FF;
-}
-a.btn.btn-outline-light:hover {
-    color: #03FDF9FF !important;
-    background-color: #2c3e3d;
-}
-.btn.btn-outline-light:hover {
-    color: #03FDF9FF !important;
-    background-color: #2c3e3d;
-}
-
-.mapbox {
-
-    height: 80%;
-    width: 75%;
-    padding: 0;
-    margin-bottom: 100px;
-    float: right;
-
-
-}
 .reviews {
     float: left;
     z-index: auto;
-    width:25%;
+    width: 25%;
     margin-bottom: 100px;
 }
-
 
 #map {
     position: fixed;
@@ -283,20 +261,12 @@ a.btn.btn-outline-light:hover {
     z-index: -1;
 }
 
-/*.mapboxgl-canvas {*/
-/*    height: 100%;*/
-/*    width: 75%;*/
-/*    padding: 0;*/
-/*    margin: 0;*/
-
-
-/*}*/
-
 .map-container {
     padding: 0;
     margin: 0 !important;
     width: 100%;
 }
+
 .mapMarker {
     background-image: url('https://i.ibb.co/bJz3x34/H3-Map-Logo.png');
     background-size: contain;
@@ -304,10 +274,9 @@ a.btn.btn-outline-light:hover {
     width: 65px;
     height: 75px;
     cursor: pointer;
-
 }
-.mapboxgl-popup {
 
+.mapboxgl-popup {
     border-radius: 35px;
     text-align: center;
     height: 200px;
@@ -315,11 +284,13 @@ a.btn.btn-outline-light:hover {
     font: 12px/20px 'Helvetica Neue', Arial, Helvetica, sans-serif;
     display: none;
 }
+
 div.mapboxgl-popup-content {
     border-radius: 35px;
     background-color: #03FDF9FF;
     color: #2c3e3d;
 }
+
 .mapboxgl-popup-content:hover {
     color: #e34500;
 }
@@ -337,7 +308,6 @@ footer {
 }
 
 #menu.zoom-container {
-
     font-weight: bolder;
     position: absolute;
     display: flex;
@@ -347,50 +317,36 @@ footer {
     height: 40px;
     width: 350px;
     font-size: 16px;
-    color: #03FDF9FF; !important;
+    color: #03FDF9FF;
+!important;
     top: 750px;
     z-index: 3;
 }
-
-#registerPage{
+p.h6 {
+    text-transform: none;
+}
+#registerPage {
     margin-bottom: 200px;
     padding-bottom: 200px;
-    }
-.text {
-    color: #ffffff;
 }
-button {
-    border-radius: 25px;
-    background-color: #2c3e3d;
-    color: #03FDF9FF;
-    height: 35px;
-    align-content: center;
-    margin: 3px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+.section {
+    background: #2c3e3d;
+    margin-top: 10px;
+    position: relative;
+    height: 85px;
+    margin-bottom: 100px;
 }
 
 
-.card-header {
-    font: 16px 'orbitron', Arial, Helvetica, sans-serif;
-    padding: 10px;
-    margin: auto;
-}
 
-.card.col-5.card-header {
-    border-radius: 25px;
-    /*border: solid 2px #e34500;*/
-    justify-content: space-around;
-    text-align: center;
-    margin: 5px;
-    background: #03FDF9FF;
-    /*background: radial-gradient(circle, rgb(227, 69, 0) 0%, rgb(13, 13, 166) 100%);*/
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-}
+
 
 .list-group-item {
     text-align: center;
 }
-
+.reviewContainer {
+    margin-bottom: 100px;;
+}
 .search {
     position: absolute;
     top: 22px;
@@ -403,37 +359,22 @@ button {
 }
 
 
-#button {
-    position: absolute;
-    top: 20px;
-    bottom: 0;
-    right: 80px;
-    height: 30px;
-    padding: 3px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+
+
+.text {
+    color: #ffffff;
 }
 
 
-
-.btn {
-    right: 80px;
-    padding: 3px;
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-}
-
-/*h1, h2, h3, header, title, label {*/
-/*    color: white;*/
-/*}*/
-.reviewContainer{
-    margin-bottom: 100px; ;
-}
 .card-about {
     height: auto !important;
 }
-.trademark{
+
+.trademark {
     text-decoration: none;
     color: #ffffff;
 }
+
 .trademark:hover {
     color: #03FDF9FF;
 }
@@ -445,7 +386,8 @@ button {
     height: 40px;
     width: 350px;
     font-size: 16px;
-    color: #03FDF9FF; !important;
+    color: #03FDF9FF;
+!important;
     top: 800px;
     z-index: 3;
 }
@@ -465,6 +407,7 @@ button {
 }
 
 #zoom5 {
+    border: 1px solid white;
     margin: 5px;
     background: #03FDF9FF;
     color: #2c3e3d;
@@ -472,12 +415,14 @@ button {
 }
 
 #zoom5:hover {
+    border: white;
     color: #03FDF9FF;
     background-color: #2c3e3d;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 #zoom10 {
+    border: 1px solid white;
     margin: 5px;
     background: #03FDF9FF;
     color: #2c3e3d;
@@ -491,6 +436,7 @@ button {
 }
 
 #zoom15 {
+    border: 1px solid white;
     margin: 5px;
     background: #03FDF9FF;
     color: #2c3e3d;
@@ -503,94 +449,97 @@ button {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
-    @media only screen and (max-width: 992px) {
+@media only screen and (max-width: 992px) {
 
-        #navbarNav, #navbarNav2 {
-            background-color: black !important;
-        }
-
-        .navbar-brand {
-            position: relative;
-            bottom: 12px;
-            height: 90px;
-        }
-
-        .map-container {
-            /*display: flex;*/
-            /*flex-direction: column;*/
-            margin: 0;
-        }
-        .mapboxgl-canvas {
-            height: 100%;
-            width: 100%;
-            padding: 0;
-            margin: 0;
-        }
-        .mapbox {
-            height: 375px;
-            align-items: center;
-            justify-content: center;
-            width: 100%;
-            padding: 0;
-            margin-bottom: 0;
-            z-index: 3;
-        }
-
-        #map {
-            position: fixed;
-            float: top;
-            height: 70%;
-            width: 100%;
-            z-index: 3;
-        }
-
-        .reviews {
-            position: relative;
-            float: bottom;
-            z-index: auto;
-            width: 100%;
-            height: 30% !important;
-            margin-top: 100px;
-            margin-bottom: 100px;
-
-        }
-
-        .navbar .brand, .navbar .nav > li > a {
-            color: #578d8a !important;
-        }
-
-        button.navbar-toggler {
-            position: relative;
-            color: #2c3e3d;
-            align-items: center;
-            bottom: 5px;
-            margin-right: 75px;
-            border: white;
-        }
-
-        #navbarNav2 {
-            padding-right: 0;
-            bottom: 20px;
-        }
+    #navbarNav, #navbarNav2 {
+        background-color: black !important;
     }
 
-        @media only screen and (max-width: 375px) {
+    .navbar-brand {
+        position: relative;
+        bottom: 12px;
+        height: 90px;
+    }
+
+    .map-container {
+        /*display: flex;*/
+        /*flex-direction: column;*/
+        margin: 0;
+    }
+
+    .mapboxgl-canvas {
+        height: 100%;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+    }
+
+    .mapbox {
+        height: 375px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 0;
+        z-index: 3;
+    }
+
+    #map {
+        position: fixed;
+        float: top;
+        height: 70%;
+        width: 100%;
+        z-index: 3;
+    }
+
+    .reviews {
+        position: relative;
+        float: bottom;
+        z-index: auto;
+        width: 100%;
+        height: 30% !important;
+        margin-top: 100px;
+        margin-bottom: 100px;
+
+    }
+
+    .navbar .brand, .navbar .nav > li > a {
+        color: #578d8a !important;
+    }
+
+    button.navbar-toggler {
+        position: relative;
+        color: #2c3e3d;
+        align-items: center;
+        bottom: 5px;
+        margin-right: 75px;
+        border: white;
+    }
+
+    #navbarNav2 {
+        padding-right: 0;
+        bottom: 20px;
+    }
+}
+
+@media only screen and (max-width: 375px) {
 
 
-            .navbar-brand{
-                position: relative;
-                bottom:12px;
-                height: 90px;
-                margin: 0;
-                padding: 0;
-                right: 40px;
-            }
-            button.navbar-toggler {
-                position: relative;
-                color: #2c3e3d;
-                align-items: center;
-                bottom: 5px;
-                margin-right: 30px;
-                padding: 0;
-            }
-        }
+    .navbar-brand {
+        position: relative;
+        bottom: 12px;
+        height: 90px;
+        margin: 0;
+        padding: 0;
+        right: 40px;
+    }
+
+    button.navbar-toggler {
+        position: relative;
+        color: #2c3e3d;
+        align-items: center;
+        bottom: 5px;
+        margin-right: 30px;
+        padding: 0;
+    }
+}
