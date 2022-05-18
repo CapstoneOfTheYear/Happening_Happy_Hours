@@ -14,20 +14,21 @@
 <div class="map-container container-fluid">
     <div class="mapbox">
         <div class="container-fluid" id='map'>
-        </div>
-            <link rel='stylesheet'
-                  href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-                  type='text/css'/>
-            <pre id="coordinates" class="coordinates"></pre>
-            <!--            <input class="search" id="userInput" type="text">-->
-            <!--            <button id="button" type="button">Search</button>-->
-
-            <div class="zoom-container" id="menu">
-                <label class="zoom-label label">ZOOM</label>
+            <div class="zoom-container text-center justify-content-center align-items-center" id="menu">
+                <!--                <label class="zoom-label text-dark label">ZOOM</label>-->
                 <button id="zoom5" value="zoom x 5">X 5</button>
                 <button id="zoom10" value="zoom x 10">X 10</button>
                 <button id="zoom15" value="zoom x 15">X 15</button>
             </div>
+        </div>
+            <link rel='stylesheet'
+                  href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+                  type='text/css'/>
+<!--            <pre id="coordinates" class="coordinates"></pre>-->
+<!--                        <input class="search" id="userInput" type="text">-->
+<!--                        <button id="button" type="button">Search</button>-->
+
+
     </div>
     <div class="reviews">
         <div id="mapboxData" th:each="business : ${business}"
@@ -51,7 +52,7 @@
         </div>
     </div>
 </div>
-</div>
+<!--</div>-->
 <div hidden>
     <div id="businessName" th:each="business : ${business}">
         <div th:each="business : ${business}">

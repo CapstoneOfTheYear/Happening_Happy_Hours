@@ -11,7 +11,7 @@
 
 
 <div class="container">
-    <h1  class="my-4 text-center">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.
+    <h1  class="my-4 text text-center">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.
     </h1>
     <div class="d-flex justify-content-center">
     <a href="/updateProfile">Edit Profile</a>
@@ -27,7 +27,7 @@
                 <br>
                 <h5 class="reviewScore" style="text-align: center">Rating: <span th:text="${review.getScore()}"></span> /
                     5.0</h5>
-                <a class="btn btn-primary" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
+                <a class="btn btn-bg-light" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
             </div>
         </div>
     </div>
