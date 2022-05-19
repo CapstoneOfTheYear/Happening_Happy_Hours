@@ -130,6 +130,7 @@ public class BusinessController {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         Business business = businessDao.getBusinessById(id);
+        review.setId(id);
         review.setBusiness(business);
         review.setUser(user2);
         reviewDao.save(review);

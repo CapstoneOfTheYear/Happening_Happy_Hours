@@ -21,16 +21,17 @@
                 <button id="zoom15" value="zoom x 15">X 15</button>
             </div>
         </div>
-            <link rel='stylesheet'
-                  href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
-                  type='text/css'/>
-<!--            <pre id="coordinates" class="coordinates"></pre>-->
-<!--                        <input class="search" id="userInput" type="text">-->
-<!--                        <button id="button" type="button">Search</button>-->
+        <link rel='stylesheet'
+              href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-geocoder/v4.7.0/mapbox-gl-geocoder.css'
+              type='text/css'/>
+        <!--            <pre id="coordinates" class="coordinates"></pre>-->
+        <!--                        <input class="search" id="userInput" type="text">-->
+        <!--                        <button id="button" type="button">Search</button>-->
 
 
     </div>
     <div class="reviews">
+        <h2 class="text-center">All businesses</h2>
         <div id="mapboxData" th:each="business : ${business}"
              class="flip-card card-item card-deck">
             <div class="flip-card-inner" th:each="business : ${business}">
@@ -57,7 +58,7 @@
     <div id="businessName" th:each="business : ${business}">
         <div th:each="business : ${business}">
             <h4 class="card-title" th:text="${business.getName()}"></h4>
-            <p id="businessLocation" class="mb-1"><span th:text="${business.getLocation()}"></span></p>
+            <p id="businessLocation" class="mb-1 biz"><span th:text="${business.getLocation()}"></span></p>
             <p id="businessLocation2" class="mb-1"><span th:text="${business.getCity()}"></span> <span
                     th:text="${business.getState()}"></span>, <span
                     th:text="${business.getPostal_code()}"></span></p>
@@ -182,11 +183,13 @@
         let businessName = this.getElementsByTagName("p")[0].innerText
         console.log("businessName", businessName);
         geocode(businessLocation, businessName, businessHours, businessReviews)
-
     })
+
+
+
+
 
 
 </script>
 </body>
-<footer th:replace="partials :: footer"></footer>
 </html>
