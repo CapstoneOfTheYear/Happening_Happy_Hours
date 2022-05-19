@@ -103,7 +103,8 @@ public class Business {
         this.ending_hour = ending_hour;
     }
 
-    public Business(){}
+    public Business() {
+    }
 
     public Business(long id, String name, String location, String state, String city, String postal_code, String starting_hour, String ending_hour, boolean dogsAllowed, boolean pool, boolean darts, boolean liveMusic, boolean karaoke, boolean cornHole, boolean servesFood, String otherGames) {
         this.id = id;
@@ -276,11 +277,13 @@ public class Business {
         this.reviews = reviews;
     }
 
-    public double avgRating(){
+    public double avgRating() {
         double sum = 0;
-        for (Review review : reviews){
+        double reviewAvg = 0;
+        for (Review review : reviews) {
             sum += review.getScore();
+            reviewAvg = sum / reviews.size();
         }
-        return sum / reviews.size();
+        return (Math.round(reviewAvg * 10.0) / 10.0);
     }
 }
