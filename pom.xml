@@ -10,12 +10,12 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.capstone</groupId>
-    <artifactId>Happening_Happy_Hours</artifactId>
+    <groupId>com.codeup</groupId>
+    <artifactId>SpringBlog</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <name>SpringBlog</name>
+    <description>SpringBlog</description>
     <packaging>war</packaging>
-    <name>Happening_Happy_Hours</name>
-    <description>Happening_Happy_Hours</description>
 
     <properties>
         <java.version>11</java.version>
