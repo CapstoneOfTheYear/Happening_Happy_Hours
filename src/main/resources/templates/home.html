@@ -30,7 +30,7 @@
 
 
     </div>
-    <div class="reviews">
+    <div class="reviews ">
         <div id="mapboxData" th:each="business : ${business}"
              class="flip-card card-item card-deck">
             <div class="flip-card-inner" th:each="business : ${business}">
@@ -107,7 +107,7 @@
 
     $(document).ready(function () {
         $(".removeMarkers").click(function () {
-            $('svg').toggle()
+            $('marker').toggle()
         });
     });
 
@@ -166,7 +166,18 @@
                         .setLngLat(data.features[0].center).addTo(map)
                         .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
                             // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
-                            .setHTML(`${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}`)
+                            .setHTML(`
+<!--<div class="reviews "><div id="mapboxData" class="flip-card card-item card-deck">-->
+<!--            <div class="flip-card-inner"">-->
+<!--                <p class="flip-card-front h3"></p> + -->
+${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}
+<!--</div>-->
+<!--            </div>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+`)
+
                             .addTo(map))
                         .setLngLat(data.features[0].center).addTo(map);
 
@@ -174,17 +185,19 @@
                 }
             })
     }
-    $(document).on("click", "#mapboxData", function () {
-        console.log(this)
-        let businessLocation = this.querySelector('#location').innerText
-        let businessHours = this.querySelector('#happyHours').innerText
-        let businessReviews = this.querySelector('#businessRating').innerText
-        let businessName = this.getElementsByTagName("p")[0].innerText
-        console.log("businessName", businessName);
-        geocode(businessLocation, businessName, businessHours, businessReviews)
+   // $(window).ready( function(){
 
-    })
 
+        $(document).on("mousemove", "#mapboxData", function () {
+            console.log(this)
+            let businessLocation = this.querySelector('#location').innerText
+            let businessHours = this.querySelector('#happyHours').innerText
+            let businessReviews = this.querySelector('#businessRating').innerText
+            let businessName = this.getElementsByTagName("p")[0].innerText
+            console.log("businessName", businessName);
+            geocode(businessLocation, businessName, businessHours, businessReviews)
+        // })
+    });
 
 </script>
 </body>
