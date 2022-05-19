@@ -25,6 +25,6 @@ values ('Gross food, nice servers', 3, 1, 2),
        ('Love this place, the atmosphere is perfecto!', 5, 7, 2),
        ('2pac ate here once, he had pancakes!', 5, 6, 1),
        ('The waitress tried to poison me', 1, 5, 2),
-       ('The restrooms were very clean.', 4, 4, 1)
+       ('The restrooms were very clean.', 4, 4, 1);
 
 
