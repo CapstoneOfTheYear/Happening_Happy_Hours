@@ -176,6 +176,7 @@ a.btn.btn-outline-light:hover {
     color: white;
     transform: rotateX(180deg);
     overflow: hidden;
+    margin-bottom: 15px;
 }
 #location {
     padding: 3px;

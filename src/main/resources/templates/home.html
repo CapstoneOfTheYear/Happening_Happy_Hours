@@ -37,15 +37,12 @@
         <div id="mapboxData" th:each="business : ${business}"
              class="flip-card card-item card-deck">
             <div class="flip-card-inner" th:each="business : ${business}">
-                <p th:text="${business.getName()}"
-
-                   class="flip-card-front h3"></p>
-
+                <p th:text="${business.getName()}" class="flip-card-front h3"></p>
                 <!--                 <img id="flipImage" th:src="${business.getBusinessImages()}" class="flip-card-front" alt="...">-->
-                <div class="flip-card-back card-body text-center ">
-                    <button class="btn w-100 mx-1 my-1 justify-content-center" type="button" id="location"
+                <div class="flip-card-back p-1 align-items-center">
+                    <button class="btn w-75 m-2" type="button" id="location"
                             th:text="${business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></button>
-                    <a class="btn w-100 mx-1 my-1" type="button" id="view-business"
+                    <a class="btn w-75 m-0" type="button" id="view-business"
                        th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
                     <p hidden id="happyHours">Happy Hour: <span th:text="${business.getStarting_hour()}"></span> - <span
                             th:text="${business.getEnding_hour()}"></span></p><br><br>
