@@ -11,7 +11,7 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 <div class="container">
-    <h1 class="mb-3 text text-center">Log In</h1>
+    <h1 class="mb-3 text text-center">Login</h1>
 
 
     <div class="text" th:if="${param.logout}">
@@ -26,9 +26,9 @@
         <label class="text" for="password">Password</label>
         <input id="password" class="form-control" name="password" type="password">
 
-        <input type="submit" class="btn btn-outline-light mt-3" value="Log In"/>
+        <input type="submit" class="btn btn-outline-light mt-3" value="Login"/>
 
-        <a th:href="@{/changePassword}" class="btn btn-outline-light mt-3 float-end">Forgot Password</a>
+        <a th:href="@{/emailVerify}" class="btn btn-outline-light mt-3 float-end">Forgot Password</a>
 
     </form>
 
