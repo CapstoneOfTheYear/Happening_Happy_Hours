@@ -31,12 +31,16 @@ public class ForgotPasswordController {
         return "emailVerify";
     }
 
+
+    //TODO: In the body change =>
+    // http://localhost:8080/ use for non-deployed changes
+    // use http://happeninghappyhours.com/ for deployed site
+
     @PostMapping("emailVerify")
     public String sendEmail(@ModelAttribute User user) {
         emailService.prepareAndSend(user, "Reset Password", "Please click to reset your password: http://localhost:8080/changePassword?from=" + user.getEmail());
         return "redirect:/login";
     }
-
 
     @GetMapping("/changePassword")
     public String showForm(Model model, User user, @RequestParam(name = "from") String from) {
