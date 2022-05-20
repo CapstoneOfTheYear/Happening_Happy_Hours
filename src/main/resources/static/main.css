@@ -10,7 +10,6 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
-
 .btn {
     right: 80px;
     padding: 3px;
@@ -92,10 +91,7 @@ button {
 
 .btn:hover {
     color: #2c3e3d;
-
 }
-
-
 
 a.btn.btn-outline-light {
     /*width: 25px;*/
@@ -114,6 +110,7 @@ a.btn.btn-outline-light:hover {
     color: #03FDF9FF !important;
     background-color: #2c3e3d;
 }
+
 .flip-card {
     background-color: white;
     height: 150px;
@@ -121,14 +118,6 @@ a.btn.btn-outline-light:hover {
     padding: 0;
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
-
-/*#flipImage {*/
-/*    top: 50px;*/
-/*    right: 75px;*/
-/*    height: 180px;*/
-/*    width: 300px;*/
-/*    z-index: 1;*/
-/*}*/
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
@@ -167,10 +156,8 @@ a.btn.btn-outline-light:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
-/* Style the back side */
 .flip-card-back {
     background-color: #03FDF9FF;
     color: white;
@@ -184,10 +171,7 @@ a.btn.btn-outline-light:hover {
     overflow: inherit;
 }
 
-
-
 .mapbox {
-
     height: 80%;
     width: 100%;
     padding: 0;
@@ -203,7 +187,6 @@ a.btn.btn-outline-light:hover {
     left: 0;
     right: 0;
     top: 0;
-    /*bottom: 50px;*/
     z-index: -1;
 }
 
@@ -219,7 +202,6 @@ a.btn.btn-outline-light:hover {
     color: #03FDF9FF;
     background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(0, 0, 0) 100%);
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-
 }
 
 #navMobile {
@@ -248,8 +230,22 @@ a.btn.btn-outline-light:hover {
     color: #ffffff !important;
 }
 
-.navbar-dark span.navbar-toggler-icon {
+span.navbar-toggler-icon {
     color: #03FDF9FF !important;
+    border: white !important;
+}
+button.navbar-toggler{
+    color: #03FDF9FF !important;
+    border: white !important;
+}
+.dropdownmenu.dropdown-toggle {
+    color: #03FDF9FF !important;
+    border: white !important;
+}
+#reviews{
+    height: 200px !important;
+    width: 400px !important;
+
 }
 .reviews {
     float: left;
@@ -325,28 +321,22 @@ footer {
 p.h6 {
     text-transform: none;
 }
+
 #registerPage {
-    /*margin-bottom: 200px;*/
     padding-bottom: 200px;
 }
+
 .section {
     background: #2c3e3d;
     margin-top: 10px;
     position: relative;
     height: 85px;
-    /*margin-bottom: 100px;*/
 }
-
-
-
-
 
 .list-group-item {
     text-align: center;
 }
-.reviewContainer {
-    /*margin-bottom: 100px;;*/
-}
+
 .search {
     position: absolute;
     top: 22px;
@@ -357,9 +347,6 @@ p.h6 {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     z-index: auto;
 }
-
-
-
 
 .text {
     color: #ffffff;
@@ -380,76 +367,6 @@ p.h6 {
     color: #ffffff;
 }
 
-
-/*#menu.zoom-container {*/
-/*    position: fixed;*/
-/*    font-weight: bolder;*/
-/*    height: 40px;*/
-/*    width: 350px;*/
-/*    font-size: 16px;*/
-/*    color: #03FDF9FF;*/
-/*!important;*/
-/*    top: 800px;*/
-/*    z-index: 3;*/
-/*}*/
-
-/*.zoom-label {*/
-/*    color: #03FDF9FF;*/
-/*    font-size: 16px;*/
-/*    display: flex;*/
-/*    justify-items: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.zoom-label:hover {*/
-/*    color: #2c3e3d;*/
-
-
-/*}*/
-
-/*#zoom5 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom5:hover {*/
-/*    border: white;*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom10 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom10:hover {*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom15 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom15:hover {*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
 @media only screen and (max-width: 992px) {
 
     #navbarNav, #navbarNav2 {
@@ -463,8 +380,6 @@ p.h6 {
     }
 
     .map-container {
-        /*display: flex;*/
-        /*flex-direction: column;*/
         margin: 0;
     }
 
@@ -485,8 +400,6 @@ p.h6 {
         z-index: 3;
     }
     #menu.zoom-container {
-        /*align-items: center;*/
-        /*justify-content: center;*/
         display: none;
         left:50%;
     }
@@ -503,32 +416,52 @@ p.h6 {
         float: bottom;
         z-index: auto;
         width: 100%;
+        padding-top: 55px !important;
+        margin: 0 !important;
         height: 30% !important;
 
     }
 
     .navbar .brand, .navbar .nav > li > a {
-        color: #578d8a !important;
+        color: #03FDF9FF;
     }
 
     button.navbar-toggler {
         position: relative;
-        color: #2c3e3d;
         align-items: center;
         bottom: 5px;
         margin-right: 75px;
-        border: white;
+        color: #03FDF9FF !important;
+        border: white !important;
     }
 
     #navbarNav2 {
         padding-right: 0;
         bottom: 20px;
     }
+    .reviews {
+        float: left;
+        z-index: auto;
+        padding-top: 200px;
+        margin-bottom: 100px;
+    }
 }
+@media only screen and (max-width: 768px) {
 
-@media only screen and (max-width: 375px) {
+    .reviews {
+        z-index: auto;
+        padding-top: 100px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 425px) {
 
-
+    .reviews {
+        float: left;
+        z-index: auto;
+        padding-top: 100px;
+        margin-bottom: 100px;
+    }
     .navbar-brand {
         position: relative;
         bottom: 12px;
@@ -545,5 +478,23 @@ p.h6 {
         bottom: 5px;
         margin-right: 30px;
         padding: 0;
+    }
+}
+@media only screen and (max-width: 414px) {
+
+    .reviews {
+        float: left;
+        z-index: auto;
+        padding-top: 200px;
+        margin-bottom: 100px;
+    }
+}
+@media only screen and (max-width: 375px) {
+
+    .reviews {
+        float: left;
+        z-index: auto;
+        padding-top: 55px;
+        margin-bottom: 100px;
     }
 }
