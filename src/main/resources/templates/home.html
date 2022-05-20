@@ -136,11 +136,6 @@
         zoom: 10
     });
 
-    var marker = new mapboxgl.Marker()
-        .setLngLat([-98.4916, 29.4260])
-        .addTo(map);
-
-
     const description = geojson.features[0].properties.description;
     // Add markers to the map.
 
@@ -162,15 +157,18 @@
                     el.className = 'mapMarker';
 
 // make a marker for each feature and add it to the map
-                    new mapboxgl.Marker(el)
-                        .setLngLat(data.features[0].center).addTo(map)
-                        .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
-                            // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
-                            .setHTML(`${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}`)
-                            .addTo(map))
-                        .setLngLat(data.features[0].center).addTo(map);
+
+                    // business.features.forEach(marker => {
+                        new mapboxgl.Marker(el)
+                            .setLngLat(data.features[0].center).addTo(map)
+                            .setPopup(new mapboxgl.Popup({closeButton: false, offset: 45})
+                                // .setHTML(inputName  + inputLocation + inputHours + inputReviews)
+                                .setHTML(`${inputName} <br> ${inputLocation} <br> ${inputHours} <br>${inputReviews}`)
+                                .addTo(map))
+                            .setLngLat(data.features[0].center).addTo(map);
 
 
+                    // })
                 }
             })
     }
