@@ -4,13 +4,22 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<div class="container-fluid">
+<div class="container-fluid" id="video">
     <video class="container-fluid" autoplay muted id="myVideo">
         <source th:src="@{/images/H3 Final.mp4}" type=video/mp4>
         <p onclick="toggleControls();">Toggle</p>
     </video>
 </div>
 
+<script>
+document.onload(timeout);
+
+let videoContainer = $("#video");
+let zipCodeBox = `<input type="text">`
+let timeout = setTimeout(function (){
+    videoContainer.append(zipCodeBox);
+},22000);
+</script>
+
 </body>
-<footer th:replace="partials :: footer"></footer>
 </html>
