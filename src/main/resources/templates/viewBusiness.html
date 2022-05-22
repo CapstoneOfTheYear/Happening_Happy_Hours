@@ -39,7 +39,9 @@
                     <th:block th:if="${business.servesFood}">[Serves Food]</th:block>
                     <br>
                     <p><b>Other games: </b><span th:text="${business.otherGames}"></span></p>
-                    <p id="businessRating"><span th:text="${business.avgRating()}"></span> / 5.0 </p>
+                    <p id="businessRating">
+                        <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
+                        <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
                     
                 </div>
             </div>
