@@ -41,7 +41,11 @@
         <div id="mapboxData" th:each="business : ${business}" class="flip-card card-item card-deck my-2">
             <div class="flip-card-inner" th:each="business : ${business}">
 <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
-                <p class="flip-card-front h5"  th:text="${business.getName()}"></p>
+                <p class="flip-card-front flex-column">
+                    <span class="h3" th:text="${business.getName()}"></span>
+                    <br>
+                    <span class="h5" th:text="${business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></span>
+                </p>
                 <div class="flip-card-back card-body text-center ">
 
 <!--         <div id="mapboxData" th:each="business : ${business}"
