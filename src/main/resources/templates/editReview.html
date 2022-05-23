@@ -2,42 +2,61 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <header th:include="partials :: header(title = '')"></header>
+<style>
+    .error {
+        color: red;
+    }
 
+    .formCard {
+        background-color: black;
+    }
+
+
+
+</style>
 
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<h1>Edit Review</h1>
-<form th:action="@{'/editReview/{id}/{bizId}'(id = ${review.id}, bizId = ${review.getBusiness().id})}" th:object="${review}" method="post">
-    <div class="form-group">
-        <label for="businessName">Business Name</label>
-        <input class="form-control" id="businessName" name="businessName" disabled
-               th:value="${review.getBusiness().getName()}">
-    </div>
-    <div class="form-group">
-        <label for="rating">Rating</label>
-        <select class="form-control" id="rating" name="rating" th:value="${review.score}" th:field="${review.score}">
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
-        </select>
-    </div>
-    <div class="form-group">
-        <label for="body">Write Your Review</label>
-        <textarea class="form-control" id="body" name="body" rows="3"
-                  th:value="${review.body}" th:field="${review.body}"></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Save changes</button>
-</form>
-<div>
-    <form id="deleteReview" th:action="@{'/deleteReview/{id}'(id = ${review.id})}" method="post">
-        <button id="deleteButton" class="btn btn-outline-danger">Delete Review</button>
-    </form>
 
+<h1 class="text-white">Edit Review</h1>
+<div class="d-flex justify-content-center align-items-center mt-3">
+    <div class="card w-75 mt-3 text-white">
+        <div class="card-body formCard rounded-3">
+            <form th:action="@{'/editReview/{id}/{bizId}'(id = ${review.id}, bizId = ${review.getBusiness().id})}" th:object="${review}" method="post">
+                <div class="form-group">
+                    <label for="businessName">Business Name</label>
+                    <input class="form-control" id="businessName" name="businessName" disabled
+                           th:value="${review.getBusiness().getName()}">
+                </div>
+                <div class="form-group">
+                    <label for="rating">Rating</label>
+                    <select class="form-control" id="rating" name="rating" th:value="${review.score}"
+                            th:field="${review.score}">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="body">Write Your Review</label>
+                    <textarea class="form-control" id="body" name="body" rows="3"
+                              th:value="${review.body}" th:field="${review.body}"></textarea>
+                </div>
+
+
+                <button type="submit" class="btn btn-outline-light">Save changes</button>
+            </form>
+            <div>
+                <form id="deleteReview" th:action="@{'/deleteReview/{id}'(id = ${review.id})}" method="post">
+                    <button id="deleteButton" class="btn btn-outline-danger">Delete Review</button>
+                </form>
+            </div>
+        </div>
+    </div>
 </div>
-
 
 
 <script>
@@ -47,6 +66,7 @@
         console.log(confirmDelete);
         return confirmDelete
     };
+
 
     $("#deleteButton").click(function (e){
         e.preventDefault();

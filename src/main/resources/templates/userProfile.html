@@ -14,20 +14,21 @@
     <h1  class="my-4 text text-center">Hello, <span th:text="${User.getUsername()}"></span>! Here are your reviews.
     </h1>
     <div class="d-flex justify-content-center">
-    <a href="/updateProfile">Edit Profile</a>
+    <a class="btn btn-outline-light text-white mb-2 my-sm-2 mx-2"
+               style="margin-top: 8px" type="submit" href="/updateProfile">Edit Profile</a>
     </div>
     <div class="row gx-lg-5 justify-content-center">
         <div class="card col-12 col-md-6 col-lg-6 col-xxl-3 m-3 " th:each="review : ${reviews}">
-            <div class="card-header">
-                <h4 class="card-title" style="text-align: center" th:text="${review.getBusiness().name}"></h4>
+            <div>
+                <h4 class="card-title pt-2" style="text-align: center" th:text="${review.getBusiness().name}"></h4>
             </div>
-            <div class="card-body text-center justify-content-center">
+            <div class="card-body text-center justify-content-center flex-column">
                 <br>
                 <p class="card-text" style="text-align: center" th:text="${review.body}"></p>
                 <br>
                 <h5 class="reviewScore" style="text-align: center">Rating: <span th:text="${review.getScore()}"></span> /
                     5.0</h5>
-                <a class="btn btn-bg-light" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
+                <a class="btn btn-outline-light justify-content-end" th:href="@{'/editReview/{id}'(id = ${review.id})}">Edit Review</a>
             </div>
         </div>
     </div>
