@@ -8,8 +8,8 @@
 
 <nav th:include="partials :: navbar"></nav>
 <th:block th:switch="${error}">
-    <div th:case="'Internal Server Error'">
-        <h1>Internal Server Error</h1>
+    <div class="text-white" th:case="'Internal Server Error'">
+        <h1 class="d-flex justify-content-center align-items-center">Username Already Exists</h1>
     </div>
     <div th:case="'Bad Gateway'">
         <h1>Bad Gateway</h1>

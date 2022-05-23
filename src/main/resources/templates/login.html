@@ -16,6 +16,9 @@
 <nav th:include="partials :: navbar"></nav>
 <div class="container">
 
+    <h1 class="mb-3 text text-center">Login</h1>
+
+
 
     <div class="text" th:if="${param.logout}">
         You have been logged out.
@@ -38,6 +41,14 @@
                         Invalid Username or Password.
                     </div>
 
+
+        <input type="submit" class="btn btn-outline-light mt-3" value="Log In"/>
+        <i class="fa fa-eye text-white" onclick="showPassword()"></i>
+
+
+        <a th:href="@{/emailVerify}" class="btn btn-outline-light mt-3 float-end">Forgot Password</a>
+
+
                     <button type="submit" class="btn btn-outline-light mt-3">Login</button>
 
                     <a th:href="@{/changePassword}">
@@ -53,5 +64,15 @@
 
 </div>
 </body>
+<script>
+function showPassword() {
+    let x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
 
 </html>
