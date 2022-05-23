@@ -133,7 +133,7 @@ a.btn.btn-outline-light:hover {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    padding: 0;
+    /*padding: 0;*/
 
 }
 
@@ -155,24 +155,23 @@ a.btn.btn-outline-light:hover {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     overflow-wrap: anywhere;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /* Style the back side */
 .flip-card-back {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     transform: rotateX(180deg);
     overflow: hidden;
-    margin-bottom: 15px;
+
 }
 
 #location {
@@ -371,9 +370,9 @@ p.h6 {
 
 @media only screen and (max-width: 992px) {
 
-    #happyHours {
-        padding: 10px;
-    }
+    /*#happyHours {*/
+    /*    padding: 10px;*/
+    /*}*/
 
     #name2{
         position: relative;
@@ -433,15 +432,15 @@ p.h6 {
         height: 30% !important;
 
     }
-    #startTime {
-        margin-left: 0 !important;
-        padding-left: 0;
-    }
+    /*#startTime {*/
+    /*    margin-left: 0 !important;*/
+    /*    padding-left: 0;*/
+    /*}*/
 
-    #endTime {
-        margin-left: 0 !important;
-        padding-left: 0;
-    }
+    /*#endTime {*/
+    /*    margin-left: 0 !important;*/
+    /*    padding-left: 0;*/
+    /*}*/
     .navbar .brand, .navbar .nav > li > a {
         color: #03FDF9FF;
     }
