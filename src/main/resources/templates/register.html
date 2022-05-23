@@ -22,7 +22,7 @@
     /* The message box is shown when the user clicks on the password field */
     #message {
         display: none;
-        background: black;
+        background-color: #1f1b24;
         color: white;
         position: absolute;
         margin: 10px;
@@ -83,7 +83,8 @@
                             <div class="row g-3">
                                 <div class="col">
                                     <label class="text-white h4" for="accountType">Account Type</label>
-                                    <select class="form-select col-12 col-sm-12 col-md-6 col-lg-6" aria-label="Default select example"
+                                    <select class="form-select col-12 col-sm-12 col-md-6 col-lg-6"
+                                            aria-label="Default select example"
                                             id="accountType">
                                         <option class="text-white" value="consumer" selected>Consumer</option>
                                         <option class="text-white" value="business">Business</option>
@@ -92,7 +93,8 @@
                                 <div class="col">
                                     <div class="col" id="consumer">
                                         <div class="form-group">
-                                            <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6" for="username">Username</label>
+                                            <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6"
+                                                   for="username">Username</label>
                                             <input class="form-control" name="username" type="text" id="username"
                                                    th:field="*{username}" required>
                                         </div>
@@ -204,7 +206,8 @@
                                         </div>
                                         <div class="col-md-3">
                                             <label for="zip" class="form-label h4 ">Zip Code</label>
-                                            <input id="zip" type="text" class="form-control mb-3" th:field="*{postal_code}">
+                                            <input id="zip" type="text" class="form-control mb-3"
+                                                   th:field="*{postal_code}">
                                         </div>
                                         <div class="col-12 col-md-6 col-lg-6 row">
                                             <h3>Activities</h3>
@@ -308,19 +311,17 @@
                             <div class="d-flex flex-row businessImages">
                             </div>
                         </div>
-
-
                     </form>
-                </div>
-                <div id="message">
-                    <h3 class="text-white">Password must contain the following:</h3>
-                    <p id="letter" class="invalid">A lowercase letter</p>
-                    <p id="capital" class="invalid">A capital (uppercase) letter</p>
-                    <p id="number" class="invalid">A number</p>
-                    <p id="length" class="invalid">Minimum 8 characters</p>
                 </div>
             </div>
         </div>
+    </div>
+    <div id="message">
+        <h3 class="text-white">Password must contain the following:</h3>
+        <p id="letter" class="invalid">A lowercase letter</p>
+        <p id="capital" class="invalid">A capital (uppercase) letter</p>
+        <p id="number" class="invalid">A number</p>
+        <p id="length" class="invalid">Minimum 8 characters</p>
     </div>
 </div>
 
