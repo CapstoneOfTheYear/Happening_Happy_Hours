@@ -125,13 +125,14 @@ public class BusinessController {
         return "editReview";
     }
 
-    @PostMapping("/editReview/{id}")
-    public String saveReview(Model model, @PathVariable long id, Review review) {
+    @PostMapping("/editReview/{id}/{bizId}")
+    public String saveReview(Model model, @PathVariable long id, @PathVariable long bizId, Review review) {
         User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User user2 = userDao.getById(user.getId());
         Business business = businessDao.getBusinessById(id);
         review.setId(id);
-        review.setBusiness(business);
+        review.setBusiness(businessDao.getBusinessById(bizId));
+        System.out.println("review.getBusiness() = " + review.getBusiness());
         review.setUser(user2);
         reviewDao.save(review);
         return "redirect:/profile/user";
