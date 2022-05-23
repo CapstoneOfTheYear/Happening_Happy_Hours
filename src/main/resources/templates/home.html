@@ -44,7 +44,7 @@
                 <p class="flip-card-front flex-column">
                     <span class="h3" th:text="${business.getName()}"></span>
                     <br>
-                    <span class="h5" th:text="${business.getLocation()}"></span>
+                    <span class="h5" th:text="${business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></span>
                 </p>
                 <div class="flip-card-back card-body text-center ">
 
