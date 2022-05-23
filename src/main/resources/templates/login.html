@@ -26,7 +26,10 @@
         <label class="text" for="password">Password</label>
         <input id="password" class="form-control" name="password" type="password">
 
-        <input type="submit" class="btn btn-outline-light mt-3" value="Login"/>
+
+        <input type="submit" class="btn btn-outline-light mt-3" value="Log In"/>
+        <i class="fa fa-eye text-white" onclick="showPassword()"></i>
+
 
         <a th:href="@{/emailVerify}" class="btn btn-outline-light mt-3 float-end">Forgot Password</a>
 
@@ -38,5 +41,15 @@
     </div>
 </div>
 </body>
+<script>
+function showPassword() {
+    let x = document.getElementById("password");
+    if (x.type === "password") {
+        x.type = "text";
+    } else {
+        x.type = "password";
+    }
+}
+</script>
 
 </html>

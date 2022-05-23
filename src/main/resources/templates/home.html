@@ -44,11 +44,14 @@
                     <button class="btn w-75 m-2" type="button" id="location"
 
                             th:text="${business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></button>
-                    <a class="btn w-75 m-0" type="button" id="view-business"
-                       th:href="@{'business/{id}'(id=${business.id})}">Check Me Out</a>
+                    <a th:href="@{'business/{id}'(id=${business.id})}">
+                        <button>Check Me Out</button>
+                    </a>
                     <p hidden id="happyHours">Happy Hour: <span th:text="${business.getStarting_hour()}"></span> - <span
                             th:text="${business.getEnding_hour()}"></span></p><br><br>
-                    <p hidden id="businessRating">Rating: <span th:text="${business.avgRating()}"></span> / 5.0 </p>
+                    <p id="businessRating">
+                        <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
+                        <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
                 </div>
             </div>
         </div>

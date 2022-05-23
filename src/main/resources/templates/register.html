@@ -298,8 +298,11 @@
     let businessForm = '';
 
     let business = $("#business");
+    let startHr = $("#startTime");
+    let endHr = $("#endTime");
     let actType = $("#accountType");
     let isOwner = $("#isOwner");
+    let isCurrent = $("#isCurrent");
     let upload = $("#photoPicker");
 
     $(actType).change(function () {
@@ -381,6 +384,14 @@
             x.type = "password";
         }
     }
+
+    // function current() {
+    //     let today = new Date();
+    //     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+    //     if (startHr < time && endHr > time) {
+    //         return isCurrent;
+    //     }
+    // }
 
 </script>
 </body>
