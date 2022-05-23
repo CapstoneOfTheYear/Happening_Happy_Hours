@@ -51,21 +51,24 @@
             </div>
         </div>
     </div>
+</div>
 
 
-    <script>
-        let form = $("#deleteAccount");
-        let deleteAccount = function () {
-            return confirm("Are you sure you want to delete your account?");
-        };
-        $("#deleteButton").click(function () {
-            if (deleteAccount()) {
-                console.log("delete confirmation logic is working.");
-                form.submit();
-            }
-        })
+<script>
+    let form = $("#deleteAccount");
+    let deleteAccount = function () {
+        return confirm("Are you sure you want to delete your account?");
+    };
+    $("#deleteButton").click(function (e) {
+        e.preventDefault();
+        if (deleteAccount()) {
+            console.log("delete confirmation logic is working.");
+            form.submit();
+        }
+    })
 
-    </script>
+</script>
+
 
 </body>
 
