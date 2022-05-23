@@ -41,9 +41,8 @@
         <div id="mapboxData" th:each="business : ${business}" class="flip-card card-item card-deck my-2">
             <div class="flip-card-inner" th:each="business : ${business}">
 <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
-                <p class="flip-card-front h5"  th:text="${business.getName()+ ' + business.location  + ', ' + business.city + ', ' + business.state + ', ' + business.postal_code }"></p>
+                <p class="flip-card-front h5"  th:text="${business.getName()}"></p>
                 <div class="flip-card-back card-body text-center ">
-                    <button class="btn w-100 mx-1 my-1 justify-content-center" type="button" id="location"
 
 <!--         <div id="mapboxData" th:each="business : ${business}"
              class="flip-card card-item card-deck rounded m-2">
