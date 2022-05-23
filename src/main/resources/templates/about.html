@@ -3,85 +3,90 @@
 
 <header th:include="partials :: header(title = 'About')"></header>
 
+<style>
+    .formCard {
+        background-color: black;
+    }
+</style>
 
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<br>
-<br>
+<h1 class="mb-3 text text-center display-4 w-100 mt-5">Meet the team</h1>
+
 <div class="container">
     <div class="row">
         <div class="col-lg-3 d-flex flex-fill mb-4">
-            <div class="card card-about bg-light">
+            <div class="card card-about formCard text-light">
                 <img th:src="@{/images/Charles.png}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">Charles Willcockson</h5>
                     <p class="card-text">A self-made coder in these city streets, remotely controlled by hard hip-hop beats.</p>
                 </div>
                 <div class = "text-center">
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://github.com/CharlesWillcockson" role="button"
-                    ><i class="fa fa-github"></i
+                    <a class="btn btn-outline-light btn-floating  m-1" href="https://github.com/CharlesWillcockson" role="button"
+                    ><i class="fa fa-github text-light"></i
                     ></a>
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/cwillcockson" role="button"
-                    ><i class="fa fa-linkedin"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/cwillcockson" role="button"
+                    ><i class="fa fa-linkedin text-light"></i
                     ></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 d-flex flex-fill mb-4">
-            <div class="card card-about bg-light">
+            <div class="card card-about formCard text-light">
                 <img th:src="@{/images/Jon.jpeg}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">Jonathan Clark</h5>
                     <p class="card-text">Master of Java....and disaster...and he's working on Kung-Fu.</p>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://github.com/jclark127" role="button"
-                    ><i class="fa fa-github"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/jclark127" role="button"
+                    ><i class="fa fa-github text-light"></i
                     ></a>
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/jclark127/" role="button"
-                    ><i class="fa fa-linkedin"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/jclark127/" role="button"
+                    ><i class="fa fa-linkedin text-light"></i
                     ></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 d-flex flex-fill mb-4">
-            <div class="card card-about bg-light">
+            <div class="card card-about formCard text-light">
                 <img th:src="@{/images/young_linkedin_banner.jpeg}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">Robert Young</h5>
                     <p class="card-text">The man with a plan from Planet Vegeta...</p>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://github.com/RobertYoung2022" role="button"
-                    ><i class="fa fa-github"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/RobertYoung2022" role="button"
+                    ><i class="fa fa-github text-light"></i
                     ></a>
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/rayoungjr/" role="button"
-                    ><i class="fa fa-linkedin"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/rayoungjr/" role="button"
+                    ><i class="fa fa-linkedin text-light"></i
                     ></a>
                 </div>
             </div>
         </div>
         <div class="col-lg-3 d-flex flex-fill mb-4">
-            <div class="card card-about bg-light">
+            <div class="card card-about formCard text-light">
                 <img th:src="@{/images/Justin.jpeg}" class="card-img-top" alt="...">
                 <div class="card-body text-center">
                     <h5 class="card-title">Justin Conger</h5>
                     <p class="card-text">He is the egg man, he is the egg man....he is the Walrus...</p>
                 </div>
                 <div class="text-center">
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://github.com/jhconger" role="button"
-                    ><i class="fa fa-github"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/jhconger" role="button"
+                    ><i class="fa fa-github text-light"></i
                     ></a>
-                    <a class="btn btn-primary btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/justin-conger-9b5a897b/" role="button"
-                    ><i class="fa fa-linkedin"></i
+                    <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/justin-conger-9b5a897b/"
+                    ><i class="fa fa-linkedin text-light"></i
                     ></a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-<br><br><br><br><br><br>
+<!--<br><br><br><br><br><br>-->
 </body>
 
 </html>

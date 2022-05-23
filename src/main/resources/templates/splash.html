@@ -1,24 +1,81 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 <header th:include="partials :: header(title = 'Happening Happy Hour')"></header>
+<style>
+
+
+    .jumbotron {
+        position: relative;
+        overflow: hidden;
+        padding: 0;
+    }
+
+    .jumbotron video {
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0.5;
+    }
+
+    .jumbotron .container {
+        height: 800px;
+        z-index: 2;
+        position: relative;
+    }
+
+
+
+</style>
+
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<div class="container-fluid" id="video">
-    <video class="container-fluid" autoplay muted id="myVideo">
-        <source th:src="@{/images/H3 Final.mp4}" type=video/mp4>
-        <p onclick="toggleControls();">Toggle</p>
-    </video>
+<!--<div class="container-fluid" id="video">-->
+
+<!--</div>-->
+
+<div class="container-fluid">
+    <div class="row d-flex align-items-center">
+
+    <div class="jumbotron">
+
+        <video autoplay loop muted id="myVideo">
+            <source th:src="@{/images/H3 Final.mp4}" type=video/mp4>
+        </video>
+
+        <div class="container text-white d-flex align-items-center">
+            <div>
+            <h1 class="display-4">Happening Happy Hours</h1>
+            <p class="lead">A place to find your ideal happy hour</p>
+                <a href="/home">
+            <button class="btn btn-outline-light btn-lg pb-1" >Get Started</button></a>
+            </div>
+        </div>
+        <!-- /.container -->
+    </div>
+    <!-- /.jumbotron -->
+
+    </div>
 </div>
-
 <script>
-document.onload(timeout);
+    function deferVideo() {
 
-let videoContainer = $("#video");
-let zipCodeBox = `<input type="text">`
-let timeout = setTimeout(function (){
-    videoContainer.append(zipCodeBox);
-},22000);
+        //defer html5 video loading
+        $("video source").each(function () {
+            var sourceFile = $(this).attr("data-src");
+            $(this).attr("src", sourceFile);
+            var video = this.parentElement;
+            video.load();
+            // uncomment if video is not autoplay
+            //video.play();
+        });
+
+    }
+
+    window.onload = deferVideo;
 </script>
 
 </body>

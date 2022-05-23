@@ -13,19 +13,20 @@
 
 .btn {
     right: 80px;
-    padding: 3px;
+    /*padding: 3px;*/
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 
 body {
-    background-color: rgba(0, 0, 0, 0.98);
+    background-color: #1f1b24;
 }
+
 button {
     border-radius: 25px;
     background-color: #2c3e3d;
     color: #03FDF9FF;
-    height: 35px;
+    /*height: 35px;*/
     align-content: center;
     margin: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
@@ -56,10 +57,10 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 1px solid #03FDF9FF;
+    /*border: 1px solid #03FDF9FF;*/
     /*padding: 15px;*/
     /*border-radius: 25px;*/
-    background: #ffffff !important;
+    background: #1f1b24 !important;
     max-width: 100%;
     max-height: 100%;
 }
@@ -72,10 +73,10 @@ button {
 
 
 .btn {
-    padding: 5px;
-    justify-content: center;
-    color: #2c3e3d;
-    background-color: #03FDF9FF;
+    /*padding: 5px;*/
+    /*justify-content: center;*/
+    color: white;
+    /*background-color: #03FDF9FF;*/
 
 }
 
@@ -91,31 +92,36 @@ button {
 }
 
 .btn:hover {
-    color: #2c3e3d;
+    /*color: #2c3e3d;*/
 
 }
-
 
 
 a.btn.btn-outline-light {
     /*width: 25px;*/
 
-    justify-content: center;
-    color: #2c3e3d;
-    background-color: #03FDF9FF;
+    /*justify-content: center;*/
+    /*color: #2c3e3d;*/
+    color: black;
+    /*background-color: #03FDF9FF;*/
+}
+
+i:hover {
+    color: black;
 }
 
 a.btn.btn-outline-light:hover {
-    color: #03FDF9FF !important;
-    background-color: #2c3e3d;
+    color: black !important;
+    /*background-color: #2c3e3d;*/
 }
 
 .btn.btn-outline-light:hover {
-    color: #03FDF9FF !important;
-    background-color: #2c3e3d;
+    /*color: #03FDF9FF !important;*/
+    background-color: #03FDF9FF;
 }
+
 .flip-card {
-    background-color: white;
+    background-color: #1f1b24;
     height: 150px;
     margin: 0;
     padding: 0;
@@ -132,13 +138,15 @@ a.btn.btn-outline-light:hover {
 
 /* This container is needed to position the front and back side */
 .flip-card-inner {
+    background-color: #1f1b24;
+    border-radius: 15px;
+    border: solid 2px white;
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    margin: 0;
     padding: 0;
 
 }
@@ -161,8 +169,9 @@ a.btn.btn-outline-light:hover {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    background-color: #ffffff;
-    color: #2c3e3d;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
     overflow-wrap: anywhere;
     display: flex;
     justify-content: center;
@@ -172,17 +181,18 @@ a.btn.btn-outline-light:hover {
 
 /* Style the back side */
 .flip-card-back {
-    background-color: #03FDF9FF;
+    border-radius: 25px;
+    background-color: black;
     color: white;
     transform: rotateX(180deg);
     overflow: hidden;
 }
+
 #location {
     padding: 3px;
     height: 80px;
     overflow: inherit;
 }
-
 
 
 .mapbox {
@@ -193,18 +203,18 @@ a.btn.btn-outline-light:hover {
 
     float: right;
 }
-#myVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: inherit;
-    position: fixed;
-    padding: 0;
-    left: 0;
-    right: 0;
-    top: 0;
-    /*bottom: 50px;*/
-    z-index: -1;
-}
+
+/*#myVideo {*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*    !*object-fit: inherit;*!*/
+/*    position: fixed;*/
+/*    padding: 0;*/
+/*    left: 0;*/
+/*    right: 0;*/
+/*    top: 0;*/
+/*    !*z-index: -1;*!*/
+/*}*/
 
 .navbar > .container {
     flex: auto;
@@ -240,20 +250,23 @@ a.btn.btn-outline-light:hover {
 }
 
 .navbar .brand, .navbar .nav > li > a {
-    color: #03FDF9FF !important;
+    color: white !important;
 }
 
 .navbar .brand, .navbar .nav > li > a:hover {
-    color: #ffffff !important;
+    color: #03FDF9FF !important;
 }
 
 .navbar-dark span.navbar-toggler-icon {
-    color: #03FDF9FF !important;
+    color: white !important;
 }
+
 .reviews {
+    background-color: #1f1b24;
     float: left;
     z-index: auto;
     width: 25%;
+    min-height: 100%;
     margin-bottom: 100px;
 }
 
@@ -270,6 +283,7 @@ a.btn.btn-outline-light:hover {
     padding: 0;
     margin: 0 !important;
     width: 100%;
+    min-height: 100%;
 }
 
 .mapMarker {
@@ -304,8 +318,8 @@ footer {
     width: 100%;
     height: 40px;
     color: #03FDF9FF;
-    position:absolute;
-    right:50%;
+    position: absolute;
+    right: 50%;
     font-size: 21px;
     font-weight: bold;
     background-image: linear-gradient(180deg, rgb(0, 0, 0), rgb(7, 7, 7) 100%);
@@ -316,18 +330,21 @@ footer {
     font-weight: bolder;
     font-size: 21px;
     color: #03FDF9FF;
-    position:absolute;
-    left:45%;
+    position: absolute;
+    left: 45%;
     top: 90%;
     z-index: 3;
 }
+
 p.h6 {
     text-transform: none;
 }
+
 #registerPage {
     /*margin-bottom: 200px;*/
     padding-bottom: 200px;
 }
+
 .section {
     background: #2c3e3d;
     margin-top: 10px;
@@ -337,15 +354,14 @@ p.h6 {
 }
 
 
-
-
-
 .list-group-item {
     text-align: center;
 }
+
 .reviewContainer {
     /*margin-bottom: 100px;;*/
 }
+
 .search {
     position: absolute;
     top: 22px;
@@ -356,8 +372,6 @@ p.h6 {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     z-index: auto;
 }
-
-
 
 
 .text {
@@ -483,12 +497,14 @@ p.h6 {
         margin-bottom: 0;
         z-index: 3;
     }
+
     #menu.zoom-container {
         /*align-items: center;*/
         /*justify-content: center;*/
         display: none;
-        left:50%;
+        left: 50%;
     }
+
     #map {
         position: fixed;
         float: top;

@@ -4,38 +4,53 @@
 <header th:include="partials :: header(title = 'Login')"></header>
 
 <style>
-    .error{
+    .error {
         color: red;
+    }
+
+    .formCard {
+        background-color: black;
     }
 </style>
 <body>
 <nav th:include="partials :: navbar"></nav>
 <div class="container">
-    <h1 class="mb-3 text text-center">Log In</h1>
 
 
     <div class="text" th:if="${param.logout}">
         You have been logged out.
     </div>
+    <h1 class="mb-3 text text-center display-4 w-100 mt-5">Log In</h1>
+    <div class="d-flex justify-content-center align-items-center mt-3">
 
-    <form th:action="@{/login}" th:method="post">
+        <div class="card w-75 mt-3 ">
+            <div class="card-body formCard rounded-3">
+                <form th:action="@{/login}" th:method="post">
 
-        <label class="text" for="username">Username</label>
-        <input id="username" class="form-control" name="username" type="text">
+                    <label class="text" for="username">Username</label>
+                    <input id="username" class="form-control" name="username" type="text">
 
-        <label class="text" for="password">Password</label>
-        <input id="password" class="form-control" name="password" type="password">
+                    <label class="text mt-2" for="password">Password</label>
+                    <input id="password" class="form-control" name="password" type="password">
 
-        <input type="submit" class="btn btn-outline-light mt-3" value="Log In"/>
+                    <div class="error mt-2 class" th:if="${param.error}">
 
-        <a th:href="@{/changePassword}" class="btn btn-outline-light mt-3 float-end">Forgot Password</a>
+                        Invalid Username or Password.
+                    </div>
 
-    </form>
+                    <button type="submit" class="btn btn-outline-light mt-3">Login</button>
 
-    <div class="error mt-2 class" th:if="${param.error}">
+                    <a th:href="@{/changePassword}">
+                        <button class="btn btn-outline-light mt-3">Forgot Password</button>
+                    </a>
 
-        Invalid Username or Password.
+                </form>
+            </div>
+        </div>
     </div>
+
+
+
 </div>
 </body>
 
