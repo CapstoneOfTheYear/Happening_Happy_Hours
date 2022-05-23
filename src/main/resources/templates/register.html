@@ -81,10 +81,11 @@
                         <!--             container for acct type & email-->
                         <div class="container">
                             <div class="row g-3">
-                                <div class="col">
-                                    <label class="text-white h4" for="accountType">Account Type</label>
-                                    <select class="form-select col-12 col-sm-12 col-md-6 col-lg-6"
-                                            aria-label="Default select example"
+
+                                <div class="col pb-lg-4 pb-sm-0">
+                                    <label class="text-white h4 " for="accountType">Account Type</label>
+                                    <select class="form-select col-12 col-sm-12 col-md-6 col-lg-6" aria-label="Default select example"
+
                                             id="accountType">
                                         <option class="text-white" value="consumer" selected>Consumer</option>
                                         <option class="text-white" value="business">Business</option>
@@ -92,9 +93,10 @@
                                 </div>
                                 <div class="col">
                                     <div class="col" id="consumer">
-                                        <div class="form-group">
-                                            <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6"
-                                                   for="username">Username</label>
+
+                                        <div class="form-group pb-4">
+                                            <label class="text-white h4 pb-lg-0 pb-sm-4 col-12 col-sm-12 col-md-6 col-lg-6" for="username">Username</label>
+
                                             <input class="form-control" name="username" type="text" id="username"
                                                    th:field="*{username}" required>
                                         </div>
@@ -106,35 +108,31 @@
                         <!-- container for username & pass -->
                         <div class="container">
                             <div class="row g-3">
-                                <div class="col-md-6">
+                                <div class="col-md-6 pb-4">
                                     <div class="form-group">
-                                        <label class="text-white h4 " for="email">Email</label>
+                                        <label class="text-white h4" for="email">Email</label>
                                         <input class="form-control" name="email" type="text" id="email"
                                                th:field="*{email}">
                                     </div>
                                 </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
-
-                                        <label class="text-white h4" for="psw">Password</label>
+                                        <label class="text-white h4" for="psw">Password</label><i class="text-white fa fa-eye" onclick="showPassword()"></i>
                                         <input class="form-control" id="psw" name="psw" type="password"
                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
                                                title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters"
                                                required th:field="*{password}">
                                     </div>
-                                    <i class="fa fa-eye text-white" onclick="showPassword()"></i>
                                 </div>
                             </div>
                         </div>
-
                         <!--container for the hidden sections -->
                         <div class="container">
-                            <div class="row text-white">
+                            <div class="row text-white ">
                                 <input id="isOwner" th:field="*{ownsBusiness}" value="false" hidden>
                                 <div id="business" class="hide">
                                     <div class="row g-3" th:object="${business}">
-
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 pb-lg-2">
                                             <label for="name" class="form-label h4">Business name</label>
                                             <input id="name" type="text" class="form-control" th:field="*{name}">
                                         </div>
@@ -143,7 +141,7 @@
                                             <input id="address" type="text" class="form-control" th:field="*{location}">
 
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-6 pb-lg-4">
                                             <label for="city" class="form-label h4">City</label>
                                             <input id="city" type="text" class="form-control" th:field="*{city}">
                                         </div>
@@ -209,8 +207,8 @@
                                             <input id="zip" type="text" class="form-control mb-3"
                                                    th:field="*{postal_code}">
                                         </div>
-                                        <div class="col-12 col-md-6 col-lg-6 row">
-                                            <h3>Activities</h3>
+                                        <div class="activities col-12 col-md-6 col-lg-6 m-0 p-0 row">
+                                            <h4>Activities</h4>
                                             <div class="col-6">
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value="pool"
@@ -244,10 +242,8 @@
                                                         Karaoke
                                                     </label>
                                                 </div>
-
                                             </div>
                                             <div class="col-12 col-md-4 col-md-4">
-
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox" value=""
                                                            id="cornhole"
@@ -274,34 +270,30 @@
                                                 </div>
                                                 <div class="form-check">
                                                     <input class="form-check-input" type="checkbox"
-                                                           onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>Other...
+                                                           onclick="var input = document.getElementById('name2'); if(this.checked){ input.disabled = false; input.focus();}else{input.disabled=true;}"/>Other
                                                     <input id="name2" name="name2" disabled="disabled"
                                                            th:field="*{otherGames}"/>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-12 col-md-4 col-md-4">
-                                            <h3>Happy Hours</h3>
+                                        <div id="happyHours" class="col-12 col-md-4 col-md-4">
+                                            <h4>Happy Hours</h4>
                                             <label for="startTime">Start Time
-                                                <input class="mb-3" type="time" id="startTime" name="startTime"
+                                                <input class="mx-2 mb-3" type="time" id="startTime" name="startTime"
                                                        min="00:00" max="23:59" th:field="*{starting_hour}">
                                             </label>
-                                            <label for="endTime">End Time
-                                                <input class="mb-3" type="time" id="endTime" name="endTime"
+                                            <label for="endTime">End Time  <input class="mx-3 mb-3" type="time" id="endTime" name="endTime"
                                                        min="00:00" max="23:59" th:field="*{ending_hour}">
                                             </label>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="container">
-                                    <div class="row ">
+                                    <div class="row">
                                         <div>
-                                            <button class="btn btn-outline-light hide my-3" name="Pick photo"
+                                            <button class="btn btn-outline-light hide p-0 mx-0 dmy-3" name="Pick photo"
                                                     id="photoPicker" onclick="openPhotoPicker()">Upload Photos
                                             </button>
-
-                                            <!--                            </div>-->
-                                            <!--                            <div class="container">-->
                                             <button type="submit" class="btn btn-outline-light my-3" id="sub-btn">Submit
                                             </button>
                                         </div>
@@ -415,14 +407,6 @@
             x.type = "password";
         }
     }
-
-    // function current() {
-    //     let today = new Date();
-    //     let time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
-    //     if (startHr < time && endHr > time) {
-    //         return isCurrent;
-    //     }
-    // }
 
 </script>
 </body>
