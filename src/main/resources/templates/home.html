@@ -10,6 +10,13 @@
     <script src='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.js'></script>
     <link href='https://api.mapbox.com/mapbox-gl-js/v2.8.1/mapbox-gl.css' rel='stylesheet'/>
 </head>
+<style>
+    body {
+        background-color: transparent;
+    }
+
+</style>
+
 <body>
 <div class="map-container container-fluid">
     <div class="mapbox">
@@ -38,7 +45,7 @@
     <div class="reviews ">
 
 
-        <div id="mapboxData" th:each="business : ${business}" class="flip-card card-item card-deck my-2">
+        <div id="mapboxData" th:each="business : ${business}" class="flip-card card-item card-deck my-2 m-lg-2">
             <div class="flip-card-inner" th:each="business : ${business}">
 <!--                <h5 th:text="${}" class="flip-card-front h3"></h5>-->
                 <p class="flip-card-front flex-column">
