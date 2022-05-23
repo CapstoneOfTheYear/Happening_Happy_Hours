@@ -6,10 +6,7 @@ import com.capstone.happening_happy_hours.services.EmailService;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ForgotPasswordController {
@@ -30,34 +27,31 @@ public class ForgotPasswordController {
         model.addAttribute("user", user);
         return "emailVerify";
     }
-
-
     //TODO: In the body change =>
     // http://localhost:8080/ use for non-deployed changes
     // use http://happeninghappyhours.com/ for deployed site
 
     @PostMapping("emailVerify")
     public String sendEmail(@ModelAttribute User user) {
+        System.out.println(user.getEmail());
         emailService.prepareAndSend(user, "Reset Password", "Please click to reset your password: http://localhost:8080/changePassword?from=" + user.getEmail());
         return "redirect:/login";
     }
 
     @GetMapping("/changePassword")
-    public String showForm(Model model, User user, @RequestParam(name = "from") String from) {
-            User user1 = userDao.findUserByEmail(from);
-            model.addAttribute("user", user1);
-            return "/changePassword";
+    public String showForm(Model model, @RequestParam(name = "from") String from) {
+        User user1 = userDao.findUserByEmail(from);
+        model.addAttribute("user", user1);
+        return "/changePassword";
     }
 
-    @PostMapping("/changePassword")
-    public String changePassword(@ModelAttribute User user, @RequestParam(name = "pswd") String pswd, @RequestParam(name = "pswdConfirm") String pswdConfirm) {
-        User userUpdate = userDao.findByEmail(user.getEmail());
-        if (pswd.equals(pswdConfirm)) {
-            String hash = passwordEncoder.encode(pswd);
-            userUpdate.setPassword(hash);
+    @PostMapping("/changePassword/{email}")
+    public String changePassword(@ModelAttribute User user, @RequestParam(name = "password") String password, @RequestParam(name = "passwordConfirm") String passwordConfirm, @PathVariable String email) {
+        User userTest = userDao.findUserByEmail(email);
+        if (password.equals(passwordConfirm)) {
+            userTest.setPassword(passwordEncoder.encode(passwordConfirm));
+            userDao.save(userTest);
         }
-        userDao.save(userUpdate);
         return "redirect:/login";
     }
-
 }
