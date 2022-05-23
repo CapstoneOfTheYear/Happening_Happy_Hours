@@ -112,13 +112,16 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @PostMapping("/updateReview/{id}")
-    public String updateUser(@ModelAttribute Review review, BindingResult result, @PathVariable long id) {
-        if (result.hasErrors()) {
-            review.setId(id);
-            return "userProfile";
-        }
-        reviewDao.save(review);
-        return "redirect:/profile/user";
-    }
+//    @PostMapping("/updateReview/{id}")
+//    public String updateUser(@ModelAttribute Review review, BindingResult result, @PathVariable long id) {
+//        if (result.hasErrors()) {
+//            review.setId(id);
+//            return "userProfile";
+//        }
+//        User user = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+//        System.out.println("review.getBusiness() = " + review.getBusiness());
+//        review.setUser(userDao.getById(user.getId()));
+//        reviewDao.save(review);
+//        return "redirect:/profile/user";
+//    }
 }
