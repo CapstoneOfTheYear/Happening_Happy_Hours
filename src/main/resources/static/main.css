@@ -422,12 +422,12 @@ p.h6 {
 }
 
 .businessContainer {
-    width: 600px;
+    width: 1000px;
 }
 
 .viewReview {
     height: 200px;
-    width: 600px !important;
+    max-width: 600px !important;
 }
 
 @media only screen and (max-width: 992px) {
