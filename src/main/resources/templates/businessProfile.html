@@ -11,7 +11,7 @@
     <div class="row">
         <div class="col-lg-4 col-md-6 col-12 mb-5">
             <h3>Profile Details</h3>
-            <div class="card text-dark">
+            <div class="card text-white">
                 <img th:src="${business.getBusinessImages()}">
                 <div class="card-body">
                     <h4 class="card-title" th:text="${business.getName()}"></h4>
@@ -37,9 +37,8 @@
                     <p id="businessRating">
                         <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
                         <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
-                    <div class="card-body">
-                        <a class="btn btn-outline-light text-black mb-2 my-sm-2 mx-2"
-                           style="margin-top: 8px" type="submit" href="/updateBusiness">Edit Profile</a>
+                    <div class="card-body ps-0">
+                        <a class="btn btn-outline-light text-white mb-2 p-2 my-sm-2 mx-0" type="submit" href="/updateBusiness">Edit Profile</a>
                     </div>
                 </div>
             </div>
