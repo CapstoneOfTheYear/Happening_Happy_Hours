@@ -7,10 +7,10 @@
 <body>
 <nav th:include="partials :: navbar"></nav>
 <div class="container text-white">
-    <h1>Welcome <span th:text="${business.getName()}"></span></h1>
+    <h1 class="text-white mt-1 mx-3">Welcome <span class="text-white" th:text="${business.getName()}"></span></h1>
     <div class="row">
         <div class="col-lg-4 col-md-6 col-12 mb-5">
-            <h3>Profile Details</h3>
+            <h3 class="ms-3 mt-1" >Profile Details</h3>
             <div class="card text-white">
                 <img th:src="${business.getBusinessImages()}">
                 <div class="card-body">
@@ -38,14 +38,14 @@
                         <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
                         <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
                     <div class="card-body p-0">
-                        <a class="btn btn-outline-light text-white p-o mb-2 ms-0 my-sm-2 mx-2"
+                        <a class="btn btn-outline-light text-white mb-2 ms-0 my-sm-2 mx-2"
                            style="margin-top: 8px" type="submit" href="/updateBusiness">Edit Profile</a>
                     </div>
                 </div>
             </div>
         </div>
         <div class="col-lg-8 col-md-6 col-12">
-            <h3><span th:text="${business.getName()}"></span>Reviews</h3>
+            <h3><span class="mt-5 pt-5" th:text="${business.getName()}"></span> Reviews</h3>
             <div class="row">
             <div class="card col-12 col-lg-3 col-xxl-3 mx-2 text-white" th:each="review : ${reviews}">
                 <div class="card-body text-center">
