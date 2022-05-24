@@ -34,7 +34,7 @@ public class ForgotPasswordController {
     @PostMapping("emailVerify")
     public String sendEmail(@ModelAttribute User user) {
         System.out.println(user.getEmail());
-        emailService.prepareAndSend(user, "Reset Password", "Please click to reset your password: http://localhost:8080/changePassword?from=" + user.getEmail());
+        emailService.prepareAndSend(user, "Reset Password", "Please click to reset your password: http://happeninghappyhours.com/changePassword?from=" + user.getEmail());
         return "redirect:/login";
     }
 
