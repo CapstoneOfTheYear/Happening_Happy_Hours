@@ -5,8 +5,8 @@
 
 
 <body>
-<nav th:include="partials :: navbar"></nav>
-<div class="container p-0 mt-3 mb-0 d-flex flex-column align-items-start reviewContainer">
+<nav th:replace="partials :: navbar"></nav>
+<div class="container p-5 mt-3 mb-0 d-flex flex-column align-items-start reviewContainer">
     <h1><span class="text-white mt-3" th:text="${business.getName()}"></span></h1>
     <!-- Button trigger modal -->
     <button sec:authorize="isAuthenticated()" type="button" class="btn btn-outline-light" data-bs-toggle="modal"

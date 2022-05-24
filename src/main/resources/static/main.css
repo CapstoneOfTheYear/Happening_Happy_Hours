@@ -422,13 +422,14 @@ p.h6 {
 }
 
 .businessContainer {
-    width: 579.92px;
+    width: 600px;
 }
 
 .viewReview {
     height: 200px;
-    width: 579.92px !important;
+    width: 600px !important;
 }
+
 @media only screen and (max-width: 992px) {
 
     .accountType {
@@ -498,6 +499,15 @@ p.h6 {
     #menu.zoom-container {
         display: none;
         left: 50%;
+    }
+
+    .businessContainer {
+        width: 280px;
+    }
+
+    .viewReview {
+        height: 200px;
+        width: 280px !important;
     }
 
     #map {
