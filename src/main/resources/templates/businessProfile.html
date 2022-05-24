@@ -38,22 +38,23 @@
                         <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
                         <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
                     <div class="card-body">
-                        <a href="/updateBusiness" class="card-link text-center">Edit Profile</a>
+                        <a class="btn btn-outline-light text-black mb-2 my-sm-2 mx-2"
+                           style="margin-top: 8px" type="submit" href="/updateBusiness">Edit Profile</a>
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="col-lg-8 col-md-6 col-12">
-            <h2><span th:text="${business.getName()}"></span> Reviews</h2>
+            <h3><span th:text="${business.getName()}"></span> Reviews</h3>
             <div class="row">
-            <div class="card col-12 col-lg-3 col-xxl-3 mx-2 my-3 text-black" th:each="review : ${reviews}">
+            <div class="card col-12 col-lg-3 col-xxl-3 mx-2 text-black" th:each="review : ${reviews}">
                 <div class="card-body text-center">
-                    <h5 class="card-title" th:text="${review.getUser().username}"></h5>
+                    <h5 th:text="${review.getUser().username} + ' wrote:'"></h5>
                     <p class="card-text" th:text="${review.body}"></p>
-                </div>
-                <div class="text-center">
-                <span th:text="${review.getScore()}"></span> /5.0
+
+
+                <span th:text="'Score: ' + ${review.getScore()}"></span> /5.0
                 </div>
             </div>
             </div>

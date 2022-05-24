@@ -1,5 +1,24 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
 
+.accountType {
+    margin-top: 16px;
+    padding-bottom: 16px ;
+}
+
+.activities{
+    position: relative;
+    right: 3px;
+}
+
+.address {
+    margin-top: 16px;
+    padding-top: 16px !important;
+}
+
+.businessName {
+    /*padding-top: 16px;*/
+}
+
 #button {
     position: absolute;
     top: 20px;
@@ -12,19 +31,21 @@
 
 .btn {
     right: 80px;
-    /*padding: 3px;*/
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 body {
-    background-color: #1f1b24;
+    background-color: #1f2222;
+}
+
+.businessContainer{
+width: 1000px;
 }
 
 button {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #2c3e3d;
     color: #03FDF9FF;
-    /*height: 35px;*/
     align-content: center;
     margin: 3px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
@@ -37,7 +58,7 @@ button {
 }
 
 .card.col-5.card-header {
-    border-radius: 25px;
+    border-radius: 15px;
     justify-content: space-around;
     text-align: center;
     margin: 5px;
@@ -46,67 +67,78 @@ button {
 }
 
 .card {
-    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
-    border: none;
-    border-radius: 10px;
+    /*background: transparent !important;*/
+    background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(0, 0, 0) 100%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;    border: none;
+    border-radius: 15px;
 }
 
 .card-item {
     display: flex;
     align-items: center;
     justify-content: center;
-    /*border: 1px solid #03FDF9FF;*/
-    /*padding: 15px;*/
-    /*border-radius: 25px;*/
-    background: #1f1b24 !important;
+    border-radius: 15px;
+    background: transparent !important;
     max-width: 100%;
     max-height: 100%;
+    background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(0, 0, 0) 100%);
+    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
 .card-item:hover {
     transition: ease-in-out .5s;
-    border: 1px solid #2c3e3d;
-    box-shadow: black;
+    /*border: 1px solid #2c3e3d;*/
+    /*box-shadow: black;*/
 }
 #for-btn {
     text-decoration: none;
 
+#endTime {
+    padding-left: 16px;
+    margin-left: 11px !important;
+    width: 150px;
 }
-#for-btn:hover {
-    text-decoration-color: black;
+
+#startTime {
+    width: 150px;
+
 }
 
 .btn {
-    /*padding: 5px;*/
-    /*justify-content: center;*/
     color: white;
-    /*background-color: #03FDF9FF;*/
+}
 
+.card-about {
+    height: auto !important;
+}
+
+.email {
+    padding-bottom: 16px;
 }
 
 #sub-btn {
-    width: 120px;
     height: 35px;
-    padding: 3px;
+    margin-top: 4px !important;
+    margin-bottom: 3px;
+    margin-left: 0;
+    padding: 0 !important;
+    width: 150px;
 }
 
 #photoPicker {
-    width: 120px;
+    width: 150px;
     height: 35px;
+    margin-top: 4px !important;
+    padding-left: 0;
+    margin-left: 3px;
 }
 
 .btn:hover {
-    /*color: #2c3e3d;*/
 
 }
 
 a.btn.btn-outline-light {
-    /*width: 25px;*/
-
-    /*justify-content: center;*/
-    /*color: #2c3e3d;*/
     color: black;
-    /*background-color: #03FDF9FF;*/
 }
 
 i:hover {
@@ -123,6 +155,11 @@ a.btn.btn-outline-light:hover {
     background-color: #03FDF9FF;
 }
 
+.fa {
+    font-size: 21px;
+    margin:5px;
+}
+
 .flip-card {
     background-color: #1f1b24;
     height: 150px;
@@ -131,30 +168,22 @@ a.btn.btn-outline-light:hover {
     perspective: 1000px; /* Remove this if you don't want the 3D effect */
 }
 
-/*#flipImage {*/
-/*    top: 50px;*/
-/*    right: 75px;*/
-/*    height: 180px;*/
-/*    width: 300px;*/
-/*    z-index: 1;*/
-/*}*/
-
 /* This container is needed to position the front and back side */
 .flip-card-inner {
-    background-color: #1f1b24;
+    /*background-color: #1f1b24;*/
     border-radius: 15px;
-    border: solid 2px white;
+    /*border: solid 2px white;*/
     position: relative;
     width: 100%;
     height: 100%;
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    padding: 0;
+    /*padding: 0;*/
 
 }
 
-/* Do an horizontal flip when you move the mouse over the flip box container */
+/* Do a vertical flip when you move the mouse over the flip box container */
 .flip-card:hover .flip-card-inner {
     transform: rotateX(180deg);
 }
@@ -172,7 +201,7 @@ a.btn.btn-outline-light:hover {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     overflow-wrap: anywhere;
@@ -183,12 +212,11 @@ a.btn.btn-outline-light:hover {
 
 /* Style the back side */
 .flip-card-back {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     transform: rotateX(180deg);
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
 #location {
@@ -203,18 +231,6 @@ a.btn.btn-outline-light:hover {
     padding: 0;
     float: right;
 }
-
-/*#myVideo {*/
-/*    width: 100%;*/
-/*    height: 100%;*/
-/*    !*object-fit: inherit;*!*/
-/*    position: fixed;*/
-/*    padding: 0;*/
-/*    left: 0;*/
-/*    right: 0;*/
-/*    top: 0;*/
-/*    !*z-index: -1;*!*/
-/*}*/
 
 .navbar > .container {
     flex: auto;
@@ -260,13 +276,18 @@ a.btn.btn-outline-light:hover {
     color: white !important;
 }
 
+.password {
+    margin-bottom: 20px !important;
+    /*padding-bottom: 20px !important;*/
+}
+
 .reviews {
-    background-color: #1f1b24;
+    /*background-color: #1f1b24;*/
     float: left;
     z-index: auto;
     width: 25%;
     /*min-height: 100%;*/
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 #map {
@@ -282,7 +303,6 @@ a.btn.btn-outline-light:hover {
     padding: 0;
     margin: 0 !important;
     width: 100%;
-    /*min-height: 100%;*/
 }
 
 .mapMarker {
@@ -295,7 +315,7 @@ a.btn.btn-outline-light:hover {
 }
 
 .mapboxgl-popup {
-    border-radius: 35px;
+    border-radius: 15px;
     text-align: center;
     height: 200px;
     width: 200px;
@@ -304,7 +324,7 @@ a.btn.btn-outline-light:hover {
 }
 
 div.mapboxgl-popup-content {
-    border-radius: 35px;
+    border-radius: 15px;
     background-color: #03FDF9FF;
     color: #2c3e3d;
 }
@@ -324,6 +344,11 @@ footer {
     background-image: linear-gradient(180deg, rgb(0, 0, 0), rgb(7, 7, 7) 100%);
 }
 
+#happyHours {
+    margin: 0;
+    padding-top: 0;
+    padding-left: 10px;
+}
 #menu.zoom-container {
 
     font-weight: bolder;
@@ -335,12 +360,20 @@ footer {
     z-index: 3;
 }
 
+#message{
+    position: absolute;
+    left: 66%;
+    bottom: 73px !important;
+    padding: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 p.h6 {
     text-transform: none;
 }
 
 #registerPage {
-    /*margin-bottom: 200px;*/
     padding-bottom: 200px;
 }
 
@@ -349,7 +382,6 @@ p.h6 {
     margin-top: 10px;
     position: relative;
     height: 85px;
-    /*margin-bottom: 100px;*/
 }
 
 
@@ -357,8 +389,14 @@ p.h6 {
     text-align: center;
 }
 
-.reviewContainer {
-    /*margin-bottom: 100px;;*/
+#name2{
+    position: relative;
+    top: 5px;
+    right: 25px;
+    width: 150px;
+    margin-bottom: 16px !important;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .search {
@@ -367,7 +405,7 @@ p.h6 {
     bottom: 0;
     right: 150px;
     height: 20px;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     z-index: auto;
 }
@@ -376,90 +414,51 @@ p.h6 {
     color: #ffffff;
 }
 
-.card-about {
-    height: auto !important;
-}
 
 .trademark {
     text-decoration: none;
     color: #03FDF9FF;
-
 }
 
 .trademark:hover {
     color: #ffffff;
 }
 
-/*#menu.zoom-container {*/
-/*    position: fixed;*/
-/*    font-weight: bolder;*/
-/*    height: 40px;*/
-/*    width: 350px;*/
-/*    font-size: 16px;*/
-/*    color: #03FDF9FF;*/
-/*!important;*/
-/*    top: 800px;*/
-/*    z-index: 3;*/
-/*}*/
-
-/*.zoom-label {*/
-/*    color: #03FDF9FF;*/
-/*    font-size: 16px;*/
-/*    display: flex;*/
-/*    justify-items: center;*/
-/*    align-items: center;*/
-/*}*/
-
-/*.zoom-label:hover {*/
-/*    color: #2c3e3d;*/
-
-
-/*}*/
-
-/*#zoom5 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom5:hover {*/
-/*    border: white;*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom10 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom10:hover {*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom15 {*/
-/*    border: 1px solid white;*/
-/*    margin: 5px;*/
-/*    background: #03FDF9FF;*/
-/*    color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
-
-/*#zoom15:hover {*/
-/*    color: #03FDF9FF;*/
-/*    background-color: #2c3e3d;*/
-/*    box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;*/
-/*}*/
 
 @media only screen and (max-width: 992px) {
+
+    .accountType {
+        padding-bottom: 16px ;
+    }
+
+    .consumer {
+        margin: 0 !important;
+        padding-bottom: 16px ;
+    }
+
+    .email {
+        padding-bottom: 0;
+    }
+
+    #happyHours {
+        /*margin-top: 16px;*/
+        margin-bottom: 0 !important;
+    }
+
+    #message{
+        position: absolute;
+        width: 4281.25px;
+        left: 10%;
+        bottom: 155px !important;
+        padding: 15px;
+        border-radius: 15px;
+    }
+
+    #name2{
+        position: relative;
+        top: 5px;
+        right: 25px;
+    }
 
     #navbarNav, #navbarNav2 {
         background-color: black !important;
@@ -472,8 +471,6 @@ p.h6 {
     }
 
     .map-container {
-        /*display: flex;*/
-        /*flex-direction: column;*/
         margin: 0;
     }
 
@@ -495,10 +492,17 @@ p.h6 {
     }
 
     #menu.zoom-container {
-        /*align-items: center;*/
-        /*justify-content: center;*/
         display: none;
         left: 50%;
+    }
+
+    .businessContainer {
+        width: 280px;
+    }
+
+    .viewReview {
+        height: 200px;
+        width: 280px !important;
     }
 
     #map {
@@ -515,16 +519,47 @@ p.h6 {
         z-index: auto;
         width: 100%;
         height: 30% !important;
+    }
 
+    #sub-btn {
+        width: 177.25px;
+        margin-bottom: 16px;
+
+    }
+    #startTime {
+        margin-left: 0 !important;
+        margin-bottom: 10px;
+        padding-left: 0;
+        width: 177.25px !important;
+    }
+
+    #state {
+        margin-bottom: 0 !important;
+    }
+
+    #endTime {
+        margin-top: 0 !important;
+        margin-bottom: 16px;
+        margin-left: 0 !important;
+        padding-left: 0;
+        width: 177.25px !important;
+    }
+
+    #name2 {
+        margin-bottom: 16px;
     }
 
     .navbar .brand, .navbar .nav > li > a {
-        color: #578d8a !important;
+        color: #03FDF9FF;
+    }
+
+    .password {
+        margin-bottom: 20px !important;
     }
 
     button.navbar-toggler {
         position: relative;
-        color: #2c3e3d;
+        color: #03FDF9FF;
         align-items: center;
         bottom: 5px;
         margin-right: 75px;
@@ -535,10 +570,40 @@ p.h6 {
         padding-right: 0;
         bottom: 20px;
     }
+    .upload {
+        width: 177.25px !important;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #sub-btn {
+        width: 206.5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    #happyHours {
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 8px;
+    }
+    #name2  {
+        width: 206.5px !important;
+    }
+
+    #startTime {
+        width: 206.5px !important;
+    }
+
+    .upload {
+        width: 206.5px !important;
+        margin-bottom: 16px;
+    }
+    #endTime {
+        width: 206.5px !important;
+    }
 }
 
 @media only screen and (max-width: 375px) {
-
 
     .navbar-brand {
         position: relative;
@@ -551,10 +616,19 @@ p.h6 {
 
     button.navbar-toggler {
         position: relative;
-        color: #2c3e3d;
+        color: #03FDF9FF;
         align-items: center;
         bottom: 5px;
         margin-right: 30px;
         padding: 0;
+    }
+
+    #happyHours {
+        margin-bottom: 0 !important;
+    }
+
+    #sub-btn {
+        width: 177.25px !important;
+        margin-bottom: 16px;
     }
 }
