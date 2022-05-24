@@ -120,7 +120,7 @@
                                        th:value="*{postal_code}">
                             </div>
                             <div class="col-6 row">
-                                <h3>Activities</h3>
+                                <h3 class="mt-4">Activities</h3>
                                 <div class="col-6">
                                     <div class="form-check">
                                         <input class="form-check-input" type="checkbox" value="pool" id="pool"
@@ -186,8 +186,8 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="happyHours" class="col-12 col-md-4 col-md-4">
-                                <h4 class="mb-2">Happy Hours</h4>
+                            <div id="happyHours" class="col-12 col-md-4 col-md-4 ">
+                                <h4 class="mt-4 mb-2">Happy Hours</h4>
                                 <label class="mb-1" for="startTime">Start Time
                                     <input class="mx-1" type="time" id="startTime" name="startTime"
                                            min="00:00" max="23:59" th:field="*{starting_hour}">
@@ -198,13 +198,13 @@
                             </div>
                         </div>
                         <div class="d-flex flex-row">
-                            <div>
+
                                 <input class="btn btn-outline-light text-white mb-2 my-sm-2 mx-2 text-center" type="BUTTON" name="Pick photo"
                                        value="Upload Photo"
-                                       id="photoPicker" onclick="openPhotoPicker()">
-                            </div>
+                                        id="photoPicker" onclick="openPhotoPicker()">
 
-                            <button type="submit" class="btn btn-outline-light text-white mb-2 my-sm-2 mx-2">Submit</button>
+
+                            <button type="submit" class="btn btn-outline-light text-white mb-2 my-sm-2 mx-2">Submit changes</button>
 <!--                            <a class="btn btn-outline-light text-white mb-2 my-sm-2 mx-2"-->
 <!--                               style="margin-top: 8px" type="submit" href="/updateProfile">Edit Profile</a>-->
                         </div>
