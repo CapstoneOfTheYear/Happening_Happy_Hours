@@ -67,7 +67,7 @@
 <body id="registerPage" class="h-100">
 <nav th:include="partials :: navbar"></nav>
 
-<h1 id="text" class="mb-3 text text-center display-4 w-100 mt-5">Create an Account</h1>
+<h1 id="text" class="mb-3 text-white text-center display-4 w-100 mt-5">Create an Account</h1>
 <!-- create an account page container for consumers-->
 <div class="d-flex justify-content-center align-items-center mt-3">
     <div class="card w-75 mt-3">
@@ -78,33 +78,29 @@
                         <!--             container for acct type & email-->
                         <div class="container">
                             <div class="row g-3">
-                                <div class="col pb-4">
+                                <div class="accountType col col-12 col-sm-12 col-md-6 col-lg-6">
                                     <label class="text-white h4 " for="accountType">Account Type</label>
-                                    <select class="form-select col-12 col-sm-12 col-md-6 col-lg-6" aria-label="Default select example"
-
+                                    <select class="form-select" aria-label="Default select example"
                                             id="accountType">
                                         <option class="text-white" value="consumer" selected>Consumer</option>
                                         <option class="text-white" value="business">Business</option>
                                     </select>
                                 </div>
-                                <div class="col">
+                                <div class="consumer col mt-lg-3 mt-sm-0">
                                     <div class="col" id="consumer">
-
-                                        <div class="form-group pb-4">
+                                        <div class="form-group">
                                             <label class="text-white h4 col-12 col-sm-12 col-md-6 col-lg-6" for="username">Username</label>
-
                                             <input class="form-control" name="username" type="text" id="username"
                                                    th:field="*{username}" required>
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </div>
                         <!-- container for username & pass -->
                         <div class="container">
                             <div class="row g-3">
-                                <div class="col-md-6 pb-lg-4 pb-sm-2">
+                                <div class="col-md-6 email">
                                     <div class="form-group">
                                         <label class="text-white h4" for="email">Email</label>
                                         <input class="form-control" name="email" type="text" id="email"
@@ -112,7 +108,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <div class="form-group pb-4">
+                                    <div class="form-group password">
                                         <label class="text-white h4" for="psw">Password</label><i class="text-white fa fa-eye" onclick="showPassword()"></i>
                                         <input class="form-control" id="psw" name="psw" type="password"
                                                pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
@@ -128,16 +124,16 @@
                                 <input id="isOwner" th:field="*{ownsBusiness}" value="false" hidden>
                                 <div id="business" class="hide">
                                     <div class="row g-3" th:object="${business}">
-                                        <div class="col-md-6 pb-2">
-                                            <label for="name" class="form-label h4">Business name</label>
+                                        <div class="businessName col-md-6">
+                                            <label for="name" class="form-label h4">Business Name</label>
                                             <input id="name" type="text" class="form-control" th:field="*{name}">
                                         </div>
-                                        <div class="col-md-6 pb-sm-2">
-                                            <label for="address" class="form-label pb-lg-0 pb-sm-2 h4">Address</label>
+                                        <div class="address col-md-6 m-0">
+                                            <label for="address" class="form-label h4">Address</label>
                                             <input id="address" type="text" class="form-control" th:field="*{location}">
 
                                         </div>
-                                        <div class="col-md-6 pb-sm-2">
+                                        <div class="col-md-6">
                                             <label for="city" class="form-label h4">City</label>
                                             <input id="city" type="text" class="form-control" th:field="*{city}">
                                         </div>
@@ -273,12 +269,12 @@
                                             </div>
                                         </div>
                                         <div id="happyHours" class="col-12 col-md-4 col-md-4">
-                                            <h4>Happy Hours</h4>
-                                            <label for="startTime">Start Time
-                                                <input class="mx-1 mb-3" type="time" id="startTime" name="startTime"
+                                            <h4 class="mb-2">Happy Hours</h4>
+                                            <label class="mb-1" for="startTime">Start Time
+                                                <input class="mx-1" type="time" id="startTime" name="startTime"
                                                        min="00:00" max="23:59" th:field="*{starting_hour}">
                                             </label>
-                                            <label for="endTime">End Time  <input class="mx-2 mb-3" type="time" id="endTime" name="endTime"
+                                            <label class="mb-1" for="endTime">End Time  <input class="mx-3 my-3" type="time" id="endTime" name="endTime"
                                                        min="00:00" max="23:59" th:field="*{ending_hour}">
                                             </label>
                                         </div>
@@ -286,11 +282,11 @@
                                 </div>
                                 <div class="container">
                                     <div class="row">
-                                        <div>
-                                            <button class="btn btn-outline-light hide p-0 me-2 my-3" name="Pick photo"
+                                        <div class="px-2.5">
+                                            <button class="upload btn btn-outline-light hide p-0 mx-0 me-2 my-3" name="Pick photo"
                                                     id="photoPicker" onclick="openPhotoPicker()">Upload Photos
                                             </button>
-                                            <button type="submit" class="btn btn-outline-light my-3" id="sub-btn">Submit
+                                            <button type="submit" class="btn btn-outline-light" id="sub-btn">Submit
                                             </button>
                                         </div>
                                     </div>
