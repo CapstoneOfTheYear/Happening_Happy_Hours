@@ -103,12 +103,13 @@ button {
 }
 
 .email {
-    padding-bottom: 20px;
+    padding-bottom: 16px;
 }
 
 #sub-btn {
     height: 35px;
-    margin-bottom: 5px;
+    margin-top: 4px !important;
+    margin-bottom: 3px;
     margin-left: 0;
     padding: 0 !important;
     width: 150px;
@@ -117,6 +118,7 @@ button {
 #photoPicker {
     width: 150px;
     height: 35px;
+    margin-top: 4px !important;
     padding-left: 0;
     margin-left: 3px;
 }
@@ -350,9 +352,12 @@ footer {
 }
 
 #message{
-
     position: absolute;
-    left: 50%
+    left: 66%;
+    bottom: 73px !important;
+    padding: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
 }
 
 p.h6 {
@@ -380,6 +385,9 @@ p.h6 {
     top: 5px;
     right: 25px;
     width: 150px;
+    margin-bottom: 16px !important;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .search {
@@ -422,7 +430,17 @@ p.h6 {
     }
 
     #happyHours {
+        /*margin-top: 16px;*/
         margin-bottom: 0 !important;
+    }
+
+    #message{
+        position: absolute;
+        width: 4281.25px;
+        left: 10%;
+        bottom: 155px !important;
+        padding: 15px;
+        border-radius: 15px;
     }
 
     #name2{
@@ -486,6 +504,7 @@ p.h6 {
     #sub-btn {
         width: 177.25px;
         margin-bottom: 16px;
+
     }
     #startTime {
         margin-left: 0 !important;
@@ -494,9 +513,14 @@ p.h6 {
         width: 177.25px !important;
     }
 
+    #state {
+        margin-bottom: 0 !important;
+    }
+
     #endTime {
-        margin-left: 1px !important;
-        margin-bottom: 0;
+        margin-top: 0 !important;
+        margin-bottom: 16px;
+        margin-left: 0 !important;
         padding-left: 0;
         width: 177.25px !important;
     }
@@ -541,6 +565,21 @@ p.h6 {
         margin-bottom: 0 !important;
         margin-left: 0 !important;
         padding-left: 8px;
+    }
+    #name2  {
+        width: 206.5px !important;
+    }
+
+    #startTime {
+        width: 206.5px !important;
+    }
+
+    .upload {
+        width: 206.5px !important;
+        margin-bottom: 16px;
+    }
+    #endTime {
+        width: 206.5px !important;
     }
 }
 
