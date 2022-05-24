@@ -1,23 +1,32 @@
-
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <header th:include="partials :: header(title = '')"></header>
+<style>
+    #errorTriangle {
+        font-size: 150px;
+    }
 
+</style>
 
 <body>
 <nav th:include="partials :: navbar"></nav>
 
-<th:block th:switch="${error}">
-    <div th:case="'Not Found'">
-        <h1>This page could not be found!!</h1>
-    </div>
-    <div th:case="'Forbidden'">
-        <h1>You don't have permission to view this page.</h1>
-    </div>
-</th:block>
+    <div class="text-center text-light mt-5">
+        <i id="errorTriangle" class="fa fa-exclamation-triangle"></i>
 
+        <th:block th:switch="${error}">
+            <div th:case="'Not Found'">
+                <h1 class="display-1">Error: 404</h1>
+                <h1 class="display-4">This page could not be found!!</h1>
+            </div>
+            <div th:case="'Forbidden'">
+                <h1 class="display-1">Error: 403</h1>
+                <h1 class="display-4">You don't have permission to view this page.</h1>
+            </div>
+        </th:block>
 
+</div>
 </body>
 </html>
 

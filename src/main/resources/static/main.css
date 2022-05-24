@@ -90,9 +90,12 @@ button {
     /*border: 1px solid #2c3e3d;*/
     /*box-shadow: black;*/
 }
+<<<<<<< HEAD
 #for-btn {
     text-decoration: none;
 }
+=======
+>>>>>>> 71c224a88a5135278ffa5886ce645ec2bce5b622
 
 #endTime {
     padding-left: 16px;
@@ -102,7 +105,6 @@ button {
 
 #startTime {
     width: 150px;
-
 }
 
 .btn {
@@ -245,6 +247,7 @@ a.btn.btn-outline-light:hover {
     color: #03FDF9FF;
     background-image: linear-gradient(180deg, rgb(7, 7, 7), rgb(0, 0, 0) 100%);
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
+
 }
 
 #navMobile {
@@ -415,7 +418,6 @@ p.h6 {
     color: #ffffff;
 }
 
-
 .trademark {
     text-decoration: none;
     color: #03FDF9FF;
@@ -425,6 +427,14 @@ p.h6 {
     color: #ffffff;
 }
 
+.businessContainer {
+    width: 1000px;
+}
+
+.viewReview {
+    height: 200px;
+    max-width: 600px !important;
+}
 
 @media only screen and (max-width: 992px) {
 
