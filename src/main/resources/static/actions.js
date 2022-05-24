@@ -11,53 +11,34 @@ const options = {
         rotate: true
 }
 }
-
-
-
 const picker = client.picker({
     exposeOriginalFile: true,
     onFileSelected: checkImgSize,
 });
-
-// var imageHandle = ''
-// var transformURL = "https://cdn.filestackcontent.com/watermark=file:";
-// var watermarkHandle = '';
-//
-// function openPicker() {
-//     console.log("open Water Picker");
-//     client.pick({
-//         accept: 'image/*',
-//         maxFiles: 1,
-//     }).then(function (result) {
-//         console.log(JSON.stringify(result));
-//         watermarkHandle = result.filesUploaded[0].handle;
-//         console.log(watermarkHandle);
-//     })
-// }
-
 function openPhotoPicker() {
-
-
-
         console.log("blah blah blah");
     console.log("open Photo Picker");
     client.pick({
         accept: 'image/*',
         maxFiles: 1,
-
     }).then(function (result) {
         console.log(JSON.stringify(result));
         imageHandle = result.filesUploaded[0].url;
         console.log(imageHandle);
     }).then(function () {
         $(".businessImages").append("<input type='hidden' name='imageUrl' value='" + imageHandle + "'>");
-
+        $(".businessImagesMenu").append("<input type='hidden' name='imageUrl' value='" + imageHandle + "'>");
     })
     json_data = {imageHandle}
     var businessImages = document.createElement("img");
+    var businessImagesMenu = document.createElement("img");
     businessImages.onload = function () {
         document.getElementById("businessImages").appendChild(businessImages);
     }
+    businessImagesMenu.onload = function () {
+        document.getElementById("businessImages").appendChild(businessImages);
+    }
+    businessImagesMenu.src = imageHandle;
     businessImages.src = imageHandle;
     function checkImgSize (file) {
         return new Promise(function (resolve, reject) {
