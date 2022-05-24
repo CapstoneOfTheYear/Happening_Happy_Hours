@@ -186,16 +186,14 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-4">
-                                <h3>Happy Hours</h3>
-                                <label for="startTime">Start Time
-                                    <input type="time" id="startTime" name="startTime"
-                                           min="00:00" max="23:59" th:field="*{starting_hour}"
-                                           th:value="*{starting_hour}">
+                            <div id="happyHours" class="col-12 col-md-4 col-md-4">
+                                <h4 class="mb-2">Happy Hours</h4>
+                                <label class="mb-1" for="startTime">Start Time
+                                    <input class="mx-1" type="time" id="startTime" name="startTime"
+                                           min="00:00" max="23:59" th:field="*{starting_hour}">
                                 </label>
-                                <label for="endTime">End Time
-                                    <input type="time" id="endTime" name="endTime"
-                                           min="00:00" max="23:59" th:field="*{ending_hour}" th:value="*{ending_hour}">
+                                <label class="mb-1" for="endTime">End Time  <input class="mx-3 my-3" type="time" id="endTime" name="endTime"
+                                                                                   min="00:00" max="23:59" th:field="*{ending_hour}">
                                 </label>
                             </div>
                         </div>
