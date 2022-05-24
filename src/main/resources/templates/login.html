@@ -23,7 +23,7 @@
     <div class="text" th:if="${param.logout}">
         You have been logged out.
     </div>
-    <h1 class="mb-3 text text-center display-4 w-100 mt-5">Log In</h1>
+    <h1 class="mb-3 text text-center display-4 w-100 mt-5">Login</h1>
     <div class="d-flex justify-content-center align-items-center mt-3">
 
         <div class="card w-75 mt-3 ">
@@ -42,12 +42,11 @@
                         Invalid Username or Password.
                     </div>
 
-
-
-
                     <button type="submit" class="btn btn-outline-light mb-0 mt-3">Login</button>
 
-                    <a th:href="@{/emailVerify}" class="btn btn-outline-light mt-3 text-white">Forgot Password</a>
+
+                    <button class="btn btn-outline-light mt-3"><a id="for-btn" class="text-white" th:href="@{/emailVerify}">Forgot Password</a></button>
+
 
                 </form>
             </div>
