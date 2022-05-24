@@ -2,29 +2,44 @@
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
 
 <header th:include="partials :: header(title = '')"></header>
+<style>
+    #errorTriangle {
+        font-size: 150px;
+    }
 
+</style>
 
 <body>
 
 <nav th:include="partials :: navbar"></nav>
+
+<div class="text-center text-light mt-5">
+
+
+    <i id="errorTriangle" class="fa fa-exclamation-triangle "></i>
+
 <th:block th:switch="${error}">
     <div class="text-white" th:case="'Internal Server Error'">
-        <h1 class="d-flex justify-content-center align-items-center">Username Already Exists</h1>
+        <h1 class="display-1">Username Already Exists</h1>
     </div>
     <div th:case="'Bad Gateway'">
-        <h1>Bad Gateway</h1>
+        <h1 class="display-1">Error: 502</h1>
+        <h1 class="display-4">Bad Gateway</h1>
     </div>
     <div th:case="'Not Implemented'">
-        <h1>Not Implemented</h1>
+        <h1 class="display-1">Error: 501</h1>
+        <h1 class="display-4">Not Implemented</h1>
     </div>
     <div th:case="'Service Unavailable'">
-        <h1>Service Unavailable</h1>
+        <h1 class="display-1">Error: 503</h1>
+        <h1 class="display-4">Service Unavailable</h1>
     </div>
     <div th:case="'Gateway Timeout'">
-        <h1>Gateway Timeout</h1>
+        <h1 class="display-1">Error: 504</h1>
+        <h1 class="display-4">Gateway Timeout</h1>
     </div>
 </th:block>
 
-
+</div>
 </body>
 </html>
