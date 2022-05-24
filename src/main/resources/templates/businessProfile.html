@@ -38,7 +38,8 @@
                         <span th:if="${business.avgRating() == 0.0}">No reviews yet</span>
                         <span th:if="${business.avgRating() != 0.0}" th:text="${business.avgRating()}"></span> / 5.0 </p>
                     <div class="card-body">
-                        <a href="/updateBusiness" class="card-link text-center">Edit Profile</a>
+                        <a class="btn btn-outline-light text-black mb-2 my-sm-2 mx-2"
+                           style="margin-top: 8px" type="submit" href="/updateBusiness">Edit Profile</a>
                     </div>
                 </div>
             </div>
