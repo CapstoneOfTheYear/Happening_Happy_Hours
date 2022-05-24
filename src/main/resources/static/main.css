@@ -1,8 +1,24 @@
 @import url('https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css');
+
+.accountType {
+    margin-top: 16px;
+    padding-bottom: 16px ;
+}
+
 .activities{
     position: relative;
     right: 3px;
 }
+
+.address {
+    margin-top: 16px;
+    padding-top: 16px !important;
+}
+
+.businessName {
+    /*padding-top: 16px;*/
+}
+
 #button {
     position: absolute;
     top: 20px;
@@ -18,13 +34,12 @@
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
 }
 
-
 body {
     background-color: #1f1b24;
 }
 
 button {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: #2c3e3d;
     color: #03FDF9FF;
     align-content: center;
@@ -39,7 +54,7 @@ button {
 }
 
 .card.col-5.card-header {
-    border-radius: 25px;
+    border-radius: 15px;
     justify-content: space-around;
     text-align: center;
     margin: 5px;
@@ -50,7 +65,7 @@ button {
 .card {
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     border: none;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .card-item {
@@ -69,20 +84,41 @@ button {
     /*box-shadow: black;*/
 }
 
+#endTime {
+    padding-left: 16px;
+    margin-left: 11px !important;
+    width: 150px;
+}
+
+#startTime {
+    width: 150px;
+}
+
 .btn {
     color: white;
 }
 
+.card-about {
+    height: auto !important;
+}
+
+.email {
+    padding-bottom: 16px;
+}
+
 #sub-btn {
-    width: 120px;
     height: 35px;
-    padding: 0;
-    margin-left: 0px;
+    margin-top: 4px !important;
+    margin-bottom: 3px;
+    margin-left: 0;
+    padding: 0 !important;
+    width: 150px;
 }
 
 #photoPicker {
-    width: 120px;
+    width: 150px;
     height: 35px;
+    margin-top: 4px !important;
     padding-left: 0;
     margin-left: 3px;
 }
@@ -93,7 +129,6 @@ button {
 
 a.btn.btn-outline-light {
     color: black;
-
 }
 
 i:hover {
@@ -109,6 +144,7 @@ a.btn.btn-outline-light:hover {
     /*color: #03FDF9FF !important;*/
     background-color: #03FDF9FF;
 }
+
 .fa {
     font-size: 21px;
     margin:5px;
@@ -133,7 +169,7 @@ a.btn.btn-outline-light:hover {
     text-align: center;
     transition: transform 0.8s;
     transform-style: preserve-3d;
-    padding: 0;
+    /*padding: 0;*/
 
 }
 
@@ -155,24 +191,22 @@ a.btn.btn-outline-light:hover {
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     overflow-wrap: anywhere;
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /* Style the back side */
 .flip-card-back {
-    border-radius: 25px;
+    border-radius: 15px;
     background-color: black;
     color: white;
     transform: rotateX(180deg);
     overflow: hidden;
-    margin-bottom: 15px;
 }
 
 #location {
@@ -233,13 +267,18 @@ a.btn.btn-outline-light:hover {
     color: white !important;
 }
 
+.password {
+    margin-bottom: 20px !important;
+    /*padding-bottom: 20px !important;*/
+}
+
 .reviews {
     /*background-color: #1f1b24;*/
     float: left;
     z-index: auto;
     width: 25%;
     /*min-height: 100%;*/
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 #map {
@@ -267,7 +306,7 @@ a.btn.btn-outline-light:hover {
 }
 
 .mapboxgl-popup {
-    border-radius: 35px;
+    border-radius: 15px;
     text-align: center;
     height: 200px;
     width: 200px;
@@ -276,7 +315,7 @@ a.btn.btn-outline-light:hover {
 }
 
 div.mapboxgl-popup-content {
-    border-radius: 35px;
+    border-radius: 15px;
     background-color: #03FDF9FF;
     color: #2c3e3d;
 }
@@ -312,6 +351,15 @@ footer {
     z-index: 3;
 }
 
+#message{
+    position: absolute;
+    left: 66%;
+    bottom: 73px !important;
+    padding: 15px;
+    border-top-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+}
+
 p.h6 {
     text-transform: none;
 }
@@ -336,6 +384,10 @@ p.h6 {
     position: relative;
     top: 5px;
     right: 25px;
+    width: 150px;
+    margin-bottom: 16px !important;
+    background-color: white;
+    border-radius: 5px;
 }
 
 .search {
@@ -344,25 +396,18 @@ p.h6 {
     bottom: 0;
     right: 150px;
     height: 20px;
-    border-radius: 25px;
+    border-radius: 15px;
     box-shadow: rgba(0, 0, 0, 0.25) 0 54px 55px, rgba(0, 0, 0, 0.12) 0 -12px 30px, rgba(0, 0, 0, 0.12) 0 4px 6px, rgba(0, 0, 0, 0.17) 0 12px 13px, rgba(0, 0, 0, 0.09) 0 -3px 5px;
     z-index: auto;
 }
-
 
 .text {
     color: #ffffff;
 }
 
-
-.card-about {
-    height: auto !important;
-}
-
 .trademark {
     text-decoration: none;
     color: #03FDF9FF;
-
 }
 
 .trademark:hover {
@@ -371,8 +416,31 @@ p.h6 {
 
 @media only screen and (max-width: 992px) {
 
+    .accountType {
+        padding-bottom: 16px ;
+    }
+
+    .consumer {
+        margin: 0 !important;
+        padding-bottom: 16px ;
+    }
+
+    .email {
+        padding-bottom: 0;
+    }
+
     #happyHours {
-        padding: 10px;
+        /*margin-top: 16px;*/
+        margin-bottom: 0 !important;
+    }
+
+    #message{
+        position: absolute;
+        width: 4281.25px;
+        left: 10%;
+        bottom: 155px !important;
+        padding: 15px;
+        border-radius: 15px;
     }
 
     #name2{
@@ -431,19 +499,42 @@ p.h6 {
         z-index: auto;
         width: 100%;
         height: 30% !important;
+    }
+
+    #sub-btn {
+        width: 177.25px;
+        margin-bottom: 16px;
 
     }
     #startTime {
         margin-left: 0 !important;
+        margin-bottom: 10px;
         padding-left: 0;
+        width: 177.25px !important;
+    }
+
+    #state {
+        margin-bottom: 0 !important;
     }
 
     #endTime {
+        margin-top: 0 !important;
+        margin-bottom: 16px;
         margin-left: 0 !important;
         padding-left: 0;
+        width: 177.25px !important;
     }
+
+    #name2 {
+        margin-bottom: 16px;
+    }
+
     .navbar .brand, .navbar .nav > li > a {
         color: #03FDF9FF;
+    }
+
+    .password {
+        margin-bottom: 20px !important;
     }
 
     button.navbar-toggler {
@@ -458,6 +549,37 @@ p.h6 {
     #navbarNav2 {
         padding-right: 0;
         bottom: 20px;
+    }
+    .upload {
+        width: 177.25px !important;
+    }
+}
+
+@media only screen and (max-width: 414px) {
+    #sub-btn {
+        width: 206.5px !important;
+        margin-bottom: 5px !important;
+    }
+
+    #happyHours {
+        margin-bottom: 0 !important;
+        margin-left: 0 !important;
+        padding-left: 8px;
+    }
+    #name2  {
+        width: 206.5px !important;
+    }
+
+    #startTime {
+        width: 206.5px !important;
+    }
+
+    .upload {
+        width: 206.5px !important;
+        margin-bottom: 16px;
+    }
+    #endTime {
+        width: 206.5px !important;
     }
 }
 
@@ -479,5 +601,14 @@ p.h6 {
         bottom: 5px;
         margin-right: 30px;
         padding: 0;
+    }
+
+    #happyHours {
+        margin-bottom: 0 !important;
+    }
+
+    #sub-btn {
+        width: 177.25px !important;
+        margin-bottom: 16px;
     }
 }
