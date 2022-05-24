@@ -74,9 +74,7 @@ public class BusinessController {
             business.setId(id);
             return "updateBusiness";
         }
-        if (imageUrl != null) {
-            business.setBusinessImages(imageUrl);
-        }
+        business.setBusinessImages(imageUrl);
         System.out.println("business.getName() = " + business.getName());
         System.out.println("business.getLocation() = " + business.getLocation());
         System.out.println("business.getCity() = " + business.getCity());
