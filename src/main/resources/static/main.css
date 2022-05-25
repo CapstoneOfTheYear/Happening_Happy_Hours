@@ -526,15 +526,16 @@ p.h6 {
         position: relative;
         float: bottom;
         z-index: auto;
-        width: 100%;
+        padding-left: 6px;
+        width: 98%;
         height: 30% !important;
     }
 
     #sub-btn {
         width: 177.25px;
         margin-bottom: 16px;
-
     }
+
     #startTime {
         margin-left: 0 !important;
         margin-bottom: 10px;
@@ -603,6 +604,7 @@ p.h6 {
         margin-left: 0 !important;
         padding-left: 8px;
     }
+
     #name2  {
         width: 206.5px !important;
     }
