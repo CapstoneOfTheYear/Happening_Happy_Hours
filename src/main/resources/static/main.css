@@ -526,15 +526,16 @@ p.h6 {
         position: relative;
         float: bottom;
         z-index: auto;
-        width: 100%;
+        padding-left: 6px;
+        width: 98%;
         height: 30% !important;
     }
 
     #sub-btn {
         width: 177.25px;
         margin-bottom: 16px;
-
     }
+
     #startTime {
         margin-left: 0 !important;
         margin-bottom: 10px;
@@ -584,7 +585,15 @@ p.h6 {
     }
 }
 
-@media only screen and (max-width: 414px) {
+@media only screen and (max-width: 425px) {
+
+    .reviews {
+        float: left;
+        z-index: auto;
+        margin-top: 150px;
+        margin-bottom: 20px;
+    }
+
     #sub-btn {
         width: 206.5px !important;
         margin-bottom: 5px !important;
@@ -595,6 +604,7 @@ p.h6 {
         margin-left: 0 !important;
         padding-left: 8px;
     }
+
     #name2  {
         width: 206.5px !important;
     }
@@ -639,5 +649,12 @@ p.h6 {
     #sub-btn {
         width: 177.25px !important;
         margin-bottom: 16px;
+    }
+
+    .reviews {
+        float: left;
+        z-index: auto;
+        margin-top: 0;
+        margin-bottom: 5px;
     }
 }
